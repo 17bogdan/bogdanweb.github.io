@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Infinity | Fine Dining · Târgu Jiu</title>
+  <meta name="description" content="Restaurant Infinity – Descoperiți o experiență culinară unică în Târgu Jiu. Preparate exclusiviste, bucătari de top, rețete autentice." />
+  <link rel="icon" type="image/png" href="assets/images/Logopom2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="js-loading">
+
+  <!-- PRELOADER -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <div class="pre-logo">
+        <img src="assets/images/Logopom2.png" alt="" />
+        <span>Infinity</span>
+      </div>
+      <div class="pre-track"><div class="pre-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div id="csr-dot" aria-hidden="true"></div>
+  <div id="csr-ring" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header id="site-hdr">
+    <a class="hdr-logo" href="#hero" aria-label="Restaurant Infinity">
+      <img src="assets/images/Logopom2.png" alt="Logo Infinity" />
+      <span>Infinity</span>
+    </a>
+    <nav id="main-nav" aria-label="Navigație principală">
+      <a href="#hero">Acasă</a>
+      <a href="#menu">Meniu</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#contact">Contact</a>
+      <a href="istorie.html">Istorie</a>
+      <a href="https://pensiuneainfinity.ro/" target="_blank" rel="noopener noreferrer">Pensiune</a>
+      <a class="hdr-cta" href="#booking">Rezervă</a>
+    </nav>
+    <button id="hamburger" aria-label="Meniu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <section id="hero">
+      <canvas id="c3d" aria-hidden="true"></canvas>
+
+      <div class="hero-grid wrap">
+        <div class="hero-copy">
+          <p class="eyebrow ri" style="--i:0">Fine Dining · Târgu Jiu</p>
+          <h1>
+            <span class="h-line ri" style="--i:1">Nu există dragoste</span>
+            <span class="h-line h-em ri" style="--i:2">mai sinceră</span>
+            <span class="h-line ri" style="--i:3">decât dragostea</span>
+            <span class="h-line h-em ri" style="--i:4">pentru mâncare.</span>
+          </h1>
+          <p class="hero-lead ri" style="--i:5">
+            Descoperiți o experiență unică și bucurați-vă de cele mai exclusiviste
+            preparate gătite de bucătarii noștri.
+          </p>
+          <div class="hero-btns ri" style="--i:6">
+            <a class="btn-mag btn-gold" href="#booking">Rezervă o masă</a>
+            <a class="btn-mag btn-outline" href="#menu">Explorează meniul</a>
+          </div>
+        </div>
+
+        <div class="hero-visual ri" style="--i:3">
+          <div class="hv-frame">
+            <img src="assets/images/BOB04128-scaled.jpg" alt="Interior Restaurant Infinity" />
+            <div class="hv-glow" aria-hidden="true"></div>
+            <div class="hv-scan" aria-hidden="true"></div>
+            <div class="hv-corner hv-corner--tl" aria-hidden="true"></div>
+            <div class="hv-corner hv-corner--tr" aria-hidden="true"></div>
+            <div class="hv-corner hv-corner--bl" aria-hidden="true"></div>
+            <div class="hv-corner hv-corner--br" aria-hidden="true"></div>
+          </div>
+          <div class="hv-badge glass-dark">
+            <strong>07:00 – 24:00</strong>
+            <span>Deschis în fiecare zi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <div class="sh-line"></div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- ════════════════ PILLARS ════════════════ -->
+    <section id="pillars">
+      <div class="wrap pillars-wrap">
+        <div class="pill-item ri" style="--i:0">
+          <span class="pill-num">01</span>
+          <h3>Bucătari de top</h3>
+          <p>La noi calitatea este pe primul loc, mâncarea noastră este gătită de cei mai de top bucătari.</p>
+        </div>
+        <div class="pill-sep" aria-hidden="true"></div>
+        <div class="pill-item ri" style="--i:1">
+          <span class="pill-num">02</span>
+          <h3>Rețete autentice</h3>
+          <p>Rețete unice cum nu ai mai văzut până acum, păstrate cu grijă și reinventate cu pasiune.</p>
+        </div>
+        <div class="pill-sep" aria-hidden="true"></div>
+        <div class="pill-item ri" style="--i:2">
+          <span class="pill-num">03</span>
+          <h3>Ingrediente proaspete</h3>
+          <p>Experimentați mâncare clasică folosind doar ingrediente proaspete, selecționate zilnic.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ PHILOSOPHY ════════════════ -->
+    <section id="philosophy">
+      <div class="wrap">
+        <div class="quote-block ri">
+          <span class="q-deco" aria-hidden="true">"</span>
+          <blockquote>
+            Arta gastronomică este singura artă care poate fi
+            percepută cu toate simțurile.
+          </blockquote>
+          <cite>— Emeril Lagasse</cite>
+        </div>
+
+        <div class="phil-grid">
+          <div class="phil-photo ri" style="--i:0">
+            <img src="assets/images/WhatsApp-Image-2023-04-15-at-17.56.43-1.jpeg" alt="Preparate Infinity" loading="lazy" />
+          </div>
+          <div class="phil-photo ri" style="--i:1">
+            <img src="assets/images/paste2-scaled.jpg" alt="Paste Infinity" loading="lazy" />
+          </div>
+          <div class="phil-copy ri" style="--i:2">
+            <p class="eyebrow">Conceptul nostru</p>
+            <h2>Mâncare proaspătă autentică într-un mediu modern cu adevărat plăcut.</h2>
+            <p>În bucătărie, ca și în viață, trebuie să încerci mereu ceva nou. La Restaurant Infinity, fiecare preparat este o poveste spusă cu ingrediente proaspete și tehnică de nivel înalt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ MENU ════════════════ -->
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-head ri">
+          <p class="eyebrow">Meniu</p>
+          <h2>Preparatele noastre de referință</h2>
+          <p>Suntem dedicați să oferim cel mai bun raport calitate-preț.</p>
+        </div>
+
+        <div class="menu-tabs ri">
+          <button class="m-tab is-active" data-cat="all">Toate</button>
+          <button class="m-tab" data-cat="paste">Paste</button>
+          <button class="m-tab" data-cat="steak">Specialități</button>
+        </div>
+
+        <div class="dish-grid">
+
+          <article class="dish-card ri" data-cat="paste" style="--i:0">
+            <div class="dish-img">
+              <img src="assets/images/paste2-scaled.jpg" alt="Infinity special pasta" loading="lazy" />
+              <span class="dish-tag">Paste</span>
+            </div>
+            <div class="dish-body">
+              <h3>Infinity special pasta</h3>
+              <p>Tagliatelle proaspete cu sos roșu și creveți.</p>
+              <p class="dish-alg">Alergeni: pește, crustacee, lapte, gluten</p>
+              <div class="dish-foot">
+                <strong>45 LEI</strong><span>450g</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card ri" data-cat="paste" style="--i:1">
+            <div class="dish-img">
+              <img src="assets/images/BOB04532-1024x683.jpg" alt="Paste cu fructe de mare" loading="lazy" />
+              <span class="dish-tag">Paste</span>
+            </div>
+            <div class="dish-body">
+              <h3>Paste cu fructe de mare</h3>
+              <p>Tagliatelle, caracatiță, creveți, langoustine, midii, calamar, roșii, busuioc.</p>
+              <p class="dish-alg">Alergeni: pește, moluște, gluten</p>
+              <div class="dish-foot">
+                <strong>55 LEI</strong><span>450g</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card ri" data-cat="paste" style="--i:2">
+            <div class="dish-img">
+              <img src="assets/images/BOB04049-1024x683.jpg" alt="Penne quattro formaggi" loading="lazy" />
+              <span class="dish-tag">Paste</span>
+            </div>
+            <div class="dish-body">
+              <h3>Penne quattro formaggi</h3>
+              <p>Paste cu brânză gorgonzola, brie, parmezan și mozzarella.</p>
+              <p class="dish-alg">Alergeni: lapte, gluten</p>
+              <div class="dish-foot">
+                <strong>40 LEI</strong><span>450g</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card ri" data-cat="paste" style="--i:3">
+            <div class="dish-img">
+              <img src="assets/images/BOB04496-1024x683.jpg" alt="Tartufo pasta" loading="lazy" />
+              <span class="dish-tag">Paste</span>
+            </div>
+            <div class="dish-body">
+              <h3>Tartufo pasta</h3>
+              <p>Paste cu ciuperci de pădure, trufe, parmezan și sos alb.</p>
+              <p class="dish-alg">Alergeni: gluten, lapte</p>
+              <div class="dish-foot">
+                <strong>40 LEI</strong><span>450g</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card ri" data-cat="steak" style="--i:4">
+            <div class="dish-img">
+              <img src="assets/images/BOB03966-1024x683.jpg" alt="Vrăbioară Steak" loading="lazy" />
+              <span class="dish-tag">Specialitate</span>
+            </div>
+            <div class="dish-body">
+              <h3>Vrăbioară Steak</h3>
+              <p>Striploin steak maturat minim 30 de zile.</p>
+              <div class="dish-foot">
+                <strong>25 LEI / 100g</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card ri" data-cat="steak" style="--i:5">
+            <div class="dish-img">
+              <img src="assets/images/BOB03997-1024x683.jpg" alt="T-Bone Steak" loading="lazy" />
+              <span class="dish-tag">Specialitate</span>
+            </div>
+            <div class="dish-body">
+              <h3>T-Bone Steak</h3>
+              <p>Short loin cuts maturat minim 30 de zile.</p>
+              <div class="dish-foot">
+                <strong>25 LEI / 100g</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card ri" data-cat="steak" style="--i:6">
+            <div class="dish-img">
+              <img src="assets/images/BOB04549-1024x683.jpg" alt="Tomahawk Steak" loading="lazy" />
+              <span class="dish-tag">Specialitate</span>
+            </div>
+            <div class="dish-body">
+              <h3>Tomahawk Steak</h3>
+              <p>Cotlet de vită cu os maturat peste 30 de zile.</p>
+              <div class="dish-foot">
+                <strong>28 LEI / 100g</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card ri" data-cat="steak" style="--i:7">
+            <div class="dish-img">
+              <img src="assets/images/BOB04607-1024x683.jpg" alt="Infinity Steak" loading="lazy" />
+              <span class="dish-tag">Specialitate</span>
+            </div>
+            <div class="dish-body">
+              <h3>Infinity Steak</h3>
+              <p>Mușchiuleț de vită la grătar, foie gras.</p>
+              <div class="dish-foot">
+                <strong>110 LEI</strong><span>300g</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════ GALLERY ════════════════ -->
+    <section id="gallery">
+      <div class="wrap">
+        <div class="section-head ri">
+          <p class="eyebrow">Galerie</p>
+          <h2>Imagini din locație</h2>
+        </div>
+
+        <div class="g-mosaic">
+          <div class="gm-big ri" style="--i:0">
+            <img src="assets/images/BOB04128-scaled.jpg" alt="Restaurant Infinity interior" loading="lazy" />
+          </div>
+          <div class="gm-side">
+            <div class="gm-cell ri" style="--i:1">
+              <img src="assets/images/BOB04526-1024x683.jpg" alt="Preparat gourmet" loading="lazy" />
+            </div>
+            <div class="gm-cell ri" style="--i:2">
+              <img src="assets/images/BOB04532-1024x683.jpg" alt="Fructe de mare" loading="lazy" />
+            </div>
+          </div>
+          <div class="gm-cell ri" style="--i:3">
+            <img src="assets/images/BOB03997-1024x683.jpg" alt="T-Bone steak" loading="lazy" />
+          </div>
+          <div class="gm-cell ri" style="--i:4">
+            <img src="assets/images/BOB04049-1024x683.jpg" alt="Paste" loading="lazy" />
+          </div>
+          <div class="gm-cell ri" style="--i:5">
+            <img src="assets/images/BOB04607-1024x683.jpg" alt="Infinity steak" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="sec-foot ri">
+          <a class="btn-mag btn-outline" href="https://restaurantinfinity.ro/portfolios/galerie/" target="_blank" rel="noopener noreferrer">Galerie completă</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ BOOKING ════════════════ -->
+    <section id="booking">
+      <div class="wrap">
+        <div class="bk-wrap ri">
+
+          <!-- ── Left: intro + direct actions ── -->
+          <div class="bk-intro">
+            <p class="eyebrow">Rezervări</p>
+            <h2>Rezervă masa ta</h2>
+            <p class="bk-sub">Completează formularul — vei fi redirecționat în WhatsApp pentru a trimite cererea. Confirmarea sosește în maxim 30 de minute în timpul programului.</p>
+
+            <div class="bk-direct">
+              <a class="bk-call-btn btn-mag" href="tel:+40748208209">
+                <span class="bk-direct-icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.885 1.034C2.162.757 2.54.6 2.929.6h1.657c.694 0 1.286.488 1.417 1.17l.394 2.103a1.44 1.44 0 0 1-.386 1.307L5.14 6.053a9.622 9.622 0 0 0 4.8 4.8l.873-.871a1.44 1.44 0 0 1 1.307-.387l2.103.394c.682.131 1.17.723 1.17 1.417v1.657c0 .389-.156.763-.432 1.04-.277.277-.655.432-1.043.432H12.4C6.086 14.535 1.457 9.907 1.457 3.593v-.518c0-.389.155-.763.428-1.04Z" fill="currentColor"/></svg>
+                </span>
+                <span class="bk-direct-text">
+                  <span>Sună direct</span>
+                  <strong>0748 208 209</strong>
+                </span>
+              </a>
+              <a class="bk-wa-btn btn-mag" href="https://wa.me/40748208209" target="_blank" rel="noopener noreferrer">
+                <span class="bk-direct-icon bk-direct-icon--wa">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.472 3.528C18.188 1.244 15.166 0 11.999 0 5.441 0 .068 5.373.065 11.932c-.001 2.101.548 4.15 1.59 5.957L0 24l6.254-1.641A11.93 11.93 0 0 0 12 23.822C18.558 23.822 24 18.449 24 11.888c0-3.167-1.241-6.148-3.528-8.36Zm-8.473 18.35h-.004a9.91 9.91 0 0 1-5.05-1.38l-.362-.215-3.754.984 1.002-3.657-.236-.375A9.879 9.879 0 0 1 2.08 11.93c.003-5.461 4.446-9.903 9.91-9.903a9.846 9.846 0 0 1 7.007 2.905 9.845 9.845 0 0 1 2.9 7.01c-.003 5.46-4.446 9.907-9.898 9.907Zm5.43-7.418c-.298-.149-1.76-.868-2.033-.967-.273-.1-.472-.149-.67.149-.198.298-.769.967-.942 1.165-.173.199-.347.224-.645.075-.298-.15-1.257-.463-2.394-1.476-.885-.787-1.482-1.76-1.655-2.057-.173-.298-.018-.459.13-.607.133-.133.298-.347.447-.521.149-.173.198-.298.298-.497.099-.198.05-.373-.025-.521-.075-.149-.67-1.612-.918-2.207-.242-.579-.487-.5-.67-.51l-.57-.01c-.198 0-.521.074-.794.372-.272.298-1.041 1.017-1.041 2.479 0 1.463 1.066 2.876 1.215 3.074.149.198 2.098 3.204 5.085 4.492.711.307 1.265.49 1.698.627.713.227 1.361.195 1.874.118.572-.085 1.76-.72 2.008-1.415.249-.695.249-1.29.174-1.414-.074-.124-.272-.198-.57-.347Z"/></svg>
+                </span>
+                <span class="bk-direct-text">
+                  <span>Scrie pe WhatsApp</span>
+                  <strong>mesaj direct</strong>
+                </span>
+              </a>
+            </div>
+
+            <p class="bk-hours">
+              <span class="bk-hours-dot"></span>
+              Program: Luni – Duminică &nbsp;·&nbsp; 07:00 – 24:00
+            </p>
+          </div>
+
+          <!-- ── Right: reservation form ── -->
+          <form id="booking-form" class="bk-form" novalidate>
+            <div class="bk-form-head">
+              <h3>Detalii rezervare</h3>
+              <span>* câmpuri obligatorii</span>
+            </div>
+
+            <div class="bk-row">
+              <div class="bk-field">
+                <label for="bk-name">Prenume și Nume *</label>
+                <input type="text" id="bk-name" name="name" placeholder="ex: Ion Popescu" required autocomplete="name" />
+              </div>
+              <div class="bk-field">
+                <label for="bk-phone">Numărul tău (WhatsApp) *</label>
+                <input type="tel" id="bk-phone" name="phone" placeholder="ex: 0740 000 000" required autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="bk-row bk-row-3">
+              <div class="bk-field">
+                <label for="bk-date">Data *</label>
+                <input type="date" id="bk-date" name="date" required />
+              </div>
+              <div class="bk-field">
+                <label for="bk-time">Ora *</label>
+                <input type="time" id="bk-time" name="time" min="07:00" max="23:30" required />
+              </div>
+              <div class="bk-field">
+                <label for="bk-people">Persoane *</label>
+                <select id="bk-people" name="people" required>
+                  <option value="">Selectează</option>
+                  <option value="1 persoană">1 persoană</option>
+                  <option value="2 persoane">2 persoane</option>
+                  <option value="3 persoane">3 persoane</option>
+                  <option value="4 persoane">4 persoane</option>
+                  <option value="5 persoane">5 persoane</option>
+                  <option value="6 persoane">6 persoane</option>
+                  <option value="7 persoane">7 persoane</option>
+                  <option value="8 persoane">8 persoane</option>
+                  <option value="9+ persoane">9+ persoane</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="bk-field bk-field-full">
+              <label for="bk-notes">Mențiuni speciale <span class="bk-optional">(opțional)</span></label>
+              <textarea id="bk-notes" name="notes" rows="3" placeholder="ex: zi de naștere, alergii alimentare, preferință loc la fereastră…"></textarea>
+            </div>
+
+            <div class="bk-actions">
+              <button type="submit" class="bk-submit btn-mag">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.472 3.528C18.188 1.244 15.166 0 11.999 0 5.441 0 .068 5.373.065 11.932c-.001 2.101.548 4.15 1.59 5.957L0 24l6.254-1.641A11.93 11.93 0 0 0 12 23.822C18.558 23.822 24 18.449 24 11.888c0-3.167-1.241-6.148-3.528-8.36Zm-8.473 18.35h-.004a9.91 9.91 0 0 1-5.05-1.38l-.362-.215-3.754.984 1.002-3.657-.236-.375A9.879 9.879 0 0 1 2.08 11.93c.003-5.461 4.446-9.903 9.91-9.903a9.846 9.846 0 0 1 7.007 2.905 9.845 9.845 0 0 1 2.9 7.01c-.003 5.46-4.446 9.907-9.898 9.907Zm5.43-7.418c-.298-.149-1.76-.868-2.033-.967-.273-.1-.472-.149-.67.149-.198.298-.769.967-.942 1.165-.173.199-.347.224-.645.075-.298-.15-1.257-.463-2.394-1.476-.885-.787-1.482-1.76-1.655-2.057-.173-.298-.018-.459.13-.607.133-.133.298-.347.447-.521.149-.173.198-.298.298-.497.099-.198.05-.373-.025-.521-.075-.149-.67-1.612-.918-2.207-.242-.579-.487-.5-.67-.51l-.57-.01c-.198 0-.521.074-.794.372-.272.298-1.041 1.017-1.041 2.479 0 1.463 1.066 2.876 1.215 3.074.149.198 2.098 3.204 5.085 4.492.711.307 1.265.49 1.698.627.713.227 1.361.195 1.874.118.572-.085 1.76-.72 2.008-1.415.249-.695.249-1.29.174-1.414-.074-.124-.272-.198-.57-.347Z"/></svg>
+                Trimite pe WhatsApp
+              </button>
+              <p class="bk-disclaimer">Vei fi redirecționat în aplicația WhatsApp. Confirmarea va sosi în maxim 30 de minute în timpul programului.</p>
+            </div>
+
+            <div class="bk-success" hidden aria-live="polite" role="status">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Cererea a fost deschisă în WhatsApp. Așteptați confirmarea în maxim 30 de minute.</span>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ CONTACT ════════════════ -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head ri">
+          <p class="eyebrow">Contact</p>
+          <h2>Detalii de contact</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="c-card glass-dark ri" style="--i:0">
+            <span class="c-label">Locație</span>
+            <h3>Strada Victoriei 26</h3>
+            <p>Târgu Jiu, România</p>
+            <div class="c-links">
+              <a href="tel:+40748208209">0748 208 209</a>
+              <a href="mailto:contact@restaurant.rylke.ro">contact@restaurant.rylke.ro</a>
+            </div>
+          </div>
+          <div class="c-card glass-dark ri" style="--i:1">
+            <span class="c-label">Program</span>
+            <h3>Deschis în fiecare zi</h3>
+            <div class="schedule">
+              <span>Luni – Vineri</span><strong>07:00 – 24:00</strong>
+              <span>Sâmbătă</span><strong>07:00 – 24:00</strong>
+              <span>Duminică</span><strong>07:00 – 24:00</strong>
+            </div>
+            <a class="text-lnk" href="contact.html">Pagina de contact →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="footer-logo">
+          <img src="assets/images/Logopom2.png" alt="Logo Infinity" />
+          <span>Infinity</span>
+        </a>
+        <p>Calitatea ne definește. Toate drepturile rezervate.</p>
+        <p class="footer-credit">Designed by Inovex.ro &amp; Advertise Hub</p>
+      </div>
+      <div class="footer-col">
+        <h5>Link-uri utile</h5>
+        <a href="#hero">Acasă</a>
+        <a href="#gallery">Galerie</a>
+        <a href="istorie.html">Istorie</a>
+        <a href="https://pensiuneainfinity.ro/" target="_blank" rel="noopener noreferrer">Pensiune</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO" target="_blank" rel="noopener noreferrer">Soluționarea litigiilor</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC</a>
+        <a href="termeni.html">Termeni și condiții</a>
+        <a href="termeni.html#confidentialitate">Politică de confidențialitate</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap"><p>© 2026 Restaurant Infinity · Târgu Jiu</p></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Istoria Noastră · Restaurant Infinity</title>
+  <meta name="description" content="Povestea Restaurant Infinity – de la origini la un concept culinar de referință în România." />
+  <link rel="icon" type="image/png" href="assets/images/Logopom2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+/* ═══════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════ */
+:root {
+  --bg:        #07090d;
+  --surf:      #0d1017;
+  --surf2:     #131820;
+  --gold:      #c9a455;
+  --gold-lt:   #e8c97a;
+  --gold-dim:  rgba(201,164,85,.13);
+  --gold-glow: rgba(201,164,85,.32);
+  --text:      #f0e8d8;
+  --muted:     #7a7060;
+  --line:      rgba(240,232,216,.09);
+  --line-g:    rgba(201,164,85,.22);
+  --radius:    20px;
+  --ease:      cubic-bezier(.22,.82,.32,1);
+  --wrap:      min(1160px, 90vw);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Manrope",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:none;
+  -webkit-font-smoothing:antialiased;
+}
+body.js-loading { overflow:hidden; }
+img { display:block; width:100%; }
+a   { color:inherit; text-decoration:none; }
+button { font-family:inherit; cursor:pointer; border:0; background:0; }
+
+h1,h2,h3,h4 {
+  font-family:"Cormorant Garamond",serif;
+  line-height:.94;
+  letter-spacing:-.01em;
+}
+h1 { font-size:clamp(3rem,7.5vw,6.6rem); }
+h2 { font-size:clamp(2.2rem,5vw,3.8rem); }
+h3 { font-size:clamp(1.4rem,2.5vw,2rem); }
+
+.eyebrow {
+  font-size:.72rem; letter-spacing:.22em;
+  text-transform:uppercase; font-weight:800; color:var(--gold);
+}
+.wrap { width:var(--wrap); margin-inline:auto; }
+
+/* ═══════════════════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════════════════ */
+#csr-dot,#csr-ring {
+  position:fixed; top:0; left:0;
+  pointer-events:none; z-index:9999; border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+#csr-dot  { width:6px; height:6px; background:var(--gold); }
+#csr-ring {
+  width:36px; height:36px;
+  border:1.5px solid rgba(201,164,85,.5);
+  transition:width .22s var(--ease),height .22s var(--ease);
+}
+@media(pointer:coarse){ #csr-dot,#csr-ring{display:none;} body{cursor:auto;} }
+
+/* ═══════════════════════════════════════════════════
+   PRELOADER
+═══════════════════════════════════════════════════ */
+#preloader {
+  position:fixed; inset:0; z-index:9000; background:var(--bg);
+  display:flex; align-items:center; justify-content:center;
+  transition:opacity .6s ease,visibility .6s ease;
+}
+#preloader.done { opacity:0; visibility:hidden; }
+.pre-inner { text-align:center; }
+.pre-logo {
+  display:flex; align-items:center; gap:.75rem;
+  justify-content:center; margin-bottom:1.8rem;
+}
+.pre-logo img { width:50px; height:50px; object-fit:contain; border-radius:12px; }
+.pre-logo span { font-family:"Cormorant Garamond",serif; font-size:2.4rem; font-weight:700; }
+.pre-track { width:200px; height:1px; background:rgba(240,232,216,.1); margin:0 auto; overflow:hidden; }
+.pre-fill  { height:100%; width:0; background:linear-gradient(90deg,transparent,var(--gold),transparent); animation:pfill 1.6s var(--ease) forwards; }
+@keyframes pfill { to{ width:100%; } }
+
+/* ═══════════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════════ */
+#site-hdr {
+  position:fixed; top:.9rem; inset-inline:0;
+  width:var(--wrap); margin-inline:auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.72rem 1rem;
+  border-radius:16px; border:1px solid var(--line);
+  background:rgba(7,9,13,.55); backdrop-filter:blur(18px);
+  z-index:100; transition:background .35s,border-color .35s;
+}
+#site-hdr.scrolled { background:rgba(7,9,13,.9); border-color:var(--line-g); }
+.hdr-logo { display:flex; align-items:center; gap:.6rem; }
+.hdr-logo img { width:40px; height:40px; object-fit:contain; border-radius:10px; }
+.hdr-logo span { font-family:"Cormorant Garamond",serif; font-size:1.65rem; font-weight:700; }
+.hdr-nav { display:flex; align-items:center; gap:.25rem; }
+.hdr-nav a { font-weight:700; font-size:.84rem; padding:.48rem .78rem; border-radius:10px; border:1px solid transparent; color:var(--muted); transition:color .2s,border-color .2s,background .2s; }
+.hdr-nav a:hover,.hdr-nav a.active { color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04); }
+.hdr-cta { color:var(--bg) !important; background:var(--gold); border-color:transparent !important; padding:.48rem 1rem !important; transition:background .2s,box-shadow .2s !important; }
+.hdr-cta:hover { background:var(--gold-lt) !important; box-shadow:0 6px 22px var(--gold-glow) !important; }
+#hamburger { display:none; flex-direction:column; gap:5px; width:38px; height:38px; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--line); }
+#hamburger span { width:18px; height:1.5px; background:var(--text); transition:transform .22s,opacity .22s; }
+#hamburger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+#hamburger.open span:nth-child(2){ opacity:0; }
+#hamburger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+/* ═══════════════════════════════════════════════════
+   HERO — full-screen with 3D canvas
+═══════════════════════════════════════════════════ */
+#hero-h {
+  position:relative; min-height:100svh;
+  display:flex; align-items:center; overflow:hidden;
+}
+#hero-h::before {
+  content:""; position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,164,85,.07), transparent),
+    radial-gradient(ellipse 40% 35% at 80% 20%, rgba(120,80,20,.09), transparent);
+}
+#c3d-hist {
+  position:absolute; inset:0; width:100%; height:100%;
+  z-index:1; opacity:.9;
+}
+.hero-h-inner {
+  position:relative; z-index:2;
+  width:var(--wrap); margin-inline:auto;
+  padding-block:10rem 6rem;
+  max-width:70ch;
+}
+.hero-h-inner .eyebrow { margin-bottom:1.2rem; }
+.hero-h-inner h1 { line-height:.92; }
+.hero-h-inner h1 em { font-style:italic; color:var(--gold); }
+.hero-sub {
+  margin-top:1.3rem; color:var(--muted);
+  font-size:clamp(.95rem,1.5vw,1.12rem); max-width:55ch;
+}
+.hero-scroll { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:.45rem; color:var(--muted); }
+.hero-scroll span { font-size:.67rem; letter-spacing:.2em; text-transform:uppercase; font-weight:700; }
+.hero-scroll-line { width:1px; height:52px; background:linear-gradient(to bottom,var(--gold-dim),transparent); animation:linePulse 2.5s ease infinite; }
+@keyframes linePulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+
+/* ═══════════════════════════════════════════════════
+   MANIFESTO STRIP
+═══════════════════════════════════════════════════ */
+#manifesto {
+  border-block:1px solid var(--line-g); overflow:hidden; position:relative;
+}
+.manifesto-inner {
+  display:flex; gap:3.5rem; align-items:center;
+  padding:2.2rem 0; white-space:nowrap;
+  animation:tickerRun 28s linear infinite;
+}
+@keyframes tickerRun { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.manifesto-inner span {
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.55rem; font-style:italic; color:var(--muted);
+  flex-shrink:0;
+}
+.manifesto-inner span em { color:var(--gold); font-style:normal; }
+.manifesto-sep { color:var(--gold); font-size:1.2rem; flex-shrink:0; }
+
+/* ═══════════════════════════════════════════════════
+   NUMBERS SECTION
+═══════════════════════════════════════════════════ */
+#numbers { padding-block:clamp(5rem,8vw,8rem); border-bottom:1px solid var(--line); }
+.numbers-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:1px; background:var(--line-g);
+  border:1px solid var(--line-g); border-radius:var(--radius); overflow:hidden;
+}
+.num-item {
+  padding:2.8rem 2rem; background:var(--surf);
+  display:flex; flex-direction:column; gap:.5rem;
+  transition:background .3s;
+}
+.num-item:hover { background:var(--surf2); }
+.num-value {
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(3rem,5vw,4.5rem); font-weight:700;
+  color:var(--gold); line-height:1;
+}
+.num-label { font-size:.84rem; color:var(--muted); font-weight:600; max-width:18ch; line-height:1.4; }
+
+/* ═══════════════════════════════════════════════════
+   STORY — two-column editorial
+═══════════════════════════════════════════════════ */
+#story { padding-block:clamp(5rem,9vw,9rem); }
+.story-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:start;
+}
+.story-photo {
+  border-radius:var(--radius); overflow:hidden; border:1px solid var(--line-g);
+  position:sticky; top:7rem;
+}
+.story-photo img { aspect-ratio:3/4; object-fit:cover; transition:transform .7s var(--ease); }
+.story-photo:hover img { transform:scale(1.04); }
+.story-text { padding:1rem; }
+.story-text .eyebrow { margin-bottom:1rem; }
+.story-text h2 { margin-bottom:1.4rem; }
+.story-text p {
+  color:var(--muted); font-size:clamp(.95rem,1.5vw,1.08rem);
+  line-height:1.78; margin-bottom:1.1rem;
+}
+.story-text p:first-of-type { font-size:clamp(1.05rem,1.8vw,1.22rem); color:var(--text); }
+
+/* ═══════════════════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════════════════ */
+#timeline { padding-block:clamp(5rem,9vw,9rem); border-top:1px solid var(--line); }
+.tl-head { margin-bottom:3.5rem; }
+.tl-head h2 { margin-block:.5rem 0; }
+
+.tl-wrap {
+  position:relative; padding-left:2.8rem;
+}
+.tl-wrap::before {
+  content:""; position:absolute; left:0; top:0; bottom:0;
+  width:1px;
+  background:linear-gradient(to bottom, transparent, var(--gold), var(--gold) 85%, transparent);
+}
+
+.tl-item {
+  position:relative; margin-bottom:3.2rem; padding-left:1.4rem;
+  opacity:0; transform:translateX(-22px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.tl-item.vis { opacity:1; transform:translateX(0); }
+.tl-item::before {
+  content:""; position:absolute; left:-2.75rem; top:.55rem;
+  width:12px; height:12px; border-radius:50%;
+  background:var(--bg); border:2px solid var(--gold);
+  box-shadow:0 0 14px var(--gold-glow);
+  transition:background .3s,transform .3s;
+}
+.tl-item:hover::before { background:var(--gold); transform:scale(1.3); }
+
+.tl-year {
+  font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+  font-weight:800; color:var(--gold); margin-bottom:.55rem;
+}
+.tl-item h3 { margin-bottom:.55rem; }
+.tl-item p  { color:var(--muted); font-size:.97rem; line-height:1.68; max-width:65ch; }
+.tl-badge {
+  display:inline-flex; margin-top:.7rem;
+  font-size:.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gold); background:var(--gold-dim);
+  border:1px solid var(--line-g); border-radius:6px; padding:.28rem .65rem;
+}
+
+/* ═══════════════════════════════════════════════════
+   PHILOSOPHY CARDS (inspired by Noma / EMP / Mugaritz)
+═══════════════════════════════════════════════════ */
+#philosophy { padding-block:clamp(5rem,9vw,9rem); border-top:1px solid var(--line); overflow:hidden; }
+.phil-head { margin-bottom:2.5rem; }
+.phil-head h2 { margin-block:.5rem 0; }
+
+.phil-cards {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1rem;
+}
+.phil-card {
+  padding:2rem; border-radius:var(--radius);
+  border:1px solid var(--line); background:var(--surf);
+  display:flex; flex-direction:column; gap:1.1rem;
+  transition:border-color .3s,transform .35s var(--ease),box-shadow .35s;
+}
+.phil-card:hover {
+  border-color:var(--line-g);
+  transform:translateY(-6px);
+  box-shadow:0 22px 50px rgba(0,0,0,.5), 0 0 28px rgba(201,164,85,.08);
+}
+.phil-icon {
+  width:52px; height:52px; border-radius:14px;
+  background:var(--gold-dim); border:1px solid var(--line-g);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem;
+}
+.phil-card h3 { font-size:1.55rem; }
+.phil-card p  { color:var(--muted); font-size:.95rem; line-height:1.7; flex:1; }
+.phil-card cite {
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic; font-size:1.1rem; color:var(--gold);
+  border-top:1px solid var(--line); padding-top:.9rem; margin-top:auto;
+}
+
+/* ═══════════════════════════════════════════════════
+   INSPIRATION WALL — references from top restaurants
+═══════════════════════════════════════════════════ */
+#inspiration { padding-block:clamp(5rem,9vw,9rem); border-top:1px solid var(--line); }
+.insp-head { margin-bottom:2.5rem; }
+.insp-grid {
+  display:grid; grid-template-columns:1.6fr 1fr;
+  grid-template-rows:auto auto; gap:.8rem;
+}
+.insp-quote {
+  grid-row:1/3;
+  padding:2.8rem; border-radius:var(--radius);
+  background:rgba(201,164,85,.06); border:1px solid var(--line-g);
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.insp-q-mark {
+  font-family:"Cormorant Garamond",serif;
+  font-size:6rem; color:var(--gold); line-height:.5; margin-bottom:1rem;
+}
+.insp-quote blockquote {
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(1.4rem,2.5vw,2rem); font-style:italic; line-height:1.45;
+}
+.insp-quote cite {
+  display:block; margin-top:1.5rem;
+  font-size:.82rem; font-weight:800; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--gold);
+}
+.insp-item {
+  padding:1.8rem; border-radius:var(--radius);
+  border:1px solid var(--line); background:var(--surf);
+  display:flex; flex-direction:column; gap:.6rem;
+  transition:border-color .3s;
+}
+.insp-item:hover { border-color:var(--line-g); }
+.insp-item h4 {
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.35rem; color:var(--gold-lt);
+}
+.insp-item p { color:var(--muted); font-size:.9rem; line-height:1.65; }
+.insp-tag {
+  font-size:.68rem; font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted);
+}
+
+/* ═══════════════════════════════════════════════════
+   GALLERY STRIP
+═══════════════════════════════════════════════════ */
+#gallery-h { padding-block:clamp(4rem,7vw,7rem); border-top:1px solid var(--line); }
+.gallery-h-head { margin-bottom:1.6rem; }
+.gstrip {
+  display:grid;
+  grid-template-columns:1fr 1.4fr 1fr 1.1fr;
+  gap:.7rem;
+}
+.gstrip-cell {
+  border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--line); transition:border-color .3s;
+}
+.gstrip-cell:hover { border-color:var(--line-g); }
+.gstrip-cell img {
+  width:100%; height:280px; object-fit:cover;
+  transition:transform .6s var(--ease);
+}
+.gstrip-cell:hover img { transform:scale(1.06); }
+.gstrip-cell:nth-child(2) img { height:330px; }
+
+/* ═══════════════════════════════════════════════════
+   BOOKING CTA
+═══════════════════════════════════════════════════ */
+#cta-h { padding-block:clamp(4rem,7vw,7rem); border-top:1px solid var(--line); }
+.cta-h-card {
+  padding:3.5rem; border-radius:24px;
+  background:rgba(201,164,85,.06); border:1px solid var(--line-g);
+  text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.2rem;
+}
+.cta-h-card h2 { max-width:22ch; }
+.cta-h-card p  { color:var(--muted); max-width:55ch; }
+.cta-btns { display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; margin-top:.4rem; }
+
+/* ═══════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════ */
+.btn-gold {
+  display:inline-flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:.88rem; letter-spacing:.04em;
+  padding:.88rem 1.5rem; border-radius:12px; border:0;
+  background:linear-gradient(115deg,var(--gold),var(--gold-lt));
+  color:var(--bg);
+  box-shadow:0 8px 28px rgba(201,164,85,.28);
+  transition:box-shadow .3s,transform .3s;
+}
+.btn-gold:hover { box-shadow:0 16px 38px rgba(201,164,85,.5); transform:translateY(-2px); }
+.btn-outline {
+  display:inline-flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:.88rem; letter-spacing:.04em;
+  padding:.88rem 1.5rem; border-radius:12px;
+  border:1px solid var(--line-g);
+  background:rgba(255,255,255,.04); color:var(--text);
+  transition:background .3s,border-color .3s,transform .3s;
+}
+.btn-outline:hover { background:rgba(255,255,255,.07); border-color:rgba(201,164,85,.45); transform:translateY(-2px); }
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+#site-footer { border-top:1px solid var(--line); padding-top:clamp(3rem,5vw,5rem); }
+.footer-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2.5rem; padding-bottom:3rem; }
+.footer-logo { display:inline-flex; align-items:center; gap:.6rem; margin-bottom:.85rem; }
+.footer-logo img { width:38px; height:38px; object-fit:contain; border-radius:10px; }
+.footer-logo span { font-family:"Cormorant Garamond",serif; font-size:1.55rem; font-weight:700; }
+.footer-brand > p { font-size:.88rem; color:var(--muted); max-width:32ch; line-height:1.5; margin-bottom:.4rem; }
+.footer-col h5 { font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:800; margin-bottom:.9rem; }
+.footer-col a  { display:block; font-size:.88rem; color:var(--muted); margin-bottom:.45rem; transition:color .2s; }
+.footer-col a:hover { color:var(--text); }
+.footer-bar { border-top:1px solid var(--line); padding-block:1.2rem; }
+.footer-bar p { font-size:.82rem; color:var(--muted); text-align:center; }
+
+/* ═══════════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════════ */
+.ri {
+  opacity:0; transform:translateY(26px);
+  transition:opacity .65s ease calc(var(--i,0)*.1s), transform .65s ease calc(var(--i,0)*.1s);
+}
+.ri.vis { opacity:1; transform:translateY(0); }
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media(max-width:980px){
+  .numbers-grid  { grid-template-columns:repeat(2,1fr); }
+  .story-grid    { grid-template-columns:1fr; }
+  .story-photo   { position:static; }
+  .phil-cards    { grid-template-columns:1fr 1fr; }
+  .insp-grid     { grid-template-columns:1fr; }
+  .insp-quote    { grid-row:auto; }
+  .gstrip        { grid-template-columns:1fr 1fr; }
+  .gstrip-cell:nth-child(2) img { height:280px; }
+  .footer-grid   { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:640px){
+  .numbers-grid { grid-template-columns:1fr 1fr; }
+  .phil-cards   { grid-template-columns:1fr; }
+  .gstrip       { grid-template-columns:1fr; }
+  .gstrip-cell img, .gstrip-cell:nth-child(2) img { height:240px; }
+  .footer-grid  { grid-template-columns:1fr; }
+  #main-nav { display:none; position:absolute; top:calc(100% + .5rem); left:0; right:0;
+    flex-direction:column; align-items:stretch; padding:.9rem;
+    border:1px solid var(--line); border-radius:14px;
+    background:rgba(7,9,13,.97); backdrop-filter:blur(12px);
+    transition:opacity .22s,transform .22s; }
+  #main-nav.open { display:flex; }
+  #hamburger { display:flex; }
+  .cta-btns { flex-direction:column; align-items:center; }
+  .btn-gold,.btn-outline { width:100%; }
+}
+  </style>
+</head>
+<body class="js-loading">
+
+  <!-- PRELOADER -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <div class="pre-logo">
+        <img src="assets/images/Logopom2.png" alt="" />
+        <span>Infinity</span>
+      </div>
+      <div class="pre-track"><div class="pre-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div id="csr-dot"  aria-hidden="true"></div>
+  <div id="csr-ring" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header id="site-hdr">
+    <a class="hdr-logo" href="index.html" aria-label="Restaurant Infinity – Acasă">
+      <img src="assets/images/Logopom2.png" alt="Logo Infinity" />
+      <span>Infinity</span>
+    </a>
+    <nav id="main-nav" class="hdr-nav" aria-label="Navigație principală">
+      <a href="index.html">Acasă</a>
+      <a href="index.html#menu">Meniu</a>
+      <a href="index.html#gallery">Galerie</a>
+      <a href="#" class="active">Istorie</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://pensiuneainfinity.ro/" target="_blank" rel="noopener noreferrer">Pensiune</a>
+      <a class="hdr-cta" href="index.html#booking">Rezervă</a>
+    </nav>
+    <button id="hamburger" aria-label="Meniu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ════════ HERO ════════ -->
+    <section id="hero-h">
+      <canvas id="c3d-hist" aria-hidden="true"></canvas>
+      <div class="hero-h-inner">
+        <p class="eyebrow ri" style="--i:0">Restaurant Infinity · Târgu Jiu</p>
+        <h1 class="ri" style="--i:1">
+          O poveste scrisă<br>în <em>savoare</em><br>și pasiune.
+        </h1>
+        <p class="hero-sub ri" style="--i:2">
+          De la primele flăcări din bucătărie până la farfuriile care au transformat
+          experiența gastronomică din Oltenia — aceasta este povestea noastră.
+        </p>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span>descoperă</span>
+      </div>
+    </section>
+
+    <!-- ════════ MANIFESTO TICKER ════════ -->
+    <section id="manifesto" aria-hidden="true">
+      <div class="manifesto-inner">
+        <span>Calitate <em>fără compromis</em></span><span class="manifesto-sep">✦</span>
+        <span>Ingredients <em>proaspete</em></span><span class="manifesto-sep">✦</span>
+        <span>Bucătari <em>de top</em></span><span class="manifesto-sep">✦</span>
+        <span>Rețete <em>autentice</em></span><span class="manifesto-sep">✦</span>
+        <span>Experiențe <em>memorabile</em></span><span class="manifesto-sep">✦</span>
+        <span>Fine dining <em>accesibil</em></span><span class="manifesto-sep">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span>Calitate <em>fără compromis</em></span><span class="manifesto-sep">✦</span>
+        <span>Ingredients <em>proaspete</em></span><span class="manifesto-sep">✦</span>
+        <span>Bucătari <em>de top</em></span><span class="manifesto-sep">✦</span>
+        <span>Rețete <em>autentice</em></span><span class="manifesto-sep">✦</span>
+        <span>Experiențe <em>memorabile</em></span><span class="manifesto-sep">✦</span>
+        <span>Fine dining <em>accesibil</em></span><span class="manifesto-sep">✦</span>
+      </div>
+    </section>
+
+    <!-- ════════ NUMBERS ════════ -->
+    <section id="numbers">
+      <div class="wrap">
+        <div class="numbers-grid">
+          <div class="num-item ri" style="--i:0">
+            <span class="num-value" data-target="2018" data-suffix="">2018</span>
+            <span class="num-label">Anul fondării restaurantului</span>
+          </div>
+          <div class="num-item ri" style="--i:1">
+            <span class="num-value" data-target="350" data-suffix="+">0+</span>
+            <span class="num-label">Mii de oaspeți serviți</span>
+          </div>
+          <div class="num-item ri" style="--i:2">
+            <span class="num-value" data-target="12" data-suffix="">0</span>
+            <span class="num-label">Bucătari și specialiști în echipă</span>
+          </div>
+          <div class="num-item ri" style="--i:3">
+            <span class="num-value" data-target="7" data-suffix="">0</span>
+            <span class="num-label">Ani de excelență culinară neîntreruptă</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ STORY ════════ -->
+    <section id="story">
+      <div class="wrap">
+        <div class="story-grid">
+          <div class="story-photo ri" style="--i:0">
+            <img src="assets/images/BOB04128-scaled.jpg" alt="Interiorul restaurant Infinity" loading="lazy" />
+          </div>
+          <div class="story-text">
+            <p class="eyebrow ri" style="--i:0">Origini</p>
+            <h2 class="ri" style="--i:1">De unde a pornit totul</h2>
+            <p class="ri" style="--i:2">
+              Restaurant Infinity s-a născut dintr-o viziune simplă, dar ambițioasă:
+              să aducă în Târgu Jiu standardele gastronomice ale marilor restaurante europene,
+              rămânând autentic în fiecare preparat.
+            </p>
+            <p class="ri" style="--i:3">
+              Fondatorii au călătorit prin Italia, Franța și Spania, studiind nu doar tehnicile culinare,
+              ci și filozofia care stă la baza marilor case gastronomice — de la Noma din Copenhaga,
+              la Eleven Madison Park din New York. Concluzia: excelența nu este un incident, ci un sistem.
+            </p>
+            <p class="ri" style="--i:4">
+              La întoarcere, bucătăria a fost proiectată cu aceeași rigoare. Fiecare stație, fiecare
+              proces, fiecare furnizor ales după un singur criteriu — calitatea.
+              Primul meniu a avut opt preparate. Astăzi, fiecare farfurie poartă în ea toți
+              acești ani de disciplină și pasiune.
+            </p>
+            <p class="ri" style="--i:5">
+              Strada Victoriei 26, Târgu Jiu — un loc care a ales să devină mai mult decât un restaurant.
+              Un punct de referință culinar pentru întreaga regiune din Oltenia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ TIMELINE ════════ -->
+    <section id="timeline">
+      <div class="wrap">
+        <div class="tl-head ri">
+          <p class="eyebrow">Cronologie</p>
+          <h2>Jaloane din istoria noastră</h2>
+        </div>
+
+        <div class="tl-wrap">
+
+          <div class="tl-item">
+            <p class="tl-year">2018</p>
+            <h3>Fondarea Restaurantului Infinity</h3>
+            <p>Primele ușile deschise pe Strada Victoriei 26. Meniu de inaugurare cu 8 preparate, echipă de 4 bucătari și o misiune clară: fine dining autentic în inima Olteniei.</p>
+            <span class="tl-badge">Origine</span>
+          </div>
+
+          <div class="tl-item">
+            <p class="tl-year">2019</p>
+            <h3>Primul meniu de degustare</h3>
+            <p>Lansarea primului meniu seasonal cu ingrediente exclusiv de la producători locali. Colaborări cu ferme bio din Gorj și Vâlcea. Primele recenzii în presa gastronomică națională.</p>
+            <span class="tl-badge">Recunoaștere</span>
+          </div>
+
+          <div class="tl-item">
+            <p class="tl-year">2020</p>
+            <h3>Adaptare și reziliență</h3>
+            <p>Perioada de pandemie a transformat bucătăria într-un laborator de inovație. Kit-urile gastronomice Infinity — „Fine Dining Acasă" — au adus experiența restaurantului în locuințele clienților fideli.</p>
+            <span class="tl-badge">Inovație</span>
+          </div>
+
+          <div class="tl-item">
+            <p class="tl-year">2021</p>
+            <h3>Extindere și meniu premium de steakuri</h3>
+            <p>Introducerea liniei de steakuri maturate (Vrăbioară, T-Bone, Tomahawk) preparate în camera proprie de maturare la -1°C. Infinity Steak devine preparatul de referință al restaurantului.</p>
+            <span class="tl-badge">Specialitate</span>
+          </div>
+
+          <div class="tl-item">
+            <p class="tl-year">2022</p>
+            <h3>Lansarea Pensiunii Infinity</h3>
+            <p>Deschiderea pensiuneainfinity.ro — o extensie naturală a brandului, concepută pentru oaspeții care doresc o experiență completă: gastronomie, cazare și relaxare în același univers Infinity.</p>
+            <span class="tl-badge">Expansiune</span>
+          </div>
+
+          <div class="tl-item">
+            <p class="tl-year">2023</p>
+            <h3>Cei 1.000 de clienți fideli</h3>
+            <p>Milestone marcant: peste 1.000 de oaspeți revin lunar. Redesign complet al sălii principale cu iluminat scenic, mobilier custom și platou de prezentare reinventat.</p>
+            <span class="tl-badge">Communitate</span>
+          </div>
+
+          <div class="tl-item">
+            <p class="tl-year">2024</p>
+            <h3>Rețetele autentice — cartea bucătăriei</h3>
+            <p>Lansarea documentului de identitate gastronomică — un arhiv fotografic și culinar al celor mai importante preparate, accesibil online. Infinity devine un brand de referință, nu doar un restaurant.</p>
+            <span class="tl-badge">Brand</span>
+          </div>
+
+          <div class="tl-item">
+            <p class="tl-year">2025 – 2026</p>
+            <h3>Noul concept digital & fine dining modernizat</h3>
+            <p>Restructurare completă a experienței digitale, rezervări online, prezență media și un nou concept de seară de degustare — cuprinde 5 + 1 preparate cu paring de vinuri românești selecționate.</p>
+            <span class="tl-badge">Viitor</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ FILOZOFIA CASEI ════════ -->
+    <section id="philosophy">
+      <div class="wrap">
+        <div class="phil-head ri">
+          <p class="eyebrow">Filozofia casei</p>
+          <h2>Principiile după care gătim</h2>
+        </div>
+
+        <div class="phil-cards">
+          <div class="phil-card ri" style="--i:0">
+            <div class="phil-icon">🌿</div>
+            <h3>Terrain înainte de toate</h3>
+            <p>Ca Noma, credem că teritoriul determină gustul. Ingredientele noastre reflectă Oltenia — nucile de Gorj, carnea de la fermele locale, ierburile din grădinile proprii.</p>
+            <cite>"Dacă natura ți-a dat un ingredient perfect, treaba ta e să nu-l strici."</cite>
+          </div>
+
+          <div class="phil-card ri" style="--i:1">
+            <div class="phil-icon">🔥</div>
+            <h3>Tehnica sub control, emoția liberă</h3>
+            <p>Inspirat de El Bulli și Ferran Adrià — tehnica este invizibilă. Oaspetele nu vede procesul, simte rezultatul. Fiecare preparat e construit ca o poveste cu un deznodământ surprinzător.</p>
+            <cite>"Gătitul este singura artă care HR toate cinci simțuri simultan."</cite>
+          </div>
+
+          <div class="phil-card ri" style="--i:2">
+            <div class="phil-icon">⚖️</div>
+            <h3>Raportul calitate / valoare</h3>
+            <p>La Eleven Madison Park, serviciul este spectacol. La noi, prețul accesibil este parte din filozofie — fine dining nu trebuie să fie inaccesibil. Excelența aparține tuturor.</p>
+            <cite>"Cel mai bun masă nu este cea mai scumpă, ci cea care te face să zâmbești acasă."</cite>
+          </div>
+
+          <div class="phil-card ri" style="--i:3">
+            <div class="phil-icon">🧬</div>
+            <h3>Maturarea ca ritual</h3>
+            <p>Steakurile noastre maturează între 30 și 45 de zile. Răbdarea este un ingredient. Nu există scurtături pentru o carne care se topește în gură — și nici nu le căutăm.</p>
+            <cite>"Răbdarea transformă simplul în excepțional."</cite>
+          </div>
+
+          <div class="phil-card ri" style="--i:4">
+            <div class="phil-icon">🤝</div>
+            <h3>Echipa este rețeta secretă</h3>
+            <p>Mugaritz de la San Sebastian a demonstrat că un restaurant mare se construiește pe oameni, nu pe stele. Echipa noastră este constantă, motivată și tratată ca parteneri, nu angajați.</p>
+            <cite>"Cea mai bună ingredientă dintr-un restaurant este omul din spatele ei."</cite>
+          </div>
+
+          <div class="phil-card ri" style="--i:5">
+            <div class="phil-icon">♾️</div>
+            <h3>Infinity — un concept în continuă evoluție</h3>
+            <p>Numele nu e întâmplător. Infinity înseamnă că nu există un punct final al excelenței. Fiecare sezon, fiecare rețetă nouă, fiecare oaspete este o oportunitate de a face mai bine.</p>
+            <cite>"Nu am terminat niciodată de gătit ceva perfect. Asta ne ține în bucătărie."</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ INSPIRAȚIE — restaurante de top ════════ -->
+    <section id="inspiration">
+      <div class="wrap">
+        <div class="insp-head ri">
+          <p class="eyebrow">Inspirație mondială</p>
+          <h2>Restaurantele care ne-au format</h2>
+        </div>
+
+        <div class="insp-grid">
+          <div class="insp-quote ri" style="--i:0">
+            <div>
+              <div class="insp-q-mark">"</div>
+              <blockquote>
+                Mâncarea este mai mult decât hrană. Este un act de dragoste, o declarație de identitate,
+                o punte între trecut și viitor. Când gătim cu intenție, transformăm ingrediente
+                în amintiri.
+              </blockquote>
+            </div>
+            <cite>Filosofia Restaurant Infinity · inspirată de marile case culinare ale lumii</cite>
+          </div>
+
+          <div class="insp-item ri" style="--i:1">
+            <span class="insp-tag">#1 World's Best 4× · Copenhaga</span>
+            <h4>Noma</h4>
+            <p>Ne-a învățat că localul poate fi universal. Foraging-ul, fermentarea și respectul față de ingredient au redefinit fine dining-ul modern. Principiu aplicat la Infinity: ingrediente din Oltenia, gătite cu precizie globală.</p>
+          </div>
+
+          <div class="insp-item ri" style="--i:2">
+            <span class="insp-tag">2× Michelin Star · New York</span>
+            <h4>Eleven Madison Park</h4>
+            <p>Demonstrează că experiența oaspetelui este la fel de importantă ca farfuria. Serviciul ca artă, spațiul ca scenă, fiecare detaliu calculat. Infinity a adoptat aceeași grijă pentru ambient și primire.</p>
+          </div>
+
+          <div class="insp-item ri" style="--i:3">
+            <span class="insp-tag">3× Michelin Star · San Sebastián</span>
+            <h4>Mugaritz</h4>
+            <p>Bucătăria-laborator a lui Andoni Luis Aduriz: texturi neașteptate, concepte provocatoare, gusturi care pun întrebări. Ne-a inspirat să nu ne temem de experimente și să tratăm fiecare sezon ca un reset creativ.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ GALLERY STRIP ════════ -->
+    <section id="gallery-h">
+      <div class="wrap">
+        <div class="gallery-h-head ri">
+          <p class="eyebrow">Din locație</p>
+          <h2>Momente din istoria noastră</h2>
+        </div>
+        <div class="gstrip">
+          <div class="gstrip-cell ri" style="--i:0">
+            <img src="assets/images/BOB04526-1024x683.jpg" alt="Preparat Infinity" loading="lazy" />
+          </div>
+          <div class="gstrip-cell ri" style="--i:1">
+            <img src="assets/images/BOB04128-scaled.jpg" alt="Interior Infinity" loading="lazy" />
+          </div>
+          <div class="gstrip-cell ri" style="--i:2">
+            <img src="assets/images/BOB03966-1024x683.jpg" alt="Plating Infinity" loading="lazy" />
+          </div>
+          <div class="gstrip-cell ri" style="--i:3">
+            <img src="assets/images/BOB04607-1024x683.jpg" alt="Infinity Steak" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ CTA ════════ -->
+    <section id="cta-h">
+      <div class="wrap">
+        <div class="cta-h-card ri">
+          <p class="eyebrow">Continuăm povestea împreună</p>
+          <h2>Rezervă o experiență Infinity</h2>
+          <p>Fii parte din istoria noastră. Fiecare masă este un nou capitol — și cel mai bun capitol este cel pe care îl scriem împreună.</p>
+          <div class="cta-btns">
+            <a class="btn-gold" href="index.html#booking">Rezervă acum</a>
+            <a class="btn-outline" href="index.html#menu">Explorează meniul</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/images/Logopom2.png" alt="Logo Infinity" />
+          <span>Infinity</span>
+        </a>
+        <p>Calitatea ne definește. Toate drepturile rezervate.</p>
+        <p>Designed by Inovex.ro &amp; Advertise Hub</p>
+      </div>
+      <div class="footer-col">
+        <h5>Link-uri utile</h5>
+        <a href="index.html">Acasă</a>
+        <a href="index.html#menu">Meniu</a>
+        <a href="index.html#gallery">Galerie</a>
+        <a href="#">Istorie</a>
+        <a href="https://pensiuneainfinity.ro/" target="_blank" rel="noopener noreferrer">Pensiune</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO" target="_blank" rel="noopener noreferrer">Soluționarea litigiilor</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC</a>
+        <a href="termeni.html">Termeni și condiții</a>
+        <a href="termeni.html#confidentialitate">Confidențialitate</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap"><p>© 2026 Restaurant Infinity · Târgu Jiu · O poveste continuă</p></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.min.js"></script>
+  <script>
+/* ═══════════════════════════════════════════════════
+   PRELOADER
+═══════════════════════════════════════════════════ */
+const preloader = document.getElementById('preloader');
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    preloader.classList.add('done');
+    document.body.classList.remove('js-loading');
+    document.querySelectorAll('#hero-h .ri').forEach(el => el.classList.add('vis'));
+  }, 1700);
+});
+
+/* ═══════════════════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════════════════ */
+const dot  = document.getElementById('csr-dot');
+const ring = document.getElementById('csr-ring');
+if (window.matchMedia('(pointer:fine)').matches) {
+  let mx = -200, my = -200, rx = -200, ry = -200;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  });
+  (function lerp() {
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(lerp);
+  })();
+}
+
+/* ═══════════════════════════════════════════════════
+   HEADER SCROLL
+═══════════════════════════════════════════════════ */
+const hdr = document.getElementById('site-hdr');
+window.addEventListener('scroll', () => {
+  hdr.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ═══════════════════════════════════════════════════
+   HAMBURGER
+═══════════════════════════════════════════════════ */
+const burger = document.getElementById('hamburger');
+const nav    = document.getElementById('main-nav');
+if (burger && nav) {
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open'); nav.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+}
+
+/* ═══════════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════════ */
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('vis');
+      ro.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.16 });
+
+/* Timeline items use their own observer */
+const tlObs = new IntersectionObserver(entries => {
+  entries.forEach((e, idx) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('vis'), idx * 80);
+      tlObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.ri:not(#hero-h .ri)').forEach(el => ro.observe(el));
+document.querySelectorAll('.tl-item').forEach(el => tlObs.observe(el));
+
+/* ═══════════════════════════════════════════════════
+   NUMBER COUNTER ANIMATION
+═══════════════════════════════════════════════════ */
+const numObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el  = entry.target;
+    const end = parseInt(el.dataset.target, 10);
+    const suf = el.dataset.suffix || '';
+    const dur = 1600;
+    const start = performance.now();
+    const from = 0;
+
+    const tick = now => {
+      const progress = Math.min((now - start) / dur, 1);
+      const eased    = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(from + (end - from) * eased) + suf;
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    numObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.num-value[data-target]').forEach(el => numObs.observe(el));
+
+/* ═══════════════════════════════════════════════════
+   THREE.JS — HERO 3D (DNA helix ring with particles)
+═══════════════════════════════════════════════════ */
+const canvas = document.getElementById('c3d-hist');
+if (canvas && window.THREE) {
+  const scene    = new THREE.Scene();
+  const camera   = new THREE.PerspectiveCamera(52, 1, 0.1, 100);
+  camera.position.set(0, 0, 7);
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x000000, 0);
+
+  /* Lighting */
+  scene.add(new THREE.AmbientLight(0xfff5e0, 0.8));
+  const kl = new THREE.PointLight(0xc9a455, 90, 40, 2);
+  kl.position.set(4, 5, 5); scene.add(kl);
+  const fl = new THREE.PointLight(0xff8844, 40, 35, 2);
+  fl.position.set(-5, -4, 2); scene.add(fl);
+
+  /* ── Central sphere – gold glass ── */
+  const sphereMat = new THREE.MeshPhysicalMaterial({
+    color:0xc9a455, metalness:.1, roughness:.1,
+    transmission:.35, ior:1.45, clearcoat:.9, clearcoatRoughness:.08, thickness:2,
+  });
+  const sphere = new THREE.Mesh(new THREE.IcosahedronGeometry(.9, 18), sphereMat);
+  scene.add(sphere);
+
+  /* ── DNA-inspired double helix of spheres ── */
+  const helixGroup = new THREE.Group();
+  scene.add(helixGroup);
+  const helixMat = new THREE.MeshStandardMaterial({ color:0xe8c97a, metalness:.6, roughness:.25, emissive:0x5a3a00, emissiveIntensity:.4 });
+
+  for (let i = 0; i < 80; i++) {
+    const t  = (i / 79) * Math.PI * 8 - Math.PI * 4;
+    const r  = 2.1;
+    const y  = (i / 79) * 6 - 3;
+    const s1 = new THREE.Mesh(new THREE.SphereGeometry(.055, 8, 8), helixMat);
+    const s2 = new THREE.Mesh(new THREE.SphereGeometry(.055, 8, 8), helixMat);
+    s1.position.set(Math.cos(t) * r, y, Math.sin(t) * r);
+    s2.position.set(Math.cos(t + Math.PI) * r, y, Math.sin(t + Math.PI) * r);
+    helixGroup.add(s1, s2);
+
+    /* connecting rods every 8 steps */
+    if (i % 8 === 0) {
+      const rodGeo = new THREE.CylinderGeometry(.018, .018, r * 2, 6);
+      const rod    = new THREE.Mesh(rodGeo, new THREE.MeshStandardMaterial({ color:0xc9a455, opacity:.35, transparent:true }));
+      rod.position.set(0, y, 0);
+      rod.rotation.z = Math.PI / 2;
+      rod.rotation.y = t;
+      helixGroup.add(rod);
+    }
+  }
+
+  /* ── Outer ring ── */
+  const outerRing = new THREE.Mesh(
+    new THREE.TorusGeometry(3.0, .03, 16, 280),
+    new THREE.MeshStandardMaterial({ color:0xc9a455, emissive:0x4a2c00, emissiveIntensity:.45, metalness:.55, roughness:.3 })
+  );
+  outerRing.rotation.x = Math.PI / 2;
+  scene.add(outerRing);
+
+  /* ── Particle cloud ── */
+  const pCount = 220, pPos = new Float32Array(pCount * 3);
+  for (let i = 0; i < pCount; i++) {
+    const r = 4 + Math.random() * 2.5, a = Math.random() * Math.PI * 2;
+    pPos[i*3]   = Math.cos(a) * r;
+    pPos[i*3+1] = (Math.random() - .5) * 7;
+    pPos[i*3+2] = Math.sin(a) * r;
+  }
+  const pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+  const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ color:0xd4a94e, size:.038, transparent:true, opacity:.6 }));
+  scene.add(particles);
+
+  /* Resize */
+  const resize = () => {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+    renderer.setSize(w, h, false);
+  };
+  resize(); window.addEventListener('resize', resize);
+
+  /* Mouse parallax */
+  const mouse = { x:0, y:0 };
+  window.addEventListener('mousemove', e => {
+    mouse.x = (e.clientX / window.innerWidth  - .5) * 1.4;
+    mouse.y = (e.clientY / window.innerHeight - .5) * 1.0;
+  });
+
+  /* Animation */
+  const clock = new THREE.Clock();
+  (function animate() {
+    const t = clock.getElapsedTime();
+    sphere.rotation.y = t * .32;
+    sphere.rotation.x = t * .19;
+    helixGroup.rotation.y = t * .22;
+    outerRing.rotation.z = t * .18;
+    particles.rotation.y = t * .06;
+    scene.rotation.y += (mouse.x * .5 - scene.rotation.y) * .04;
+    scene.rotation.x += (-mouse.y * .3 - scene.rotation.x) * .04;
+    sphere.position.y = Math.sin(t * .65) * .1;
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  })();
+}
+  </script>
+</body>
+</html>

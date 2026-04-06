@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mood Burgers — Feel It Here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Barlow+Condensed:wght@300;400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- =================== LOADER =================== -->
+<div class="loader" id="loader">
+  <div class="loader-box">
+    <div class="loader-word">
+      <span>M</span><span>O</span><span>O</span><span>D</span>
+    </div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+    <p class="loader-sub">Feel it here.</p>
+  </div>
+</div>
+
+<!-- =================== CUSTOM CURSOR =================== -->
+<div id="cursor-ring"></div>
+<div id="cursor-dot"></div>
+
+<!-- =================== HEADER =================== -->
+<header class="site-header" id="siteHeader">
+  <a href="#" class="header-logo">
+    <span class="logo-m">M</span><span class="logo-ood">OOD</span><em>.</em>
+  </a>
+  <nav class="header-nav">
+    <a href="#vibe" class="hn-link">Vibe</a>
+    <a href="#menu" class="hn-link">Meniu</a>
+    <a href="#local" class="hn-link">Local</a>
+    <a href="#order" class="hn-link">Comandă</a>
+  </nav>
+  <a href="tel:+40700000000" class="header-phone">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    0700 000 000
+  </a>
+</header>
+
+<!-- =================== HERO — SPLIT SCREEN =================== -->
+<section class="hero" id="home">
+
+  <!-- LEFT: Dark editorial panel -->
+  <div class="hero-left">
+    <div class="hero-left-inner">
+      <p class="hero-overline">
+        <span class="ho-line"></span>
+        Târgu-Jiu · Est. 2026
+      </p>
+
+      <h1 class="hero-h1">
+        <span class="h1-plain">Feel</span>
+        <em class="h1-italic">the</em>
+        <span class="h1-outline">mood.</span>
+      </h1>
+
+      <p class="hero-tagline">
+        Burgeri care lasă o stare.<br>
+        Ingrediente reale. Momente autentice.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="tel:+40700000000" class="btn-amber">Comandă Acum</a>
+        <a href="#menu" class="btn-text">
+          Explorează meniu
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-left-foot">
+      <div class="hlf-stat">
+        <strong class="hlf-n" data-target="18000">0</strong>
+        <span class="hlf-l">Burgeri Serviți</span>
+      </div>
+      <div class="hlf-dot"></div>
+      <div class="hlf-stat">
+        <strong class="hlf-n">100%</strong>
+        <span class="hlf-l">Vită Locală</span>
+      </div>
+      <div class="hlf-dot"></div>
+      <div class="hlf-stat">
+        <strong class="hlf-n" data-target="14">0</strong>
+        <span class="hlf-l">Rețete</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Full-bleed photo panel -->
+  <div class="hero-right">
+    <div class="hero-img" style="background-image:url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1800&q=90')"></div>
+    <div class="hero-img-veil"></div>
+
+    <!-- Floating hexagon badge — different shape from circle badges -->
+    <div class="hero-hex-badge" aria-hidden="true">
+      <svg viewBox="0 0 120 140" class="hex-svg">
+        <polygon points="60,4 114,34 114,106 60,136 6,106 6,34" fill="none" stroke="currentColor" stroke-width="1.5" class="hex-outer"/>
+        <polygon points="60,18 100,41 100,99 60,122 20,99 20,41" fill="none" stroke="currentColor" stroke-width="0.75" class="hex-inner"/>
+      </svg>
+      <div class="hex-text">
+        <span>FRESH</span>
+        <span>DAILY</span>
+      </div>
+    </div>
+
+    <!-- Vertical photo caption strip -->
+    <div class="photo-caption">Est. 2026 · Premium Burgers · Târgu-Jiu</div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll-ind">
+    <div class="hsi-track">
+      <div class="hsi-thumb"></div>
+    </div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<!-- =================== ANGLED AMBER STRIP =================== -->
+<div class="amber-strip-wrap">
+  <div class="amber-strip">
+    <div class="as-marquee" id="asMarquee">
+      <span>MOOD CLASSIC</span><span class="as-sep">○</span>
+      <span>SMOKY MOOD</span><span class="as-sep">○</span>
+      <span>GOLDEN MOOD</span><span class="as-sep">○</span>
+      <span>MOOD FRIES</span><span class="as-sep">○</span>
+      <span>MOOD SHAKE</span><span class="as-sep">○</span>
+      <span>MOOD DEAL</span><span class="as-sep">○</span>
+    </div>
+  </div>
+</div>
+
+<!-- =================== VIBE / MANIFESTO (CREAM) =================== -->
+<section class="manifesto" id="vibe">
+  <div class="sec-label" aria-hidden="true">01</div>
+
+  <div class="manifesto-grid">
+    <!-- LEFT: big serif quote -->
+    <div class="manifesto-left">
+      <div class="mfl-quote" aria-hidden="true">"</div>
+      <h2 class="mfl-heading">
+        Nu<br>fast food.<br>
+        <em>O stare.</em>
+      </h2>
+      <div class="mfl-amber-rule">
+        <span></span><span class="mfl-dot"></span><span></span>
+      </div>
+    </div>
+
+    <!-- RIGHT: body + stats + images -->
+    <div class="manifesto-right">
+      <p class="mfr-body">
+        Fiecare burger este asamblat cu atenție. Carnea vine de la ferme locale partenere, chiflele sunt coapte în fiecare dimineaţă, iar Mood Sauce rămâne secretul casei din 2026.
+      </p>
+      <p class="mfr-body" style="margin-top:1rem">
+        Zero compromisuri. Zero congelate. Doar calitate și pasiune.
+      </p>
+
+      <div class="mfr-stats">
+        <div class="ms-item">
+          <span class="ms-n" data-target="18250">0</span>
+          <span class="ms-l">Burgeri Serviți</span>
+        </div>
+        <div class="ms-sep"></div>
+        <div class="ms-item">
+          <span class="ms-n" data-target="14">0</span>
+          <span class="ms-l">Rețete Unice</span>
+        </div>
+        <div class="ms-sep"></div>
+        <div class="ms-item">
+          <span class="ms-n" data-target="5400">0</span>
+          <span class="ms-l">Clienți Fericiți</span>
+        </div>
+      </div>
+
+      <!-- Staggered images — NOT symmetric grid, deliberately off-balance -->
+      <div class="mfr-imgs">
+        <div class="mfr-img mfr-img-a">
+          <img src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=600&q=85" alt="Prep burger">
+          <span class="mfr-img-tag">Asamblat manual</span>
+        </div>
+        <div class="mfr-img mfr-img-b">
+          <img src="https://images.unsplash.com/photo-1586816001966-79b736744398?w=600&q=85" alt="Premium burger">
+          <span class="mfr-img-tag">Ingrediente premium</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== LED MOOD PANEL =================== -->
+<section class="led-section" id="led-panel" aria-label="LED Mood Sign">
+
+  <!-- CRT scanline overlay -->
+  <div class="led-scanlines" aria-hidden="true"></div>
+  <!-- Static noise -->
+  <div class="led-static" aria-hidden="true"></div>
+
+  <!-- Cabinet frame -->
+  <div class="led-cabinet">
+
+    <!-- Top info bar -->
+    <div class="led-top-bar">
+      <span class="ltb-item">EST. 2026</span>
+      <span class="ltb-sep">·</span>
+      <span class="ltb-item">TÂRGU-JIU</span>
+      <span class="ltb-sep">·</span>
+      <span class="ltb-item ltb-live"><span class="ltb-live-dot"></span>OPEN</span>
+    </div>
+
+    <!-- Main LED word — dot-matrix pixel font -->
+    <div class="led-word-wrap" aria-label="MOOD">
+      <!-- Each letter is a CSS dot-matrix grid -->
+
+      <!-- M -->
+      <div class="led-letter" id="ll-m">
+        <div class="led-col">
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d on"></div><div class="d off"></div><div class="d on"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d on"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d on"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+        </div>
+      </div>
+
+      <!-- O -->
+      <div class="led-letter" id="ll-o1">
+        <div class="led-col">
+          <div class="d off"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d off"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d off"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d off"></div>
+        </div>
+      </div>
+
+      <!-- O -->
+      <div class="led-letter" id="ll-o2">
+        <div class="led-col">
+          <div class="d off"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d off"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d off"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d off"></div>
+        </div>
+      </div>
+
+      <!-- D -->
+      <div class="led-letter" id="ll-d">
+        <div class="led-col">
+          <div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d off"></div><div class="d off"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div><div class="d off"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div>
+          <div class="d on"></div><div class="d off"></div><div class="d off"></div><div class="d on"></div><div class="d off"></div>
+          <div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d off"></div><div class="d off"></div>
+        </div>
+      </div>
+
+    </div><!-- /led-word-wrap -->
+
+    <!-- Tagline in LED ticker style -->
+    <div class="led-ticker-wrap">
+      <div class="led-ticker" id="ledTicker">
+        <span>FEEL THE MOOD</span>
+        <span class="lt-sep">✦</span>
+        <span>BURGER CU STARE</span>
+        <span class="lt-sep">✦</span>
+        <span>EST. 2026 · PREMIUM</span>
+        <span class="lt-sep">✦</span>
+        <span>VITĂ LOCALĂ 100%</span>
+        <span class="lt-sep">✦</span>
+      </div>
+    </div>
+
+    <!-- Bottom strip — pixel progress bars / VU meter feel -->
+    <div class="led-vu" aria-hidden="true">
+      <div class="vu-bar" style="--h:60%"></div>
+      <div class="vu-bar" style="--h:80%"></div>
+      <div class="vu-bar" style="--h:45%"></div>
+      <div class="vu-bar" style="--h:90%"></div>
+      <div class="vu-bar" style="--h:70%"></div>
+      <div class="vu-bar" style="--h:55%"></div>
+      <div class="vu-bar" style="--h:85%"></div>
+      <div class="vu-bar" style="--h:40%"></div>
+      <div class="vu-bar" style="--h:95%"></div>
+      <div class="vu-bar" style="--h:65%"></div>
+      <div class="vu-bar" style="--h:75%"></div>
+      <div class="vu-bar" style="--h:50%"></div>
+    </div>
+
+    <!-- Corner accents -->
+    <div class="led-corner led-corner-tl"></div>
+    <div class="led-corner led-corner-tr"></div>
+    <div class="led-corner led-corner-bl"></div>
+    <div class="led-corner led-corner-br"></div>
+
+  </div><!-- /led-cabinet -->
+
+</section>
+
+<!-- =================== MENU — TYPOGRAPHIC BOARD =================== -->
+<section class="menu-section" id="menu">
+  <div class="sec-label sec-label--light" aria-hidden="true">02</div>
+
+  <div class="menu-header">
+    <div class="mh-left">
+      <p class="menu-eyebrow">— Selecția Noastră</p>
+      <h2 class="menu-title">MENIU</h2>
+    </div>
+    <p class="menu-subtitle">Alegerea e a ta.<br><em>Starea — a noastră.</em></p>
+  </div>
+
+  <!-- Typographic menu board — no image cards -->
+  <ul class="menu-board" role="list">
+
+    <li class="mb-item mb-main slide-in">
+      <div class="mb-row">
+        <span class="mb-num">01</span>
+        <span class="mb-name">MOOD CLASSIC</span>
+        <span class="mb-fill" aria-hidden="true"></span>
+        <span class="mb-price">34<sup>lei</sup></span>
+      </div>
+      <div class="mb-meta">
+        <span class="mb-desc">200g vită Angus · Mood Sauce · Cheddar 12 luni · Brioche toastat</span>
+        <span class="mb-mood" style="--mc:#FF6B00">Stare: Satisfăcut</span>
+      </div>
+    </li>
+
+    <li class="mb-item mb-main slide-in" style="--si-delay:.08s">
+      <div class="mb-row">
+        <span class="mb-num">02</span>
+        <span class="mb-name">SMOKY MOOD</span>
+        <span class="mb-fill" aria-hidden="true"></span>
+        <span class="mb-price">39<sup>lei</sup></span>
+      </div>
+      <div class="mb-meta">
+        <span class="mb-desc">220g premium · Bacon afumat · BBQ 48h · Cheddar · Pickles artizanale</span>
+        <span class="mb-mood" style="--mc:#C17D4A">Stare: Aventuros</span>
+      </div>
+    </li>
+
+    <li class="mb-item mb-main slide-in" style="--si-delay:.16s">
+      <div class="mb-row">
+        <span class="mb-num">03</span>
+        <span class="mb-name">GOLDEN MOOD</span>
+        <span class="mb-fill" aria-hidden="true"></span>
+        <span class="mb-price">49<sup>lei</sup></span>
+      </div>
+      <div class="mb-meta">
+        <span class="mb-desc">2×180g Angus · Truffle Aioli artizanal · Ciuperci sălbatice · Parmezan ras</span>
+        <span class="mb-mood" style="--mc:#C8912A">Stare: Regal</span>
+      </div>
+    </li>
+
+    <!-- Separator -->
+    <li class="mb-separator" aria-hidden="true">
+      <span class="mbs-label">EXTRAS</span>
+    </li>
+
+    <li class="mb-item mb-extra slide-in" style="--si-delay:.24s">
+      <div class="mb-row">
+        <span class="mb-num">+</span>
+        <span class="mb-name">MOOD FRIES</span>
+        <span class="mb-fill" aria-hidden="true"></span>
+        <span class="mb-price">13<sup>lei</sup></span>
+      </div>
+      <div class="mb-meta">
+        <span class="mb-desc">Cartofi belgieni · Aioli de casă</span>
+        <span class="mb-mood" style="--mc:#D4A050">Stare: Mulțumit</span>
+      </div>
+    </li>
+
+    <li class="mb-item mb-extra slide-in" style="--si-delay:.30s">
+      <div class="mb-row">
+        <span class="mb-num">+</span>
+        <span class="mb-name">MOOD SHAKE</span>
+        <span class="mb-fill" aria-hidden="true"></span>
+        <span class="mb-price">18<sup>lei</sup></span>
+      </div>
+      <div class="mb-meta">
+        <span class="mb-desc">Caramel sărat · Vanilie · Ciocolată belgiană</span>
+        <span class="mb-mood" style="--mc:#8B7355">Stare: Fericit</span>
+      </div>
+    </li>
+
+    <li class="mb-item mb-extra slide-in" style="--si-delay:.36s">
+      <div class="mb-row">
+        <span class="mb-num">✦</span>
+        <span class="mb-name">MOOD DEAL</span>
+        <span class="mb-fill" aria-hidden="true"></span>
+        <span class="mb-price">49<sup>lei</sup></span>
+      </div>
+      <div class="mb-meta">
+        <span class="mb-desc">Burger + Fries + Shake · Combinația completă</span>
+        <span class="mb-mood" style="--mc:#FF6B00">Stare: Perfect</span>
+      </div>
+    </li>
+
+  </ul>
+
+  <!-- Ingredient strip below menu -->
+  <div class="ingredients-strip">
+    <div class="is-item">
+      <div class="is-icon">
+        <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.2"/><path d="M10 16 Q16 9 22 16" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="16" cy="20" r="3" stroke="currentColor" stroke-width="1.2"/></svg>
+      </div>
+      <span>Vită Angus Locală</span>
+    </div>
+    <div class="is-item">
+      <div class="is-icon">
+        <svg viewBox="0 0 32 32" fill="none"><rect x="6" y="10" width="20" height="5" rx="2.5" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="17" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.2"/><rect x="6" y="23" width="20" height="5" rx="2.5" stroke="currentColor" stroke-width="1.2"/></svg>
+      </div>
+      <span>Brioche Copt Zilnic</span>
+    </div>
+    <div class="is-item">
+      <div class="is-icon">
+        <svg viewBox="0 0 32 32" fill="none"><rect x="6" y="14" width="20" height="6" rx="1" stroke="currentColor" stroke-width="1.2"/><text x="16" y="20" text-anchor="middle" font-size="5" fill="currentColor" font-family="sans-serif">12m</text></svg>
+      </div>
+      <span>Cheddar Maturat 12 luni</span>
+    </div>
+    <div class="is-item">
+      <div class="is-icon">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M16 6 Q22 12 22 18 A6 6 0 0 1 10 18 Q10 12 16 6Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+      </div>
+      <span>Mood Sauce Secret</span>
+    </div>
+    <div class="is-item">
+      <div class="is-icon">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M8 24C8 18 12 8 16 6C20 8 24 18 24 24" stroke="currentColor" stroke-width="1.2" fill="none"/><line x1="8" y1="24" x2="24" y2="24" stroke="currentColor" stroke-width="1.2"/></svg>
+      </div>
+      <span>Legume Proaspete</span>
+    </div>
+  </div>
+</section>
+
+<!-- =================== INTERIOR / LOCAL (annotated photo) =================== -->
+<section class="local-section" id="local">
+  <div class="sec-label sec-label--light" aria-hidden="true">03</div>
+
+  <!-- Full-bleed local photo -->
+  <div class="local-photo" style="background-image:url('../local.jpg')"></div>
+  <div class="local-veil"></div>
+
+  <!-- Text panel left -->
+  <div class="local-content">
+    <p class="local-eyebrow">— Spațiul Nostru</p>
+    <h2 class="local-heading">
+      Un loc<br><em>cu vibe.</em>
+    </h2>
+    <p class="local-body">
+      Beton industrial, lemn cald și lumini de cupru.
+      Un spațiu gândit să transforme orice vizită
+      într-o experiență de nedescris.
+    </p>
+    <a href="#order" class="btn-ghost-light">
+      Vino să simți →
+    </a>
+  </div>
+
+  <!-- Annotation pins (always visible, hover reveals label) -->
+  <div class="ann-layer" aria-hidden="true">
+
+    <div class="ann" style="top:22%;left:38%">
+      <div class="ann-dot"></div>
+      <div class="ann-tip ann-tip--right">
+        <strong>Edison Pendants</strong>
+        <span>Cupru artizanal · 3 unități</span>
+      </div>
+    </div>
+
+    <div class="ann" style="top:58%;left:42%">
+      <div class="ann-dot"></div>
+      <div class="ann-tip ann-tip--right">
+        <strong>Neon Iconic</strong>
+        <span>"mood burger" · semn de neon</span>
+      </div>
+    </div>
+
+    <div class="ann" style="top:45%;left:60%">
+      <div class="ann-dot"></div>
+      <div class="ann-tip ann-tip--left">
+        <strong>Counter Industrial</strong>
+        <span>Mesh metalic · Strip LED</span>
+      </div>
+    </div>
+
+    <div class="ann" style="top:72%;left:72%">
+      <div class="ann-dot"></div>
+      <div class="ann-tip ann-tip--left">
+        <strong>Scaune Metal</strong>
+        <span>Industrial chic · Tolix style</span>
+      </div>
+    </div>
+
+    <div class="ann" style="top:35%;left:76%">
+      <div class="ann-dot"></div>
+      <div class="ann-tip ann-tip--left">
+        <strong>Art Wall</strong>
+        <span>Postere premium burger</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== ORDER CTA =================== -->
+<section class="order-section" id="order">
+  <!-- Giant ghost background text -->
+  <div class="order-ghost" aria-hidden="true">MOOD</div>
+
+  <div class="order-inner">
+    <div class="order-tag-row">
+      <span class="otr-line"></span>
+      <span class="otr-text">sună și comandă</span>
+      <span class="otr-line"></span>
+    </div>
+
+    <h2 class="order-phone">
+      <a href="tel:+40700000000">0700 000 000</a>
+    </h2>
+
+    <p class="order-sub">
+      Ridici în 15 minute sau livrăm la ușa ta.<br>
+      Fără aplicații. Fără complicații.
+    </p>
+
+    <div class="order-hrs">
+      <div class="ohr-item">
+        <span class="ohr-day">Luni — Vineri</span>
+        <strong class="ohr-time">10:00 — 22:00</strong>
+      </div>
+      <div class="ohr-sep"></div>
+      <div class="ohr-item">
+        <span class="ohr-day">Sâmbătă — Duminică</span>
+        <strong class="ohr-time">10:00 — 23:30</strong>
+      </div>
+    </div>
+
+    <!-- Neon ring animation around phone number -->
+    <div class="order-ring order-ring-1"></div>
+    <div class="order-ring order-ring-2"></div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer class="site-footer">
+  <div class="sf-left">
+    <span class="sf-logo">MOOD<em>.</em>BURGERS</span>
+    <span class="sf-copy">© 2026 · Târgu-Jiu, România</span>
+  </div>
+  <nav class="sf-nav">
+    <a href="#vibe">Vibe</a>
+    <a href="#menu">Meniu</a>
+    <a href="#local">Local</a>
+    <a href="#order">Contact</a>
+  </nav>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Restaurant Infinity · Târgu Jiu</title>
+  <meta name="description" content="Contactează-ne sau rezervă o masă la Restaurant Infinity, Strada Victoriei 26, Târgu Jiu. Program 07:00–24:00 în fiecare zi." />
+  <link rel="icon" type="image/png" href="assets/images/Logopom2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+/* ═══════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════ */
+:root {
+  --bg:        #07090d;
+  --surf:      #0d1017;
+  --surf2:     #131820;
+  --gold:      #c9a455;
+  --gold-lt:   #e8c97a;
+  --gold-dim:  rgba(201,164,85,.13);
+  --gold-glow: rgba(201,164,85,.32);
+  --text:      #f0e8d8;
+  --muted:     #7a7060;
+  --line:      rgba(240,232,216,.09);
+  --line-g:    rgba(201,164,85,.22);
+  --radius:    20px;
+  --ease:      cubic-bezier(.22,.82,.32,1);
+  --wrap:      min(1160px, 90vw);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Manrope",sans-serif;
+  background:var(--bg); color:var(--text);
+  line-height:1.6; overflow-x:hidden; cursor:none;
+  -webkit-font-smoothing:antialiased;
+}
+body.js-loading { overflow:hidden; }
+img { display:block; width:100%; }
+a   { color:inherit; text-decoration:none; }
+button { font-family:inherit; cursor:pointer; border:0; background:0; }
+h1,h2,h3,h4 { font-family:"Cormorant Garamond",serif; line-height:.94; letter-spacing:-.01em; }
+h1 { font-size:clamp(3rem,7.5vw,6rem); }
+h2 { font-size:clamp(2rem,4.5vw,3.4rem); }
+h3 { font-size:clamp(1.3rem,2.2vw,1.8rem); }
+.eyebrow { font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; font-weight:800; color:var(--gold); }
+.wrap { width:var(--wrap); margin-inline:auto; }
+
+/* ── CURSOR ── */
+#csr-dot,#csr-ring { position:fixed; top:0; left:0; pointer-events:none; z-index:9999; border-radius:50%; transform:translate(-50%,-50%); }
+#csr-dot  { width:6px; height:6px; background:var(--gold); }
+#csr-ring { width:36px; height:36px; border:1.5px solid rgba(201,164,85,.5); transition:width .22s var(--ease),height .22s var(--ease); }
+@media(pointer:coarse){ #csr-dot,#csr-ring{display:none;} body{cursor:auto;} }
+
+/* ── PRELOADER ── */
+#preloader { position:fixed; inset:0; z-index:9000; background:var(--bg); display:flex; align-items:center; justify-content:center; transition:opacity .6s ease,visibility .6s ease; }
+#preloader.done { opacity:0; visibility:hidden; }
+.pre-inner { text-align:center; }
+.pre-logo { display:flex; align-items:center; gap:.75rem; justify-content:center; margin-bottom:1.8rem; }
+.pre-logo img { width:50px; height:50px; object-fit:contain; border-radius:12px; }
+.pre-logo span { font-family:"Cormorant Garamond",serif; font-size:2.4rem; font-weight:700; }
+.pre-track { width:200px; height:1px; background:rgba(240,232,216,.1); margin:0 auto; overflow:hidden; }
+.pre-fill  { height:100%; width:0; background:linear-gradient(90deg,transparent,var(--gold),transparent); animation:pfill 1.6s var(--ease) forwards; }
+@keyframes pfill { to{ width:100%; } }
+
+/* ── HEADER ── */
+#site-hdr {
+  position:fixed; top:.9rem; inset-inline:0;
+  width:var(--wrap); margin-inline:auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.72rem 1rem; border-radius:16px; border:1px solid var(--line);
+  background:rgba(7,9,13,.55); backdrop-filter:blur(18px);
+  z-index:100; transition:background .35s,border-color .35s;
+}
+#site-hdr.scrolled { background:rgba(7,9,13,.9); border-color:var(--line-g); }
+.hdr-logo { display:flex; align-items:center; gap:.6rem; }
+.hdr-logo img { width:40px; height:40px; object-fit:contain; border-radius:10px; }
+.hdr-logo span { font-family:"Cormorant Garamond",serif; font-size:1.65rem; font-weight:700; }
+.hdr-nav { display:flex; align-items:center; gap:.25rem; }
+.hdr-nav a { font-weight:700; font-size:.84rem; padding:.48rem .78rem; border-radius:10px; border:1px solid transparent; color:var(--muted); transition:color .2s,border-color .2s,background .2s; }
+.hdr-nav a:hover,.hdr-nav a.active { color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04); }
+.hdr-cta { color:var(--bg) !important; background:var(--gold); border-color:transparent !important; padding:.48rem 1rem !important; transition:background .2s,box-shadow .2s !important; }
+.hdr-cta:hover { background:var(--gold-lt) !important; box-shadow:0 6px 22px var(--gold-glow) !important; }
+#hamburger { display:none; flex-direction:column; gap:5px; width:38px; height:38px; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--line); }
+#hamburger span { width:18px; height:1.5px; background:var(--text); transition:transform .22s,opacity .22s; }
+#hamburger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+#hamburger.open span:nth-child(2){ opacity:0; }
+#hamburger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+/* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+#hero-c {
+  position:relative; min-height:54vh;
+  display:flex; align-items:flex-end; overflow:hidden;
+  padding-bottom:5rem;
+}
+#hero-c::before {
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 100%, rgba(201,164,85,.06), transparent),
+    linear-gradient(to bottom, rgba(7,9,13,.0) 0%, rgba(7,9,13,.45) 100%);
+}
+.hero-c-bg {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:.18; z-index:0;
+}
+.hero-c-inner {
+  position:relative; z-index:2;
+  width:var(--wrap); margin-inline:auto;
+  padding-top:10rem;
+}
+.hero-c-inner .eyebrow { margin-bottom:1.1rem; }
+.hero-c-inner h1 em { font-style:italic; color:var(--gold); }
+.hero-c-line {
+  width:60px; height:1px;
+  background:linear-gradient(to right, var(--gold), transparent);
+  margin-top:1.4rem;
+}
+
+/* ════════════════════════════════════════
+   CONTACT GRID
+════════════════════════════════════════ */
+#contact-main { padding-block:clamp(5rem,9vw,9rem); }
+.cg-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+
+/* Info cards */
+.ci-card {
+  padding:2.2rem; border-radius:var(--radius);
+  background:var(--surf); border:1px solid var(--line);
+  display:flex; flex-direction:column; gap:.9rem;
+  transition:border-color .3s;
+}
+.ci-card:hover { border-color:var(--line-g); }
+.ci-icon {
+  width:44px; height:44px; border-radius:12px;
+  background:var(--gold-dim); border:1px solid var(--line-g);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem;
+}
+.ci-card h3 { margin-top:.2rem; font-size:1.5rem; }
+.ci-card p  { color:var(--muted); font-size:.95rem; line-height:1.65; }
+.ci-card a  { color:var(--muted); font-size:.9rem; font-weight:600; transition:color .2s; }
+.ci-card a:hover { color:var(--gold); }
+.ci-links { display:flex; flex-direction:column; gap:.35rem; }
+
+/* Schedule grid inside card */
+.sched {
+  display:grid; grid-template-columns:auto 1fr;
+  gap:.3rem 1.8rem;
+}
+.sched span  { font-size:.88rem; color:var(--muted); }
+.sched strong{ font-size:.88rem; color:var(--text); font-weight:700; }
+
+/* Status badge */
+.ci-status {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.78rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  color:#4ade80;
+}
+.ci-status::before {
+  content:""; width:7px; height:7px; border-radius:50%;
+  background:#4ade80; box-shadow:0 0 8px rgba(74,222,128,.6);
+  flex-shrink:0;
+}
+
+/* Map */
+.ci-map {
+  grid-column:1 / -1;
+  border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--line); height:340px;
+  position:relative;
+}
+.ci-map iframe { width:100%; height:100%; border:0; filter:grayscale(1) invert(1) brightness(.8) contrast(.9) hue-rotate(180deg); }
+.ci-map-overlay {
+  position:absolute; bottom:1.2rem; left:1.2rem;
+  background:rgba(7,9,13,.85); backdrop-filter:blur(12px);
+  border:1px solid var(--line-g); border-radius:12px;
+  padding:.65rem 1rem;
+  display:flex; align-items:center; gap:.5rem;
+  font-size:.82rem; font-weight:700; color:var(--text);
+}
+.ci-map-overlay a { color:var(--gold); text-decoration:none; font-size:.8rem; font-weight:800; }
+.ci-map-overlay a:hover { opacity:.75; }
+
+/* ════════════════════════════════════════
+   DIRECT ACTIONS (call + wa)
+════════════════════════════════════════ */
+#direct { padding-block:clamp(3rem,5vw,5rem); border-top:1px solid var(--line); }
+.da-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1rem; margin-top:1.8rem;
+}
+.da-card {
+  padding:2.2rem; border-radius:var(--radius);
+  border:1px solid var(--line); background:var(--surf);
+  display:flex; align-items:center; gap:1.4rem;
+  transition:border-color .3s,transform .3s var(--ease);
+  text-decoration:none; color:var(--text);
+}
+.da-card:hover { border-color:var(--line-g); transform:translateY(-4px); }
+.da-card--wa   { border-color:rgba(37,211,102,.2); background:rgba(37,211,102,.04); }
+.da-card--wa:hover { border-color:rgba(37,211,102,.5); }
+.da-card-icon {
+  width:56px; height:56px; border-radius:14px; flex-shrink:0;
+  background:var(--gold-dim); border:1px solid var(--line-g);
+  display:flex; align-items:center; justify-content:center; color:var(--gold);
+}
+.da-card--wa .da-card-icon { background:rgba(37,211,102,.12); border-color:rgba(37,211,102,.3); color:#25d366; }
+.da-card-text { display:flex; flex-direction:column; gap:.3rem; }
+.da-card-text span { font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.da-card-text strong { font-size:1.5rem; font-family:"Cormorant Garamond",serif; font-weight:700; line-height:1; }
+.da-card-text small { font-size:.82rem; color:var(--muted); line-height:1.4; }
+
+/* ════════════════════════════════════════
+   BOOKING CTA
+════════════════════════════════════════ */
+#contact-cta {
+  padding-block:clamp(4rem,7vw,7rem); border-top:1px solid var(--line);
+}
+.cta-card {
+  padding:3.5rem; border-radius:24px;
+  background:rgba(201,164,85,.06); border:1px solid var(--line-g);
+  text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.2rem;
+}
+.cta-card h2 { max-width:24ch; }
+.cta-card p  { color:var(--muted); max-width:55ch; }
+.cta-btns    { display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; margin-top:.4rem; }
+.btn-gold {
+  display:inline-flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:.88rem; letter-spacing:.04em;
+  padding:.88rem 1.5rem; border-radius:12px; border:0;
+  background:linear-gradient(115deg,var(--gold),var(--gold-lt));
+  color:var(--bg); box-shadow:0 8px 28px rgba(201,164,85,.28);
+  transition:box-shadow .3s,transform .3s;
+}
+.btn-gold:hover { box-shadow:0 16px 38px rgba(201,164,85,.5); transform:translateY(-2px); }
+.btn-outline {
+  display:inline-flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:.88rem; letter-spacing:.04em;
+  padding:.88rem 1.5rem; border-radius:12px;
+  border:1px solid var(--line-g); background:rgba(255,255,255,.04); color:var(--text);
+  transition:background .3s,border-color .3s,transform .3s;
+}
+.btn-outline:hover { background:rgba(255,255,255,.07); border-color:rgba(201,164,85,.45); transform:translateY(-2px); }
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+#site-footer { border-top:1px solid var(--line); padding-top:clamp(3rem,5vw,5rem); }
+.footer-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2.5rem; padding-bottom:3rem; }
+.footer-logo { display:inline-flex; align-items:center; gap:.6rem; margin-bottom:.85rem; }
+.footer-logo img { width:38px; height:38px; object-fit:contain; border-radius:10px; }
+.footer-logo span { font-family:"Cormorant Garamond",serif; font-size:1.55rem; font-weight:700; }
+.footer-brand > p { font-size:.88rem; color:var(--muted); max-width:32ch; line-height:1.5; margin-bottom:.4rem; }
+.footer-col h5 { font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:800; margin-bottom:.9rem; }
+.footer-col a  { display:block; font-size:.88rem; color:var(--muted); margin-bottom:.45rem; transition:color .2s; }
+.footer-col a:hover { color:var(--text); }
+.footer-bar { border-top:1px solid var(--line); padding-block:1.2rem; }
+.footer-bar p { font-size:.82rem; color:var(--muted); text-align:center; }
+
+/* ── REVEAL ── */
+.ri { opacity:0; transform:translateY(24px); transition:opacity .65s ease calc(var(--i,0)*.1s), transform .65s ease calc(var(--i,0)*.1s); }
+.ri.vis { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:980px){
+  .cg-grid  { grid-template-columns:1fr; }
+  .da-grid  { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .ci-map   { height:280px; }
+}
+@media(max-width:640px){
+  #main-nav { display:none; position:absolute; top:calc(100% + .5rem); left:0; right:0; flex-direction:column; align-items:stretch; padding:.9rem; border:1px solid var(--line); border-radius:14px; background:rgba(7,9,13,.97); backdrop-filter:blur(12px); transform-origin:top center; transform:scaleY(.7); opacity:0; pointer-events:none; transition:opacity .22s,transform .22s; }
+  #main-nav.open { display:flex; opacity:1; transform:scaleY(1); pointer-events:auto; }
+  #hamburger { display:flex; }
+  .cta-btns { flex-direction:column; align-items:center; }
+  .btn-gold,.btn-outline { width:100%; }
+  .footer-grid { grid-template-columns:1fr; }
+}
+  </style>
+</head>
+<body class="js-loading">
+
+  <!-- PRELOADER -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <div class="pre-logo">
+        <img src="assets/images/Logopom2.png" alt="" />
+        <span>Infinity</span>
+      </div>
+      <div class="pre-track"><div class="pre-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div id="csr-dot"  aria-hidden="true"></div>
+  <div id="csr-ring" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header id="site-hdr">
+    <a class="hdr-logo" href="index.html" aria-label="Restaurant Infinity – Acasă">
+      <img src="assets/images/Logopom2.png" alt="Logo Infinity" />
+      <span>Infinity</span>
+    </a>
+    <nav id="main-nav" class="hdr-nav" aria-label="Navigație principală">
+      <a href="index.html">Acasă</a>
+      <a href="index.html#menu">Meniu</a>
+      <a href="index.html#gallery">Galerie</a>
+      <a href="istorie.html">Istorie</a>
+      <a href="#" class="active">Contact</a>
+      <a href="https://pensiuneainfinity.ro/" target="_blank" rel="noopener noreferrer">Pensiune</a>
+      <a class="hdr-cta" href="index.html#booking">Rezervă</a>
+    </nav>
+    <button id="hamburger" aria-label="Meniu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ════════ HERO ════════ -->
+    <section id="hero-c">
+      <img class="hero-c-bg" src="assets/images/BOB04128-scaled.jpg" alt="" aria-hidden="true" />
+      <div class="hero-c-inner">
+        <p class="eyebrow ri" style="--i:0">Restaurant Infinity · Târgu Jiu</p>
+        <h1 class="ri" style="--i:1">
+          Suntem<br><em>aici pentru tine.</em>
+        </h1>
+        <div class="hero-c-line ri" style="--i:2"></div>
+      </div>
+    </section>
+
+    <!-- ════════ CONTACT CARDS ════════ -->
+    <section id="contact-main">
+      <div class="wrap">
+
+        <div class="cg-grid">
+
+          <!-- Locație + contact -->
+          <div class="ci-card ri" style="--i:0">
+            <div class="ci-icon">📍</div>
+            <h3>Locație</h3>
+            <p>Str. Victoriei nr. 26<br>Târgu Jiu, jud. Gorj<br>România</p>
+            <div class="ci-links">
+              <a href="tel:+40748208209">
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none" style="display:inline;vertical-align:middle;margin-right:.35rem" aria-hidden="true"><path d="M1.885 1.034C2.162.757 2.54.6 2.929.6h1.657c.694 0 1.286.488 1.417 1.17l.394 2.103a1.44 1.44 0 0 1-.386 1.307L5.14 6.053a9.622 9.622 0 0 0 4.8 4.8l.873-.871a1.44 1.44 0 0 1 1.307-.387l2.103.394c.682.131 1.17.723 1.17 1.417v1.657c0 .389-.156.763-.432 1.04-.277.277-.655.432-1.043.432H12.4C6.086 14.535 1.457 9.907 1.457 3.593v-.518c0-.389.155-.763.428-1.04Z" fill="currentColor"/></svg>
+                0748 208 209
+              </a>
+              <a href="mailto:contact@restaurant.rylke.ro">contact@restaurant.rylke.ro</a>
+            </div>
+          </div>
+
+          <!-- Program -->
+          <div class="ci-card ri" style="--i:1">
+            <div class="ci-icon">🕐</div>
+            <h3>Program de lucru</h3>
+            <p class="ci-status">Deschis zilnic</p>
+            <div class="sched">
+              <span>Luni – Vineri</span><strong>07:00 – 24:00</strong>
+              <span>Sâmbătă</span>      <strong>07:00 – 24:00</strong>
+              <span>Duminică</span>     <strong>07:00 – 24:00</strong>
+            </div>
+            <p style="font-size:.85rem;color:var(--muted);margin-top:.4rem">Rezervările telefonice sunt disponibile zilnic între <strong>08:00 – 22:00</strong></p>
+          </div>
+
+          <!-- Hartă -->
+          <div class="ci-map ri" style="--i:2">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2823.4789!2d23.2783!3d45.0402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474cf843b47d6e0d%3A0x1c8f3b78b8b0a2a0!2sStrada%20Victoriei%2026%2C%20T%C3%A2rgu%20Jiu!5e0!3m2!1sro!2sro!4v1712345678901"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Locația Restaurant Infinity pe hartă">
+            </iframe>
+            <div class="ci-map-overlay">
+              <span>📍 Str. Victoriei 26, TG Jiu</span>
+              &nbsp;·&nbsp;
+              <a href="https://maps.google.com/?q=Strada+Victoriei+26+Targu+Jiu" target="_blank" rel="noopener noreferrer">Deschide în Maps →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ ACȚIUNI DIRECTE ════════ -->
+    <section id="direct">
+      <div class="wrap">
+        <p class="eyebrow ri" style="--i:0">Contactează-ne direct</p>
+        <h2 class="ri" style="--i:1" style="margin-block:.4rem 0">Alege modalitatea preferată</h2>
+        <div class="da-grid">
+
+          <a class="da-card ri" style="--i:2" href="tel:+40748208209">
+            <div class="da-card-icon">
+              <svg width="22" height="22" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1.885 1.034C2.162.757 2.54.6 2.929.6h1.657c.694 0 1.286.488 1.417 1.17l.394 2.103a1.44 1.44 0 0 1-.386 1.307L5.14 6.053a9.622 9.622 0 0 0 4.8 4.8l.873-.871a1.44 1.44 0 0 1 1.307-.387l2.103.394c.682.131 1.17.723 1.17 1.417v1.657c0 .389-.156.763-.432 1.04-.277.277-.655.432-1.043.432H12.4C6.086 14.535 1.457 9.907 1.457 3.593v-.518c0-.389.155-.763.428-1.04Z" fill="currentColor"/></svg>
+            </div>
+            <div class="da-card-text">
+              <span>Telefon</span>
+              <strong>0748 208 209</strong>
+              <small>Sună direct — răspundem zilnic 08:00–22:00</small>
+            </div>
+          </a>
+
+          <a class="da-card da-card--wa ri" style="--i:3" href="https://wa.me/40748208209" target="_blank" rel="noopener noreferrer">
+            <div class="da-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.472 3.528C18.188 1.244 15.166 0 11.999 0 5.441 0 .068 5.373.065 11.932c-.001 2.101.548 4.15 1.59 5.957L0 24l6.254-1.641A11.93 11.93 0 0 0 12 23.822C18.558 23.822 24 18.449 24 11.888c0-3.167-1.241-6.148-3.528-8.36Zm-8.473 18.35h-.004a9.91 9.91 0 0 1-5.05-1.38l-.362-.215-3.754.984 1.002-3.657-.236-.375A9.879 9.879 0 0 1 2.08 11.93c.003-5.461 4.446-9.903 9.91-9.903a9.846 9.846 0 0 1 7.007 2.905 9.845 9.845 0 0 1 2.9 7.01c-.003 5.46-4.446 9.907-9.898 9.907Zm5.43-7.418c-.298-.149-1.76-.868-2.033-.967-.273-.1-.472-.149-.67.149-.198.298-.769.967-.942 1.165-.173.199-.347.224-.645.075-.298-.15-1.257-.463-2.394-1.476-.885-.787-1.482-1.76-1.655-2.057-.173-.298-.018-.459.13-.607.133-.133.298-.347.447-.521.149-.173.198-.298.298-.497.099-.198.05-.373-.025-.521-.075-.149-.67-1.612-.918-2.207-.242-.579-.487-.5-.67-.51l-.57-.01c-.198 0-.521.074-.794.372-.272.298-1.041 1.017-1.041 2.479 0 1.463 1.066 2.876 1.215 3.074.149.198 2.098 3.204 5.085 4.492.711.307 1.265.49 1.698.627.713.227 1.361.195 1.874.118.572-.085 1.76-.72 2.008-1.415.249-.695.249-1.29.174-1.414-.074-.124-.272-.198-.57-.347Z"/></svg>
+            </div>
+            <div class="da-card-text">
+              <span>WhatsApp</span>
+              <strong>Scrie-ne acum</strong>
+              <small>Răspundem în câteva minute · 07:00–24:00</small>
+            </div>
+          </a>
+
+          <a class="da-card ri" style="--i:4" href="mailto:contact@restaurant.rylke.ro">
+            <div class="da-card-icon" style="font-size:1.3rem">✉️</div>
+            <div class="da-card-text">
+              <span>Email</span>
+              <strong style="font-size:1.05rem">contact@restaurant.rylke.ro</strong>
+              <small>Răspundem în maxim 24 de ore</small>
+            </div>
+          </a>
+
+          <a class="da-card ri" style="--i:5" href="https://maps.google.com/?q=Strada+Victoriei+26+Targu+Jiu" target="_blank" rel="noopener noreferrer">
+            <div class="da-card-icon" style="font-size:1.3rem">📍</div>
+            <div class="da-card-text">
+              <span>Locație</span>
+              <strong style="font-size:1.05rem">Str. Victoriei 26</strong>
+              <small>Târgu Jiu · Deschide în Google Maps</small>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ BOOKING CTA ════════ -->
+    <section id="contact-cta">
+      <div class="wrap">
+        <div class="cta-card ri">
+          <p class="eyebrow">Rezervări</p>
+          <h2>Rezervă masa ta în câteva secunde</h2>
+          <p>Completează formularul de rezervare și veți fi confirmați în maxim 30 de minute în timpul programului.</p>
+          <div class="cta-btns">
+            <a class="btn-gold" href="index.html#booking">Rezervă acum</a>
+            <a class="btn-outline" href="index.html#menu">Vezi meniul</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/images/Logopom2.png" alt="Logo Infinity" />
+          <span>Infinity</span>
+        </a>
+        <p>Calitatea ne definește. Toate drepturile rezervate.</p>
+        <p style="font-size:.8rem;color:var(--muted)">Designed by Inovex.ro &amp; Advertise Hub</p>
+      </div>
+      <div class="footer-col">
+        <h5>Link-uri utile</h5>
+        <a href="index.html">Acasă</a>
+        <a href="index.html#menu">Meniu</a>
+        <a href="index.html#gallery">Galerie</a>
+        <a href="istorie.html">Istorie</a>
+        <a href="https://pensiuneainfinity.ro/" target="_blank" rel="noopener noreferrer">Pensiune</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO" target="_blank" rel="noopener noreferrer">Soluționarea litigiilor</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC</a>
+        <a href="termeni.html">Termeni și condiții</a>
+        <a href="termeni.html#confidentialitate">Politică de confidențialitate</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap"><p>© 2026 Restaurant Infinity · Târgu Jiu · Toate drepturile rezervate</p></div>
+    </div>
+  </footer>
+
+  <script>
+/* PRELOADER */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('preloader').classList.add('done');
+    document.body.classList.remove('js-loading');
+    document.querySelectorAll('#hero-c .ri').forEach(el => el.classList.add('vis'));
+  }, 1400);
+});
+
+/* CURSOR */
+const dot = document.getElementById('csr-dot');
+const ring = document.getElementById('csr-ring');
+if (window.matchMedia('(pointer:fine)').matches) {
+  let mx=-200,my=-200,rx=-200,ry=-200;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+  (function lerp(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(lerp); })();
+}
+
+/* HEADER SCROLL */
+const hdr = document.getElementById('site-hdr');
+window.addEventListener('scroll',()=>{ hdr.classList.toggle('scrolled',scrollY>60); },{passive:true});
+
+/* HAMBURGER */
+const burger = document.getElementById('hamburger');
+const nav    = document.getElementById('main-nav');
+if (burger && nav) {
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open'); nav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }));
+}
+
+/* REVEAL */
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); ro.unobserve(e.target); } });
+},{threshold:.15});
+document.querySelectorAll('.ri:not(#hero-c .ri)').forEach(el=>ro.observe(el));
+  </script>
+</body>
+</html>

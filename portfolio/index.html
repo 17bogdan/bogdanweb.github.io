@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BBotnaruc — Web Designer & Developer</title>
+  <meta name="description" content="Portfolio web designer — proiecte premium cu impact vizual puternic." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════ PRELOADER ══════════════ -->
+  <div id="preloader">
+    <div class="pre-content">
+      <div class="pre-logo-wrap">
+        <svg class="pre-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" stroke="url(#g1)" stroke-width="1.5"/>
+          <path d="M25 50 Q50 20 75 50 Q50 80 25 50Z" stroke="url(#g1)" stroke-width="1.5" fill="none"/>
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#7B2FFF"/>
+              <stop offset="100%" stop-color="#00D4FF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="pre-bar-wrap"><div class="pre-bar"></div></div>
+      <p class="pre-text">Loading<span class="pre-dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ══════════════ CURSOR ══════════════ -->
+  <div id="cursor-outer"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ══════════════ NOISE ══════════════ -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <header id="hdr">
+    <a class="hdr-logo" href="#hero">
+      <span class="logo-symbol">&lt;</span>BB<span class="logo-symbol">/&gt;</span>
+    </a>
+    <nav id="main-nav">
+      <a href="#about" class="nav-link" data-text="About">About</a>
+      <a href="#work" class="nav-link" data-text="Work">Work</a>
+      <a href="#skills" class="nav-link" data-text="Skills">Skills</a>
+      <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+    </nav>
+    <a href="#contact" class="hdr-cta">
+      <span>Hire Me</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </a>
+    <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div id="mobile-nav">
+    <nav class="mob-links">
+      <a href="#about" class="mob-link">About</a>
+      <a href="#work" class="mob-link">Work</a>
+      <a href="#skills" class="mob-link">Skills</a>
+      <a href="#contact" class="mob-link">Contact</a>
+    </nav>
+    <div class="mob-footer">
+      <p>Available for projects</p>
+      <span class="avail-dot"></span>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section id="hero">
+      <canvas id="hero-canvas"></canvas>
+
+      <!-- Floating grid overlay -->
+      <div class="hero-grid-lines" aria-hidden="true">
+        <div class="hgl hgl-v"></div>
+        <div class="hgl hgl-v"></div>
+        <div class="hgl hgl-v"></div>
+        <div class="hgl hgl-h"></div>
+        <div class="hgl hgl-h"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge reveal-up" style="--d:0s">
+          <span class="badge-dot"></span>
+          Available for work
+        </div>
+
+        <h1 class="hero-title">
+          <span class="ht-line reveal-up" style="--d:.1s">
+            <span class="ht-word">Web</span>
+            <span class="ht-word gradient-text">Design</span>
+          </span>
+          <span class="ht-line reveal-up" style="--d:.25s">
+            <span class="ht-word">That</span>
+            <span class="ht-word">Moves</span>
+            <span class="ht-word gradient-text">People.</span>
+          </span>
+        </h1>
+
+        <p class="hero-sub reveal-up" style="--d:.4s">
+          Creez experiențe digitale cu impact puternic —<br/>
+          de la concept la pixel perfect.
+        </p>
+
+        <div class="hero-actions reveal-up" style="--d:.55s">
+          <a href="#work" class="btn-primary">
+            <span>Vezi Proiectele</span>
+            <div class="btn-bg"></div>
+          </a>
+          <a href="#contact" class="btn-ghost">Contact</a>
+        </div>
+
+        <div class="hero-stats reveal-up" style="--d:.7s">
+          <div class="stat">
+            <span class="stat-num" data-count="3">0</span>
+            <span class="stat-label">Proiecte Premium</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-count="100">0</span><span class="stat-pct">%</span>
+            <span class="stat-label">Dedicare Client</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-count="3">0</span>
+            <span class="stat-label">Ani Experiență</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ══════════════ MARQUEE ══════════════ -->
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Web Design</span><span class="sep">✦</span>
+        <span>UI / UX</span><span class="sep">✦</span>
+        <span>Animații 3D</span><span class="sep">✦</span>
+        <span>React</span><span class="sep">✦</span>
+        <span>Three.js</span><span class="sep">✦</span>
+        <span>Motion Design</span><span class="sep">✦</span>
+        <span>Branding</span><span class="sep">✦</span>
+        <span>Web Design</span><span class="sep">✦</span>
+        <span>UI / UX</span><span class="sep">✦</span>
+        <span>Animații 3D</span><span class="sep">✦</span>
+        <span>React</span><span class="sep">✦</span>
+        <span>Three.js</span><span class="sep">✦</span>
+        <span>Motion Design</span><span class="sep">✦</span>
+        <span>Branding</span><span class="sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ══════════════ ABOUT ══════════════ -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-left">
+            <div class="section-label reveal-left">— About Me</div>
+            <h2 class="section-title reveal-left" style="--d:.1s">
+              Creez digital<br/>
+              <em>cu pasiune</em>
+            </h2>
+            <p class="about-text reveal-left" style="--d:.2s">
+              Sunt un web designer din Târgu Jiu cu o pasiune pentru interfețe frumoase și experiențe digitale de neuitat. Combin estetica cu funcționalitatea pentru a livra proiecte care nu doar arată bine — ci <strong>vând</strong>.
+            </p>
+            <p class="about-text reveal-left" style="--d:.3s">
+              Fiecare proiect este abordat ca o colaborare — înțeleg brandul tău, publicul tău, și obiectivele tale, și le transform în cod viu.
+            </p>
+            <div class="about-tags reveal-left" style="--d:.4s">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">UI Design</span>
+              <span class="tag">Figma</span>
+            </div>
+          </div>
+          <div class="about-right reveal-right">
+            <div class="about-card-3d" id="about-card">
+              <div class="about-card-inner">
+                <div class="card-lines" aria-hidden="true">
+                  <div></div><div></div><div></div>
+                </div>
+                <div class="about-avatar">
+                  <div class="avatar-ring ring-1"></div>
+                  <div class="avatar-ring ring-2"></div>
+                  <div class="avatar-monogram">BB</div>
+                </div>
+                <div class="about-card-info">
+                  <p class="aci-name">BBotnaruc</p>
+                  <p class="aci-role">Web Designer & Developer</p>
+                  <p class="aci-loc">📍 Târgu Jiu, România</p>
+                </div>
+                <div class="card-badge-avail">
+                  <span class="avail-dot"></span> Available
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ WORK ══════════════ -->
+    <section id="work">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label reveal-up">— Selected Work</div>
+          <h2 class="section-title reveal-up" style="--d:.1s">Proiecte<br/><em>care contează</em></h2>
+        </div>
+
+        <div class="projects-list">
+
+          <!-- PROJECT 1 — INFINITY -->
+          <article class="project-card reveal-up" style="--d:.1s" data-index="01">
+            <div class="pc-left">
+              <div class="pc-index">01</div>
+              <div class="pc-info">
+                <div class="pc-tags">
+                  <span>Fine Dining</span>
+                  <span>Restaurant</span>
+                  <span>Animation</span>
+                </div>
+                <h3 class="pc-title">Restaurant Infinity</h3>
+                <p class="pc-desc">
+                  Website de fine dining pentru Restaurant Infinity din Târgu Jiu. Preloader elegant, cursor personalizat, hero cu canvas 3D, galerie foto și sistem de rezervări — o experiență premium de la primul pixel.
+                </p>
+                <div class="pc-tech">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Three.js</span>
+                </div>
+                <a href="../Infinity/index.html" class="pc-link" target="_blank">
+                  <span>Vizualizează Proiectul</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="pc-right">
+              <div class="pc-mockup" id="mockup-infinity">
+                <div class="mockup-browser">
+                  <div class="browser-bar">
+                    <div class="browser-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="browser-url">infinity-restaurant.ro</div>
+                  </div>
+                  <div class="browser-screen infinity-screen">
+                    <div class="ms-overlay"></div>
+                    <div class="ms-content">
+                      <div class="ms-logo">∞ INFINITY</div>
+                      <div class="ms-tagline">Fine Dining · Târgu Jiu</div>
+                      <div class="ms-btn">Rezervă o Masă</div>
+                    </div>
+                    <div class="ms-grid-lines" aria-hidden="true">
+                      <div></div><div></div><div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mockup-glow glow-gold"></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 — KONGBURGERS -->
+          <article class="project-card reveal-up" style="--d:.2s" data-index="02">
+            <div class="pc-left">
+              <div class="pc-index">02</div>
+              <div class="pc-info">
+                <div class="pc-tags">
+                  <span>Fast Food</span>
+                  <span>Branding</span>
+                  <span>3D Canvas</span>
+                </div>
+                <h3 class="pc-title">KongBurgers</h3>
+                <p class="pc-desc">
+                  Identitate vizuală agresivă și modernă pentru KongBurgers — primul burger premium din Târgu Jiu. Hero cu Three.js, noise overlay, animații de text split și un design care face foame instantaneu.
+                </p>
+                <div class="pc-tech">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Three.js</span>
+                </div>
+                <a href="../kongburgers/kongburgers/index.html" class="pc-link" target="_blank">
+                  <span>Vizualizează Proiectul</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="pc-right">
+              <div class="pc-mockup" id="mockup-kong">
+                <div class="mockup-browser">
+                  <div class="browser-bar">
+                    <div class="browser-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="browser-url">kongburgers.ro</div>
+                  </div>
+                  <div class="browser-screen kong-screen">
+                    <div class="ks-overlay"></div>
+                    <div class="ks-content">
+                      <div class="ks-logo">KONG<span>.</span>BURGERS</div>
+                      <div class="ks-tagline">Viitorul Gustului</div>
+                      <div class="ks-btn">Comandă Acum</div>
+                    </div>
+                    <div class="ks-particles" aria-hidden="true">
+                      <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mockup-glow glow-red"></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3 — MOODBURGERS -->
+          <article class="project-card reveal-up" style="--d:.3s" data-index="03">
+            <div class="pc-left">
+              <div class="pc-index">03</div>
+              <div class="pc-info">
+                <div class="pc-tags">
+                  <span>Restaurant</span>
+                  <span>Editorial</span>
+                  <span>Split-Screen</span>
+                </div>
+                <h3 class="pc-title">Mood Burgers</h3>
+                <p class="pc-desc">
+                  Design editorial sofisticat pentru Mood Burgers — o experiență vizuală split-screen cu tipografie contrastantă, accente chihlimbar și o atmosferă care transmite „feel it here". Loader animat, cursor custom și animații fluide.
+                </p>
+                <div class="pc-tech">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span>
+                </div>
+                <a href="../moodburgers/moodburgers/index.html" class="pc-link" target="_blank">
+                  <span>Vizualizează Proiectul</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="pc-right">
+              <div class="pc-mockup">
+                <div class="mockup-browser">
+                  <div class="browser-bar">
+                    <div class="browser-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="browser-url">moodburgers.ro</div>
+                  </div>
+                  <div class="browser-screen mood-screen">
+                    <div class="mood-left-panel">
+                      <div class="mood-overline">Târgu-Jiu · Est. 2026</div>
+                      <div class="mood-h1">
+                        <span>Feel</span>
+                        <em>the</em>
+                        <span class="mood-outline">mood.</span>
+                      </div>
+                      <div class="mood-cta">Comandă Acum</div>
+                    </div>
+                    <div class="mood-right-panel">
+                      <div class="mood-img-overlay"></div>
+                      <div class="mood-badge">Feel It Here</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mockup-glow glow-amber"></div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ SKILLS ══════════════ -->
+    <section id="skills">
+      <div class="skills-bg-shape" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header centered">
+          <div class="section-label reveal-up">— My Stack</div>
+          <h2 class="section-title reveal-up" style="--d:.1s">Unelte &<br/><em>Competențe</em></h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-item reveal-up" style="--d:.05s">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M3 12h18"/><path d="M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9c2.5-3 4-5.5 4-9s-1.5-6-4-9"/></svg>
+            </div>
+            <p class="skill-name">HTML / CSS</p>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:95%"></div></div>
+            <span class="skill-pct">95%</span>
+          </div>
+          <div class="skill-item reveal-up" style="--d:.1s">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            </div>
+            <p class="skill-name">JavaScript</p>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:85%"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-item reveal-up" style="--d:.15s">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <p class="skill-name">Three.js / WebGL</p>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:78%"></div></div>
+            <span class="skill-pct">78%</span>
+          </div>
+          <div class="skill-item reveal-up" style="--d:.2s">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <p class="skill-name">UI / UX Design</p>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:90%"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-item reveal-up" style="--d:.25s">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <p class="skill-name">Figma / Design Tools</p>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:88%"></div></div>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-item reveal-up" style="--d:.3s">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <p class="skill-name">Motion & Animation</p>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--w:82%"></div></div>
+            <span class="skill-pct">82%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CONTACT ══════════════ -->
+    <section id="contact">
+      <canvas id="contact-canvas"></canvas>
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="section-label reveal-up">— Get In Touch</div>
+          <h2 class="contact-title reveal-up" style="--d:.1s">
+            Hai să<br/><em class="gradient-text">construim</em><br/>ceva mare.
+          </h2>
+          <p class="contact-sub reveal-up" style="--d:.2s">
+            Ai un proiect în minte? Scrie-mi și răspund în mai puțin de 24h.
+          </p>
+          <div class="contact-actions reveal-up" style="--d:.3s">
+            <a href="mailto:bogdan.botnaruc@gmail.com" class="btn-primary large">
+              <span>Trimite un Email</span>
+              <div class="btn-bg"></div>
+            </a>
+            <a href="https://wa.me/40760081516" target="_blank" rel="noopener noreferrer" class="btn-whatsapp large">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+          <div class="contact-socials reveal-up" style="--d:.4s">
+            <a href="https://github.com/17bogdan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.57v-2c-3.34.73-4.03-1.6-4.03-1.6-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/botnarucbogdan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/17bodi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="footer-logo" href="#hero">
+          <span class="logo-symbol">&lt;</span>BB<span class="logo-symbol">/&gt;</span>
+        </a>
+        <p class="footer-copy">© 2026 BBotnaruc. Crafted with passion.</p>
+        <div class="footer-back">
+          <a href="#hero" class="back-top">
+            Back to top
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

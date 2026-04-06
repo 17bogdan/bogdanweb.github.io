@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termeni și Condiții · Restaurant Infinity</title>
+  <meta name="description" content="Termenii și condițiile de utilizare, politica de confidențialitate și informații legale pentru Restaurant Infinity, Târgu Jiu." />
+  <link rel="icon" type="image/png" href="assets/images/Logopom2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+/* ═══════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════ */
+:root {
+  --bg:        #07090d;
+  --surf:      #0d1017;
+  --surf2:     #131820;
+  --gold:      #c9a455;
+  --gold-lt:   #e8c97a;
+  --gold-dim:  rgba(201,164,85,.13);
+  --gold-glow: rgba(201,164,85,.32);
+  --text:      #f0e8d8;
+  --muted:     #7a7060;
+  --line:      rgba(240,232,216,.09);
+  --line-g:    rgba(201,164,85,.22);
+  --radius:    20px;
+  --ease:      cubic-bezier(.22,.82,.32,1);
+  --wrap:      min(1160px, 90vw);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Manrope",sans-serif;
+  background:var(--bg); color:var(--text);
+  line-height:1.6; overflow-x:hidden; cursor:none;
+  -webkit-font-smoothing:antialiased;
+}
+body.js-loading { overflow:hidden; }
+a   { color:inherit; text-decoration:none; }
+button { font-family:inherit; cursor:pointer; border:0; background:0; }
+h1,h2,h3,h4 { font-family:"Cormorant Garamond",serif; line-height:.94; letter-spacing:-.01em; }
+h1 { font-size:clamp(2.8rem,6vw,5rem); }
+h2 { font-size:clamp(1.7rem,3vw,2.4rem); }
+h3 { font-size:clamp(1.1rem,1.8vw,1.4rem); }
+.eyebrow { font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; font-weight:800; color:var(--gold); }
+.wrap { width:var(--wrap); margin-inline:auto; }
+
+/* ── CURSOR ── */
+#csr-dot,#csr-ring { position:fixed; top:0; left:0; pointer-events:none; z-index:9999; border-radius:50%; transform:translate(-50%,-50%); }
+#csr-dot  { width:6px; height:6px; background:var(--gold); }
+#csr-ring { width:36px; height:36px; border:1.5px solid rgba(201,164,85,.5); transition:width .22s var(--ease),height .22s var(--ease); }
+@media(pointer:coarse){ #csr-dot,#csr-ring{display:none;} body{cursor:auto;} }
+
+/* ── PRELOADER ── */
+#preloader { position:fixed; inset:0; z-index:9000; background:var(--bg); display:flex; align-items:center; justify-content:center; transition:opacity .6s ease,visibility .6s ease; }
+#preloader.done { opacity:0; visibility:hidden; }
+.pre-inner { text-align:center; }
+.pre-logo { display:flex; align-items:center; gap:.75rem; justify-content:center; margin-bottom:1.8rem; }
+.pre-logo img { width:50px; height:50px; object-fit:contain; border-radius:12px; }
+.pre-logo span { font-family:"Cormorant Garamond",serif; font-size:2.4rem; font-weight:700; }
+.pre-track { width:200px; height:1px; background:rgba(240,232,216,.1); margin:0 auto; overflow:hidden; }
+.pre-fill  { height:100%; width:0; background:linear-gradient(90deg,transparent,var(--gold),transparent); animation:pfill 1.6s var(--ease) forwards; }
+@keyframes pfill { to{ width:100%; } }
+
+/* ── HEADER ── */
+#site-hdr {
+  position:fixed; top:.9rem; inset-inline:0;
+  width:var(--wrap); margin-inline:auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.72rem 1rem; border-radius:16px; border:1px solid var(--line);
+  background:rgba(7,9,13,.55); backdrop-filter:blur(18px);
+  z-index:100; transition:background .35s,border-color .35s;
+}
+#site-hdr.scrolled { background:rgba(7,9,13,.9); border-color:var(--line-g); }
+.hdr-logo { display:flex; align-items:center; gap:.6rem; }
+.hdr-logo img { width:40px; height:40px; object-fit:contain; border-radius:10px; }
+.hdr-logo span { font-family:"Cormorant Garamond",serif; font-size:1.65rem; font-weight:700; }
+.hdr-nav { display:flex; align-items:center; gap:.25rem; }
+.hdr-nav a { font-weight:700; font-size:.84rem; padding:.48rem .78rem; border-radius:10px; border:1px solid transparent; color:var(--muted); transition:color .2s,border-color .2s,background .2s; }
+.hdr-nav a:hover,.hdr-nav a.active { color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04); }
+.hdr-cta { color:var(--bg) !important; background:var(--gold); border-color:transparent !important; padding:.48rem 1rem !important; transition:background .2s,box-shadow .2s !important; }
+.hdr-cta:hover { background:var(--gold-lt) !important; box-shadow:0 6px 22px var(--gold-glow) !important; }
+#hamburger { display:none; flex-direction:column; gap:5px; width:38px; height:38px; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--line); }
+#hamburger span { width:18px; height:1.5px; background:var(--text); transition:transform .22s,opacity .22s; }
+#hamburger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+#hamburger.open span:nth-child(2){ opacity:0; }
+#hamburger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+/* ════════════════════════════════════════
+   PAGE LAYOUT
+════════════════════════════════════════ */
+#legal-page { padding-top:9rem; padding-bottom:clamp(5rem,9vw,9rem); }
+
+.legal-container {
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:3.5rem;
+  align-items:start;
+}
+
+/* ── Sidebar nav ── */
+.legal-nav {
+  position:sticky; top:7rem;
+  background:var(--surf); border:1px solid var(--line);
+  border-radius:var(--radius); padding:1.4rem;
+}
+.legal-nav-title {
+  font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
+  font-weight:800; color:var(--gold); margin-bottom:1rem;
+}
+.legal-nav a {
+  display:block; font-size:.84rem; font-weight:600; color:var(--muted);
+  padding:.42rem .55rem; border-radius:8px; margin-bottom:.15rem;
+  transition:color .2s,background .2s;
+}
+.legal-nav a:hover { color:var(--text); background:rgba(255,255,255,.04); }
+.legal-nav a.active { color:var(--gold); background:var(--gold-dim); }
+.legal-nav .nav-sep { border:0; border-top:1px solid var(--line); margin:.7rem 0; }
+
+/* ── Hero text ── */
+.legal-hero { margin-bottom:3rem; }
+.legal-hero .eyebrow { margin-bottom:1rem; }
+.legal-hero h1 em { font-style:italic; color:var(--gold); }
+.legal-hero p {
+  margin-top:1rem; color:var(--muted);
+  font-size:.95rem; line-height:1.7; max-width:65ch;
+}
+.legal-updated {
+  display:inline-flex; align-items:center; gap:.5rem;
+  margin-top:.9rem; font-size:.78rem; color:var(--muted); font-weight:600;
+  padding:.35rem .75rem; border:1px solid var(--line); border-radius:8px;
+  background:var(--surf);
+}
+.legal-updated::before { content:"📅"; font-size:.85rem; }
+
+/* ── Content sections ── */
+.legal-section {
+  padding-bottom:3rem; margin-bottom:3rem;
+  border-bottom:1px solid var(--line);
+}
+.legal-section:last-child { border-bottom:0; }
+.legal-section h2 {
+  margin-bottom:1.4rem; padding-bottom:.8rem;
+  border-bottom:1px solid var(--line-g);
+}
+.legal-section h3 { margin-bottom:.7rem; color:var(--gold-lt); }
+
+.legal-section p {
+  color:var(--muted); font-size:.95rem; line-height:1.78;
+  margin-bottom:1.1rem;
+}
+.legal-section p:last-child { margin-bottom:0; }
+.legal-section p strong { color:var(--text); font-weight:700; }
+.legal-section ul, .legal-section ol {
+  margin:.6rem 0 1.1rem 1.3rem;
+  display:flex; flex-direction:column; gap:.45rem;
+}
+.legal-section li {
+  color:var(--muted); font-size:.95rem; line-height:1.65;
+}
+.legal-section a { color:var(--gold); font-weight:600; transition:opacity .2s; }
+.legal-section a:hover { opacity:.75; }
+
+/* Highlight box */
+.legal-box {
+  background:var(--gold-dim); border:1px solid var(--line-g);
+  border-radius:12px; padding:1.2rem 1.4rem; margin:1.2rem 0;
+}
+.legal-box p { color:var(--text); font-size:.9rem; margin-bottom:0; }
+.legal-box p strong { color:var(--gold); }
+
+/* Compliance badges */
+.legal-badges {
+  display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.2rem;
+}
+.legal-badge {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.75rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  padding:.4rem .85rem; border-radius:8px;
+  border:1px solid var(--line-g); background:var(--gold-dim); color:var(--gold);
+}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+#site-footer { border-top:1px solid var(--line); padding-top:clamp(3rem,5vw,5rem); }
+.footer-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2.5rem; padding-bottom:3rem; }
+.footer-logo { display:inline-flex; align-items:center; gap:.6rem; margin-bottom:.85rem; }
+.footer-logo img { width:38px; height:38px; object-fit:contain; border-radius:10px; }
+.footer-logo span { font-family:"Cormorant Garamond",serif; font-size:1.55rem; font-weight:700; }
+.footer-brand > p { font-size:.88rem; color:var(--muted); max-width:32ch; line-height:1.5; margin-bottom:.4rem; }
+.footer-col h5 { font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:800; margin-bottom:.9rem; }
+.footer-col a  { display:block; font-size:.88rem; color:var(--muted); margin-bottom:.45rem; transition:color .2s; }
+.footer-col a:hover { color:var(--text); }
+.footer-bar { border-top:1px solid var(--line); padding-block:1.2rem; }
+.footer-bar p { font-size:.82rem; color:var(--muted); text-align:center; }
+
+/* ── REVEAL ── */
+.ri { opacity:0; transform:translateY(24px); transition:opacity .65s ease calc(var(--i,0)*.1s), transform .65s ease calc(var(--i,0)*.1s); }
+.ri.vis { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .legal-container { grid-template-columns:1fr; }
+  .legal-nav { position:static; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:640px){
+  #main-nav { display:none; position:absolute; top:calc(100% + .5rem); left:0; right:0; flex-direction:column; align-items:stretch; padding:.9rem; border:1px solid var(--line); border-radius:14px; background:rgba(7,9,13,.97); backdrop-filter:blur(12px); transform-origin:top center; transform:scaleY(.7); opacity:0; pointer-events:none; transition:opacity .22s,transform .22s; }
+  #main-nav.open { display:flex; opacity:1; transform:scaleY(1); pointer-events:auto; }
+  #hamburger { display:flex; }
+  .footer-grid { grid-template-columns:1fr; }
+}
+  </style>
+</head>
+<body class="js-loading">
+
+  <!-- PRELOADER -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <div class="pre-logo">
+        <img src="assets/images/Logopom2.png" alt="" />
+        <span>Infinity</span>
+      </div>
+      <div class="pre-track"><div class="pre-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div id="csr-dot"  aria-hidden="true"></div>
+  <div id="csr-ring" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header id="site-hdr">
+    <a class="hdr-logo" href="index.html" aria-label="Restaurant Infinity – Acasă">
+      <img src="assets/images/Logopom2.png" alt="Logo Infinity" />
+      <span>Infinity</span>
+    </a>
+    <nav id="main-nav" class="hdr-nav" aria-label="Navigație principală">
+      <a href="index.html">Acasă</a>
+      <a href="index.html#menu">Meniu</a>
+      <a href="index.html#gallery">Galerie</a>
+      <a href="istorie.html">Istorie</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://pensiuneainfinity.ro/" target="_blank" rel="noopener noreferrer">Pensiune</a>
+      <a class="hdr-cta" href="index.html#booking">Rezervă</a>
+    </nav>
+    <button id="hamburger" aria-label="Meniu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section id="legal-page">
+      <div class="wrap">
+        <div class="legal-container">
+
+          <!-- SIDEBAR -->
+          <aside class="legal-nav" aria-label="Navigație document">
+            <p class="legal-nav-title">Cuprins</p>
+            <a href="#termeni" class="active">Termeni și condiții</a>
+            <a href="#rezervari">Rezervări</a>
+            <a href="#raspundere">Răspundere</a>
+            <a href="#proprietate">Proprietate intelectuală</a>
+            <hr class="nav-sep" />
+            <a href="#confidentialitate">Confidențialitate</a>
+            <a href="#cookies">Cookie-uri</a>
+            <a href="#drepturi">Drepturile tale</a>
+            <hr class="nav-sep" />
+            <a href="#anpc">ANPC &amp; ODR</a>
+            <a href="#contact-legal">Contact legal</a>
+          </aside>
+
+          <!-- CONTENT -->
+          <div class="legal-content">
+
+            <div class="legal-hero ri" style="--i:0">
+              <p class="eyebrow">Documente legale</p>
+              <h1>Termeni, Condiții<br><em>&amp; Confidențialitate</em></h1>
+              <p>Prin utilizarea site-ului sau a serviciilor Restaurant Infinity, ești de acord cu prevederile de mai jos. Te rugăm să le citești cu atenție.</p>
+              <span class="legal-updated">Ultima actualizare: 6 Aprilie 2026</span>
+            </div>
+
+            <!-- 1. Termeni și condiții generale -->
+            <div class="legal-section ri" style="--i:1" id="termeni">
+              <h2>1. Termeni și condiții generale</h2>
+
+              <h3>1.1 Despre noi</h3>
+              <p><strong>SC Restaurant Infinity SRL</strong> operează restaurantul și site-ul web aferent, situate la <strong>Strada Victoriei nr. 26, Târgu Jiu, jud. Gorj, România</strong>. Prin accesarea site-ului sau a serviciilor noastre, accepți acești termeni în integralitatea lor.</p>
+
+              <h3>1.2 Modificarea termenilor</h3>
+              <p>Ne rezervăm dreptul de a modifica prezentele condiții în orice moment. Modificările intră în vigoare imediat după publicare pe site. Utilizarea continuă a serviciilor după publicarea modificărilor constituie acceptarea acestora.</p>
+
+              <h3>1.3 Vârsta minimă</h3>
+              <p>Serviciile noastre sunt destinate persoanelor cu vârsta de minimum 18 ani. Consumul de băuturi alcoolice este interzis minorilor, conform legislației române în vigoare.</p>
+            </div>
+
+            <!-- 2. Rezervări -->
+            <div class="legal-section ri" style="--i:2" id="rezervari">
+              <h2>2. Rezervări și anulări</h2>
+
+              <h3>2.1 Confirmarea rezervării</h3>
+              <p>O rezervare este considerată confirmată doar după ce primești un mesaj de confirmare din partea echipei noastre pe WhatsApp sau telefonic. Simpla completare a formularului nu garantează disponibilitatea mesei.</p>
+
+              <div class="legal-box">
+                <p><strong>Important:</strong> Rezervările se confirmă în maxim 30 de minute în intervalul 08:00–22:00. Cererile primite în afara programului vor fi procesate a doua zi dimineață.</p>
+              </div>
+
+              <h3>2.2 Anularea rezervărilor</h3>
+              <p>Îți mulțumim dacă anulezi rezervarea cu cel puțin <strong>2 ore înainte</strong> de ora rezervată, pentru a da posibilitatea altor clienți să rezerve masa. Anularea se poate face telefonic la <strong>0748 208 209</strong> sau prin WhatsApp.</p>
+
+              <h3>2.3 Întârziere</h3>
+              <p>Masa rezervată este păstrată timp de <strong>15 minute</strong> de la ora rezervată. În cazul întârzierii, te rugăm să ne anunți telefonic. Depășirea acestui interval poate conduce la anularea rezervării, în funcție de disponibilitate.</p>
+
+              <h3>2.4 Evenimente și grupuri</h3>
+              <p>Pentru grupuri de 9 sau mai multe persoane, evenimente private sau aniversări, vă rugăm să ne contactați direct la <strong>0748 208 209</strong> sau pe WhatsApp pentru o ofertă personalizată.</p>
+            </div>
+
+            <!-- 3. Răspundere -->
+            <div class="legal-section ri" style="--i:3" id="raspundere">
+              <h2>3. Limitarea răspunderii</h2>
+
+              <h3>3.1 Informații pe site</h3>
+              <p>Informațiile publicate pe site (meniu, prețuri, program) au caracter informativ și pot fi actualizate fără notificare prealabilă. <strong>Prețurile finale</strong> sunt cele afișate în restaurant la momentul comenzii.</p>
+
+              <h3>3.2 Alergeni</h3>
+              <p>Preparatele noastre pot conține sau pot fi în contact cu alergeni comuni (gluten, ouă, lapte, nuci, soia etc.). Dacă ai alergii sau intoleranțe alimentare, te rugăm să informezi personalul nostru <strong>înainte de comandă</strong>. Nu ne asumăm răspunderea pentru reacții alergice nedeclarate în prealabil.</p>
+
+              <h3>3.3 Site și acces digital</h3>
+              <p>Nu garantăm accesul neîntrerupt la site. Ne rezervăm dreptul de a întrerupe temporar accesul pentru mentenanță, fără notificare prealabilă.</p>
+            </div>
+
+            <!-- 4. Proprietate intelectuală -->
+            <div class="legal-section ri" style="--i:0" id="proprietate">
+              <h2>4. Proprietate intelectuală</h2>
+              <p>Tot conținutul acestui site — inclusiv imagini, texte, logo, design și cod sursă — este proprietatea exclusivă a <strong>SC Restaurant Infinity SRL</strong> sau a partenerilor săi, și este protejat de legile române și europene privind drepturile de autor.</p>
+              <p>Este interzisă reproducerea, distribuirea, publicarea sau utilizarea comercială a oricărui element al site-ului fără acordul scris prealabil.</p>
+            </div>
+
+            <!-- 5. Confidențialitate -->
+            <div class="legal-section ri" style="--i:0" id="confidentialitate">
+              <h2>5. Politica de confidențialitate</h2>
+
+              <h3>5.1 Date colectate</h3>
+              <p>Prin formularul de rezervare, colectăm: <strong>numele complet, numărul de telefon, data și ora rezervării, numărul de persoane</strong> și orice mențiuni speciale furnizate voluntar.</p>
+              <p>Prin accesarea site-ului, pot fi colectate automat: adresa IP, tipul browserului, paginile accesate — prin intermediul cookie-urilor.</p>
+
+              <h3>5.2 Scopul prelucrării</h3>
+              <ul>
+                <li>Gestionarea și confirmarea rezervărilor;</li>
+                <li>Comunicarea cu clienții (telefon, WhatsApp);</li>
+                <li>Îmbunătățirea calității serviciilor;</li>
+                <li>Conformitate cu obligațiile legale.</li>
+              </ul>
+
+              <h3>5.3 Temeiul juridic</h3>
+              <p>Prelucrarea datelor se bazează pe <strong>executarea unui contract</strong> (rezervare) și pe <strong>consimțământul</strong> tău implicit prin utilizarea formularului, conform art. 6 alin. (1) lit. b) și a) din Regulamentul (UE) 2016/679 (GDPR).</p>
+
+              <h3>5.4 Partajarea datelor</h3>
+              <p>Nu vindem și nu cedăm datele tale personale unor terțe părți. Datele pot fi transmise exclusiv către furnizori de servicii esențiali (ex: platforme de mesagerie utilizate pentru confirmare), cu garanțiile adecvate de securitate.</p>
+
+              <h3>5.5 Retenția datelor</h3>
+              <p>Datele aferente rezervărilor sunt păstrate <strong>maximum 2 ani</strong> de la data rezervării, după care sunt șterse sau anonimizate.</p>
+            </div>
+
+            <!-- 6. Cookies -->
+            <div class="legal-section ri" style="--i:0" id="cookies">
+              <h2>6. Politica privind cookie-urile</h2>
+              <p>Site-ul nostru utilizează cookie-uri esențiale pentru funcționarea corectă a paginilor. <strong>Nu utilizăm cookie-uri de tracking publicitar sau analitice de tip terță parte</strong> fără consimțământul tău explicit.</p>
+
+              <h3>Cookie-uri utilizate</h3>
+              <ul>
+                <li><strong>Cookie-uri de sesiune:</strong> necesare pentru navigarea pe site — nu se stochează după închiderea browserului;</li>
+                <li><strong>Cookie-uri de preferințe:</strong> memorează setările locale ale utilizatorului (opțional).</li>
+              </ul>
+              <p>Poți dezactiva cookie-urile din setările browserului, însă unele funcționalități ale site-ului pot fi afectate.</p>
+            </div>
+
+            <!-- 7. Drepturi -->
+            <div class="legal-section ri" style="--i:0" id="drepturi">
+              <h2>7. Drepturile tale (GDPR)</h2>
+              <p>Conform GDPR, ai următoarele drepturi cu privire la datele tale personale:</p>
+              <ul>
+                <li><strong>Dreptul la acces</strong> — poți solicita o copie a datelor pe care le deținem despre tine;</li>
+                <li><strong>Dreptul la rectificare</strong> — poți cere corectarea datelor incorecte sau incomplete;</li>
+                <li><strong>Dreptul la ștergere</strong> ("dreptul de a fi uitat") — poți solicita ștergerea datelor, cu respectarea obligațiilor legale;</li>
+                <li><strong>Dreptul la opoziție</strong> — poți refuza prelucrarea în anumite condiții;</li>
+                <li><strong>Dreptul la portabilitatea datelor</strong> — poți solicita datele într-un format structurat.</li>
+              </ul>
+              <p>Solicitările se pot adresa la: <a href="mailto:contact@restaurant.rylke.ro">contact@restaurant.rylke.ro</a> sau prin telefon la <a href="tel:+40748208209">0748 208 209</a></p>
+              <div class="legal-box">
+                <p>Ai dreptul de a depune o plângere la <strong>Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</strong> dacă considerați că drepturile vă sunt încălcate: <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">www.dataprotection.ro</a></p>
+              </div>
+            </div>
+
+            <!-- 8. ANPC & ODR -->
+            <div class="legal-section ri" style="--i:0" id="anpc">
+              <h2>8. Soluționarea litigiilor — ANPC &amp; ODR</h2>
+              <p>În cazul unui litigiu, te încurajăm să ne contactezi direct pentru o rezolvare amiabilă. Dacă acest lucru nu este posibil, ai la dispoziție:</p>
+
+              <div class="legal-badges">
+                <span class="legal-badge">ANPC</span>
+                <span class="legal-badge">Platforma ODR</span>
+                <span class="legal-badge">GDPR Compliant</span>
+              </div>
+
+              <ul style="margin-top:1.2rem">
+                <li>
+                  <strong>ANPC — Autoritatea Națională pentru Protecția Consumatorilor:</strong><br>
+                  <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">anpc.ro/ce-este-sal</a>
+                </li>
+                <li style="margin-top:.5rem">
+                  <strong>Platforma ODR (Soluționarea Online a Litigiilor — Comisia Europeană):</strong><br>
+                  <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 9. Contact legal -->
+            <div class="legal-section ri" style="--i:0" id="contact-legal">
+              <h2>9. Contact</h2>
+              <p>Pentru orice întrebare legată de acești termeni sau de prelucrarea datelor personale, poți contacta:</p>
+              <ul>
+                <li><strong>Adresă:</strong> Strada Victoriei nr. 26, Târgu Jiu, jud. Gorj</li>
+                <li><strong>Email:</strong> <a href="mailto:contact@restaurant.rylke.ro">contact@restaurant.rylke.ro</a></li>
+                <li><strong>Telefon:</strong> <a href="tel:+40748208209">0748 208 209</a></li>
+              </ul>
+            </div>
+
+          </div><!-- /legal-content -->
+        </div><!-- /legal-container -->
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/images/Logopom2.png" alt="Logo Infinity" />
+          <span>Infinity</span>
+        </a>
+        <p>Calitatea ne definește. Toate drepturile rezervate.</p>
+        <p style="font-size:.8rem;color:var(--muted)">Designed by Inovex.ro &amp; Advertise Hub</p>
+      </div>
+      <div class="footer-col">
+        <h5>Link-uri utile</h5>
+        <a href="index.html">Acasă</a>
+        <a href="index.html#menu">Meniu</a>
+        <a href="index.html#gallery">Galerie</a>
+        <a href="istorie.html">Istorie</a>
+        <a href="https://pensiuneainfinity.ro/" target="_blank" rel="noopener noreferrer">Pensiune</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO" target="_blank" rel="noopener noreferrer">Soluționarea litigiilor</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC</a>
+        <a href="#">Termeni și condiții</a>
+        <a href="#confidentialitate">Politică de confidențialitate</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="wrap"><p>© 2026 Restaurant Infinity · Târgu Jiu · Toate drepturile rezervate</p></div>
+    </div>
+  </footer>
+
+  <script>
+/* PRELOADER */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('preloader').classList.add('done');
+    document.body.classList.remove('js-loading');
+    document.querySelectorAll('#legal-page .ri').forEach(el => el.classList.add('vis'));
+  }, 1400);
+});
+
+/* CURSOR */
+const dot = document.getElementById('csr-dot');
+const ring = document.getElementById('csr-ring');
+if (window.matchMedia('(pointer:fine)').matches) {
+  let mx=-200,my=-200,rx=-200,ry=-200;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+  (function lerp(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(lerp); })();
+}
+
+/* HEADER SCROLL */
+const hdr = document.getElementById('site-hdr');
+window.addEventListener('scroll',()=>{ hdr.classList.toggle('scrolled',scrollY>60); },{passive:true});
+
+/* HAMBURGER */
+const burger = document.getElementById('hamburger');
+const nav    = document.getElementById('main-nav');
+if (burger && nav) {
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open'); nav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }));
+}
+
+/* REVEAL */
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); ro.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.ri').forEach(el=>ro.observe(el));
+
+/* SIDEBAR active link on scroll */
+const sections = document.querySelectorAll('.legal-section[id]');
+const navLinks  = document.querySelectorAll('.legal-nav a');
+const observer  = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+      });
+    }
+  });
+}, { rootMargin:'-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
