@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Camere Hotel Aqua Târgu-Jiu — 10 camere twin și 5 matrimoniale, mic dejun inclus, parcare supravegheată, Wi-Fi gratuit." />
+  <title>Camere — Aqua Hotel Târgu-Jiu</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>" />
+  <style>
+    .room-slider { position: relative; width: 100%; height: 100%; }
+    .room-slider img { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+    .room-thumbs {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 3;
+      background: rgba(5,12,26,0.6);
+      padding: 6px;
+      border-radius: var(--r-md);
+      backdrop-filter: blur(8px);
+      max-width: calc(100% - 2rem);
+      overflow-x: auto;
+    }
+    .room-thumb {
+      width: 52px;
+      height: 36px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.55;
+      border: 1.5px solid transparent;
+      transition: opacity 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .room-thumb.active,
+    .room-thumb:hover { opacity: 1; border-color: var(--c-gold); }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+  <div id="navbar-slot"></div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <canvas id="header-particles" class="page-header__canvas"></canvas>
+    <div class="container">
+      <div class="page-header__content">
+        <nav class="page-header__breadcrumb">
+          <a href="index.html">Acasă</a>
+          <span>/</span>
+          <span>Camere</span>
+        </nav>
+        <h1 class="page-header__title">Camerele <em>noastre</em></h1>
+        <p class="section-subtitle" style="margin-top: var(--space-4)">15 camere moderne cu dotări premium, mic dejun inclus și o atmosferă de neuitat.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== FACILITIES ==================== -->
+  <section class="section section--sm">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-10)">
+        <div class="section-label" style="justify-content:center">Facilități incluse</div>
+        <h2 class="section-title">Tot ce ai nevoie, <em>inclus</em></h2>
+      </div>
+      <div class="grid grid-4 gsap-fade-up" style="gap: var(--space-4)">
+        <div class="card" style="text-align:center; padding: var(--space-6)">
+          <div style="font-size:2.5rem; margin-bottom: var(--space-3)">📺</div>
+          <div class="card__title" style="font-size: var(--text-lg)">TV LCD</div>
+          <div class="card__text">Televizor LCD cu canale naționale și internaționale</div>
+        </div>
+        <div class="card" style="text-align:center; padding: var(--space-6)">
+          <div style="font-size:2.5rem; margin-bottom: var(--space-3)">📶</div>
+          <div class="card__title" style="font-size: var(--text-lg)">Wi-Fi gratuit</div>
+          <div class="card__text">Internet de mare viteză în toată incinta hotelului</div>
+        </div>
+        <div class="card" style="text-align:center; padding: var(--space-6)">
+          <div style="font-size:2.5rem; margin-bottom: var(--space-3)">☕</div>
+          <div class="card__title" style="font-size: var(--text-lg)">Mic dejun</div>
+          <div class="card__text">Mic dejun bufet inclus în tariful de cazare</div>
+        </div>
+        <div class="card" style="text-align:center; padding: var(--space-6)">
+          <div style="font-size:2.5rem; margin-bottom: var(--space-3)">🅿️</div>
+          <div class="card__title" style="font-size: var(--text-lg)">Parcare</div>
+          <div class="card__text">Parcare proprie supravegheată video, inclusă</div>
+        </div>
+        <div class="card" style="text-align:center; padding: var(--space-6)">
+          <div style="font-size:2.5rem; margin-bottom: var(--space-3)">🔔</div>
+          <div class="card__title" style="font-size: var(--text-lg)">Trezire</div>
+          <div class="card__text">Serviciu de trezire la orice oră solicitată</div>
+        </div>
+        <div class="card" style="text-align:center; padding: var(--space-6)">
+          <div style="font-size:2.5rem; margin-bottom: var(--space-3)">🚕</div>
+          <div class="card__title" style="font-size: var(--text-lg)">Taxi on demand</div>
+          <div class="card__text">Comandăm taxi rapid la cerere, 24/7</div>
+        </div>
+        <div class="card" style="text-align:center; padding: var(--space-6)">
+          <div style="font-size:2.5rem; margin-bottom: var(--space-3)">🧳</div>
+          <div class="card__title" style="font-size: var(--text-lg)">Bagaje</div>
+          <div class="card__text">Depozitare securizată bagaje și obiecte de valoare</div>
+        </div>
+        <div class="card" style="text-align:center; padding: var(--space-6)">
+          <div style="font-size:2.5rem; margin-bottom: var(--space-3)">📠</div>
+          <div class="card__title" style="font-size: var(--text-lg)">Fax & Telefon</div>
+          <div class="card__text">Telefon și fax cu apeluri internaționale</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ROOMS LISTING ==================== -->
+  <section class="section" style="background: var(--c-bg-2)">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-12)">
+        <div class="section-label" style="justify-content:center">Tipuri de camere</div>
+        <h2 class="section-title">Alege <em>camera perfectă</em></h2>
+        <div class="divider divider--center" style="margin: var(--space-4) auto 0"></div>
+      </div>
+
+      <!-- Twin Room -->
+      <div class="room-card">
+        <div class="room-card__images">
+          <!-- Room photo mini-slider -->
+          <div class="room-slider" id="slider-twin">
+            <img class="room-card__main-img room-slider__active" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin1.jpg" alt="Cameră Twin 1" loading="lazy" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin4.jpg" alt="Cameră Twin 2" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin5.jpg" alt="Cameră Twin 3" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin7.jpg" alt="Cameră Twin 4" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin9.jpg" alt="Cameră Twin 5" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7822_1024x680.jpg" alt="Cameră Twin 6" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7839_1024x680.jpg" alt="Cameră Twin 7" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7884_1024x680.jpg" alt="Cameră Twin 8" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7901_1024x680.jpg" alt="Cameră Twin 9" loading="lazy" style="display:none" />
+          </div>
+          <!-- Thumbnail strip -->
+          <div class="room-thumbs" data-slider="slider-twin">
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin1.jpg" class="room-thumb active" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin4.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin5.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin7.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin9.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7822_1024x680.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7839_1024x680.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7884_1024x680.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7901_1024x680.jpg" class="room-thumb" loading="lazy" />
+          </div>
+          <div style="position:absolute; top: var(--space-4); left: var(--space-4); z-index:2">
+            <span class="tag">10 camere disponibile</span>
+          </div>
+        </div>
+        <div class="room-card__info">
+          <div class="room-type">Cameră Twin</div>
+          <h2 class="room-title">Twin Standard</h2>
+          <p class="room-desc">
+            Camerele twin oferă confort și funcționalitate pentru 1-2 persoane. Spațioase, luminoase, cu dotări complete și vedere în grădină sau parc. Ideale pentru deplasări de afaceri sau sejururi de relaxare.
+          </p>
+          <div class="room-features">
+            <span class="room-feature">2 paturi single (90×200)</span>
+            <span class="room-feature">Baie privată cu duș</span>
+            <span class="room-feature">TV LCD 32"</span>
+            <span class="room-feature">Wi-Fi de mare viteză</span>
+            <span class="room-feature">Minibar la cerere</span>
+            <span class="room-feature">Seif personal</span>
+            <span class="room-feature">Climatizare</span>
+            <span class="room-feature">Mic dejun inclus</span>
+          </div>
+          <div class="room-pricing">
+            <div class="room-price-amount">180 RON</div>
+            <div class="room-price-unit">/ noapte / cameră</div>
+          </div>
+          <div style="display:flex; gap: var(--space-3); flex-wrap:wrap; margin-top: var(--space-4)">
+            <a href="#booking-section" class="btn btn--primary">
+              <span>Rezervă acum</span>
+            </a>
+            <a href="tel:+40743222211" class="btn btn--ghost btn--sm">
+              <span>📞 Sună direct</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Matrimonial Room -->
+      <div class="room-card">
+        <div class="room-card__images">
+          <div class="room-slider" id="slider-matr">
+            <img class="room-card__main-img room-slider__active" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr1.jpg" alt="Cameră Matrimonială 1" loading="lazy" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr2-1024x682.jpg" alt="Cameră Matrimonială 2" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/mat1.jpg" alt="Cameră Matrimonială 3" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/mat_baie.jpg" alt="Baie matrimonială" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/room_1_room_page_2_big.jpg" alt="Cameră 5" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twing-matr1.jpg" alt="Cameră twin+matr 1" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twing-matr2.jpg" alt="Cameră twin+matr 2" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7853_510x768.jpg" alt="Cameră Matrimonială 8" loading="lazy" style="display:none" />
+            <img class="room-card__main-img" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7912_510x768.jpg" alt="Cameră Matrimonială 9" loading="lazy" style="display:none" />
+          </div>
+          <div class="room-thumbs" data-slider="slider-matr">
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr1.jpg" class="room-thumb active" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr2-1024x682.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/mat1.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/mat_baie.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/room_1_room_page_2_big.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twing-matr1.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twing-matr2.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7853_510x768.jpg" class="room-thumb" loading="lazy" />
+            <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7912_510x768.jpg" class="room-thumb" loading="lazy" />
+          </div>
+          <div style="position:absolute; top: var(--space-4); left: var(--space-4); z-index:2">
+            <span class="tag">5 camere disponibile</span>
+          </div>
+        </div>
+        <div class="room-card__info">
+          <div class="room-type">Cameră Matrimonială</div>
+          <h2 class="room-title">Matrimonial Deluxe</h2>
+          <p class="room-desc">
+            Camerele matrimoniale sunt sanctuare de liniște și confort, cu un pat dublu premium și decoruri calde. Perfecte pentru cupluri sau pentru cei care doresc un spațiu mai intim și relaxant după o zi lungă.
+          </p>
+          <div class="room-features">
+            <span class="room-feature">Pat dublu (160×200)</span>
+            <span class="room-feature">Baie privată cu cadă</span>
+            <span class="room-feature">TV LCD 40"</span>
+            <span class="room-feature">Wi-Fi de mare viteză</span>
+            <span class="room-feature">Halate și papuci</span>
+            <span class="room-feature">Seif personal</span>
+            <span class="room-feature">Climatizare</span>
+            <span class="room-feature">Mic dejun inclus</span>
+          </div>
+          <div class="room-pricing">
+            <div class="room-price-amount">220 RON</div>
+            <div class="room-price-unit">/ noapte / cameră</div>
+          </div>
+          <div style="display:flex; gap: var(--space-3); flex-wrap:wrap; margin-top: var(--space-4)">
+            <a href="#booking-section" class="btn btn--primary">
+              <span>Rezervă acum</span>
+            </a>
+            <a href="tel:+40743222211" class="btn btn--ghost btn--sm">
+              <span>📞 Sună direct</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BOOKING FORM ==================== -->
+  <section class="section" id="booking-section">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto">
+        <div style="text-align:center; margin-bottom: var(--space-10)">
+          <div class="section-label" style="justify-content:center">Rezervare</div>
+          <h2 class="section-title">Solicită o <em>rezervare</em></h2>
+          <p class="section-subtitle" style="margin: 0 auto">Completează formularul și te vom contacta pentru confirmare în cel mai scurt timp.</p>
+        </div>
+
+        <div style="background: var(--c-glass); border: 1px solid var(--c-border); border-radius: var(--r-xl); padding: var(--space-10)">
+          <form class="booking-form" action="#" method="POST" novalidate>
+            <div class="grid grid-2" style="gap: var(--space-4)">
+              <div class="form-group">
+                <label class="form-label" for="b-checkin">Check-in *</label>
+                <input class="form-control" id="b-checkin" type="date" name="checkin" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="b-checkout">Check-out *</label>
+                <input class="form-control" id="b-checkout" type="date" name="checkout" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="b-room">Tip cameră *</label>
+                <select class="form-control" id="b-room" name="room_type" required>
+                  <option value="">Selectează tipul...</option>
+                  <option value="twin">Cameră Twin (180 RON/noapte)</option>
+                  <option value="matrimonial">Cameră Matrimonială (220 RON/noapte)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="b-guests">Nr. persoane *</label>
+                <select class="form-control" id="b-guests" name="guests" required>
+                  <option value="1">1 persoană</option>
+                  <option value="2" selected>2 persoane</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="b-name">Nume și prenume *</label>
+                <input class="form-control" id="b-name" type="text" name="name" placeholder="ex. Ion Popescu" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="b-phone">Telefon *</label>
+                <input class="form-control" id="b-phone" type="tel" name="phone" placeholder="+40 7xx xxx xxx" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="b-email">Email *</label>
+              <input class="form-control" id="b-email" type="email" name="email" placeholder="email@exemplu.ro" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="b-notes">Observații / cereri speciale</label>
+              <textarea class="form-control" id="b-notes" name="notes" placeholder="ex. pat suplimentar, etaj preferat, sosire târzie..."></textarea>
+            </div>
+            <div style="display:flex; gap: var(--space-4); flex-wrap:wrap; margin-top: var(--space-4)">
+              <button type="submit" class="btn btn--primary btn--lg">
+                <span>Trimite cererea</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+              <a href="tel:+40743222211" class="btn btn--ghost btn--lg">
+                <span>📞 +40 743 222 211</span>
+              </a>
+            </div>
+          </form>
+        </div>
+
+        <p style="text-align:center; margin-top: var(--space-6); font-size: var(--text-sm); color: var(--c-text-muted)">
+          Sau rezervă telefonic: <a href="tel:+40743222211" style="color:var(--c-gold)">+40 743 222 211</a> / <a href="tel:0253222614" style="color:var(--c-gold)">0253 222 614</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INFO TABS ==================== -->
+  <section class="section section--sm" style="background: var(--c-bg-2)">
+    <div class="container">
+      <div class="grid grid-3" style="gap: var(--space-6)">
+        <div style="text-align:center; padding: var(--space-8); background: var(--c-glass); border: 1px solid var(--c-border-light); border-radius: var(--r-lg)">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-3)">🕐</div>
+          <h3 style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); margin-bottom: var(--space-2)">Check-in / Check-out</h3>
+          <p style="font-size: var(--text-sm); color: var(--c-text-muted)">Check-in: <strong style="color:var(--c-gold)">14:00+</strong><br>Check-out: <strong style="color:var(--c-gold)">12:00</strong><br>Late check-out la cerere</p>
+        </div>
+        <div style="text-align:center; padding: var(--space-8); background: var(--c-glass); border: 1px solid var(--c-border-light); border-radius: var(--r-lg)">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-3)">❌</div>
+          <h3 style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); margin-bottom: var(--space-2)">Anulare</h3>
+          <p style="font-size: var(--text-sm); color: var(--c-text-muted)">Anulare gratuită cu<br>minim <strong style="color:var(--c-gold)">48 ore</strong> înainte<br>de data sosirii</p>
+        </div>
+        <div style="text-align:center; padding: var(--space-8); background: var(--c-glass); border: 1px solid var(--c-border-light); border-radius: var(--r-lg)">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-3)">💳</div>
+          <h3 style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); margin-bottom: var(--space-2)">Plată</h3>
+          <p style="font-size: var(--text-sm); color: var(--c-text-muted)">Numerar sau card<br>Visa, Mastercard<br>Fără costuri extra</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-slot"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    // Room photo slider with thumbs
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.room-thumbs').forEach(thumbStrip => {
+        const sliderId = thumbStrip.dataset.slider;
+        const slider   = document.getElementById(sliderId);
+        if (!slider) return;
+        const images = Array.from(slider.querySelectorAll('img'));
+        const thumbs = Array.from(thumbStrip.querySelectorAll('.room-thumb'));
+
+        thumbs.forEach((thumb, i) => {
+          thumb.addEventListener('click', () => {
+            images.forEach(img => img.style.display = 'none');
+            thumbs.forEach(t => t.classList.remove('active'));
+            images[i].style.display = 'block';
+            thumb.classList.add('active');
+          });
+        });
+
+        // Auto-play every 3.5s
+        let idx = 0;
+        setInterval(() => {
+          idx = (idx + 1) % images.length;
+          images.forEach(img => img.style.display = 'none');
+          images[idx].style.display = 'block';
+          thumbs.forEach(t => t.classList.remove('active'));
+          thumbs[idx].classList.add('active');
+        }, 3500);
+      });
+    });
+  </script>
+</body>
+</html>

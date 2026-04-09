@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anima Clinique — Future of Beauty | Târgu Jiu</title>
+  <meta name="description" content="Clinica premium de estetică din Târgu Jiu. Epilare definitivă, remodelare corporală, lifting facial, regenerare păr. Str. Siretului 14. Tel: 0749 891 891" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__geo">
+      <div class="preloader__geo-ring pr-r1"></div>
+      <div class="preloader__geo-ring pr-r2"></div>
+      <div class="preloader__geo-cross"></div>
+    </div>
+    <div class="preloader__content">
+      <p class="preloader__brand">
+        <span class="pr-a">A</span><span class="pr-rest">NIMA</span>
+      </p>
+      <p class="preloader__sub mono">CLINIQUE · PRECISION BEAUTY</p>
+    </div>
+    <div class="preloader__progress">
+      <div class="preloader__bar"><div class="preloader__fill" id="preloaderFill"></div></div>
+      <span class="preloader__pct mono" id="preloaderPct">0%</span>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor">
+    <div class="cursor__h"></div>
+    <div class="cursor__v"></div>
+  </div>
+  <div class="cursor__ring" id="cursorRing"></div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <a href="#home" class="nav__logo-link">
+        <span class="nla">A</span><span class="nlr">NIMA</span>
+        <span class="nlc">CLINIQUE</span>
+      </a>
+    </div>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#home"       class="nav__link">Acasă</a></li>
+      <li><a href="#about"      class="nav__link">Despre</a></li>
+      <li><a href="#services"   class="nav__link">Servicii</a></li>
+      <li><a href="#technology" class="nav__link">Tehnologie</a></li>
+      <li><a href="#gallery"    class="nav__link">Galerie</a></li>
+      <li><a href="#contact"    class="nav__link">Contact</a></li>
+    </ul>
+    <a href="tel:0749891891" class="nav__cta magnetic">
+      <i class="fa-solid fa-phone-flip"></i>
+      <span>0749 891 891</span>
+    </a>
+    <button class="nav__burger" id="burger" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="home">
+    <canvas class="hero__canvas" id="heroCanvas"></canvas>
+    <div class="hero__dot-grid" aria-hidden="true"></div>
+
+    <!-- Geo decorations -->
+    <div class="geo-ring geo-ring--hero-1" aria-hidden="true"></div>
+    <div class="geo-ring geo-ring--hero-2" aria-hidden="true"></div>
+
+    <div class="hero__split">
+
+      <!-- LEFT -->
+      <div class="hero__left">
+        <div class="hero__sys mono" data-aos="fade-down">
+          <span class="sys-dot"></span>SYS.ACTIVE &nbsp;·&nbsp; 2026.V1.0
+        </div>
+
+        <div class="hero__eyebrow" data-aos="fade-up" data-aos-delay="80">
+          <span class="eyebrow-line"></span>
+          Târgu Jiu &nbsp;·&nbsp; Str. Siretului 14
+        </div>
+
+        <h1 class="hero__title">
+          <span class="ht ht-1" data-aos="clip-up" data-aos-delay="180">The Future</span>
+          <em   class="ht ht-2" data-aos="clip-up" data-aos-delay="300">of Beauty</em>
+          <span class="ht ht-3" data-aos="clip-up" data-aos-delay="420">Starts Here.</span>
+        </h1>
+
+        <p class="hero__desc" data-aos="fade-up" data-aos-delay="520">
+          Clinica de estetică premium care aduce tehnologia marilor capitale direct în inima Gorjului. Proceduri avansate, confort total, rezultate imediate.
+        </p>
+
+        <div class="hero__actions" data-aos="fade-up" data-aos-delay="620">
+          <a href="#contact" class="btn btn--gold magnetic">
+            <span>Programare Acum</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#services" class="btn btn--outline magnetic">
+            <span>Descoperă Serviciile</span>
+          </a>
+        </div>
+
+        <div class="hero__coords mono" data-aos="fade-up" data-aos-delay="720">
+          <span>45.0338°N</span><span class="cx">·</span>
+          <span>23.2800°E</span><span class="cx">·</span>
+          <span>GORJ, RO</span>
+        </div>
+      </div>
+
+      <!-- RIGHT — image + HUD -->
+      <div class="hero__right" data-aos="fade-left" data-aos-delay="280">
+        <div class="hero__frame">
+          <img
+            src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1000&q=80"
+            alt="Anima Clinique Premium Beauty"
+            class="hero__img"
+          />
+          <div class="hero__img-grad"></div>
+
+          <!-- HUD overlay -->
+          <div class="hud">
+            <div class="hud__ring ha"></div>
+            <div class="hud__ring hb"></div>
+            <div class="hud__ring hc"></div>
+            <div class="hud__corner htl"></div>
+            <div class="hud__corner htr"></div>
+            <div class="hud__corner hbl"></div>
+            <div class="hud__corner hbr"></div>
+            <div class="hud__ch hch"></div>
+            <div class="hud__ch hcv"></div>
+            <div class="hud__scan"></div>
+            <div class="hud__label hl-t mono">
+              <span class="hk">PRECISION</span><span class="hv">99.8%</span>
+            </div>
+            <div class="hud__label hl-b mono">
+              <span class="hk">EU.CERT</span><span class="hv">▲ ACTIVE</span>
+            </div>
+            <div class="hud__label hl-l mono">
+              <span class="hk">SAFE</span><span class="hv">ISO+</span>
+            </div>
+            <div class="hud__label hl-r mono">
+              <span class="hk">TECH</span><span class="hv">v2.1</span>
+            </div>
+          </div>
+
+          <div class="hero__frame-tag mono">ANIMA CLINIQUE · TG.JIU</div>
+        </div>
+
+        <div class="hero__badge">
+          <div class="hero__badge-pulse"></div>
+          <span class="hero__badge-val">5.0</span>
+          <span class="hero__badge-lbl mono">RATING</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-ind">
+      <div class="hero__scroll-bar"></div>
+      <span class="mono">SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ══════════════ STATS ══════════════ -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat__num-row">
+            <span class="stat__num" data-count="4">0</span><span class="stat__suf">+</span>
+          </div>
+          <span class="stat__lbl">Servicii Premium</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat__num-row">
+            <span class="stat__num" data-count="100">0</span><span class="stat__suf">%</span>
+          </div>
+          <span class="stat__lbl">Fără Durere</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat__num-row">
+            <span class="stat__num" data-count="500">0</span><span class="stat__suf">+</span>
+          </div>
+          <span class="stat__lbl">Clienți Fericiți</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat__num-row">
+            <span class="stat__num" data-count="5">0</span><span class="stat__suf">★</span>
+          </div>
+          <span class="stat__lbl">Rating Mediu</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TICKER ══════════════ -->
+  <div class="ticker" id="ticker">
+    <div class="ticker__track">
+      <span>Epilare Definitivă</span><span class="tsep">✦</span>
+      <span>Remodelare Corporală</span><span class="tsep">✦</span>
+      <span>Lifting Facial</span><span class="tsep">✦</span>
+      <span>Regenerare Păr</span><span class="tsep">✦</span>
+      <span>Fără Durere</span><span class="tsep">✦</span>
+      <span>Rezultate Imediate</span><span class="tsep">✦</span>
+      <span>Tehnologie Avansată</span><span class="tsep">✦</span>
+      <span>Epilare Definitivă</span><span class="tsep">✦</span>
+      <span>Remodelare Corporală</span><span class="tsep">✦</span>
+      <span>Lifting Facial</span><span class="tsep">✦</span>
+      <span>Regenerare Păr</span><span class="tsep">✦</span>
+      <span>Fără Durere</span><span class="tsep">✦</span>
+      <span>Rezultate Imediate</span><span class="tsep">✦</span>
+      <span>Tehnologie Avansată</span><span class="tsep">✦</span>
+    </div>
+  </div>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section class="about" id="about">
+    <div class="about__wm" aria-hidden="true">ANIMA</div>
+    <div class="geo-ring geo-ring--about" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="about__grid">
+
+        <!-- Image -->
+        <div class="about__visual" data-aos="fade-right">
+          <div class="about__img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=80"
+              alt="Tratament facial Anima Clinique"
+            />
+            <div class="about__img-scan"></div>
+            <div class="spec-badge sb-1">
+              <i class="fa-solid fa-certificate"></i><span>EU Certified</span>
+            </div>
+            <div class="spec-badge sb-2">
+              <span class="sb-num">2026</span>
+              <span class="sb-lbl mono">OPENING</span>
+            </div>
+            <div class="spec-badge sb-3">
+              <i class="fa-solid fa-shield-halved"></i><span>Siguranță 100%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="about__text" data-aos="fade-left" data-aos-delay="150">
+          <span class="section-num mono">01 //</span>
+          <div class="section-eyebrow">
+            <span class="eyebrow-line"></span>
+            <span>Povestea noastră</span>
+          </div>
+          <h2 class="section-title">
+            Prețuri corecte.<br />
+            <em>Calitate fără compromis.</em>
+          </h2>
+          <p class="about__desc">
+            Clinica Anima s-a născut din dorința de a aduce în Târgu Jiu nu doar un salon, ci un standard de excelență al marilor metropole europene. Investiție masivă în aparatură de ultimă generație, personal certificat și o locație premium — fiecare vizită devine un moment de transformare totală.
+          </p>
+          <p class="about__desc">
+            &ldquo;Ne-am dorit să aducem în Târgu Jiu nu doar o clinică, ci un standard de excelență. La Anima, prețurile competitive întâlnesc calitatea fără compromisuri.&rdquo;
+          </p>
+          <div class="about__feats">
+            <div class="about__feat">
+              <div class="about__feat-icon"><i class="fa-solid fa-atom"></i></div>
+              <div>
+                <strong>Aparatură Gen-Next</strong>
+                <p>Echipamente din marile capitale europene, acum în Gorj.</p>
+              </div>
+            </div>
+            <div class="about__feat">
+              <div class="about__feat-icon"><i class="fa-solid fa-user-doctor"></i></div>
+              <div>
+                <strong>Specialiști Certificați</strong>
+                <p>Personal profesionist, tratamente 100% personalizate.</p>
+              </div>
+            </div>
+            <div class="about__feat">
+              <div class="about__feat-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Locație Premium</strong>
+                <p>Str. Siretului 14, Târgu Jiu — atmosferă de lux.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--gold magnetic">
+            <span>Rezervă o Consultație</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SERVICES ══════════════ -->
+  <section class="services" id="services">
+    <div class="services__bg-pattern" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-num mono">02 //</span>
+        <div class="section-eyebrow">
+          <span class="eyebrow-line"></span><span>Ce oferim</span>
+        </div>
+        <h2 class="section-title">Servicii <em>Premium</em></h2>
+        <p class="section-sub">Tratamente de elită cu tehnologie de vârf — rezultate vizibile imediat.</p>
+      </div>
+
+      <div class="services__grid">
+
+        <article class="svc" data-aos="fade-up" data-aos-delay="0">
+          <div class="svc__media">
+            <img src="https://images.pexels.com/photos/3985354/pexels-photo-3985354.jpeg?auto=compress&cs=tinysrgb&w=700&h=500&dpr=1" alt="Epilare Definitivă laser" loading="lazy" />
+            <div class="svc__media-overlay"><span class="mono">01 / EPILARE</span></div>
+            <div class="svc__scan"></div>
+          </div>
+          <div class="svc__body">
+            <span class="svc__num mono">01</span>
+            <h3>Epilare Definitivă</h3>
+            <p>Proceduri rapide și complet fără durere, cu laser de ultimă generație. Rezultate permanente garantate.</p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Fără durere</li>
+              <li><i class="fa-solid fa-check"></i> Toate tipurile de piele</li>
+              <li><i class="fa-solid fa-check"></i> Rezultate permanente</li>
+            </ul>
+            <a href="#contact" class="svc__cta">Programare <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="svc svc--feat" data-aos="fade-up" data-aos-delay="120">
+          <div class="svc__badge mono">Popular</div>
+          <div class="svc__media">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=700&q=80" alt="Remodelare Corporală body treatment" loading="lazy" />
+            <div class="svc__media-overlay"><span class="mono">02 / REMODELARE</span></div>
+            <div class="svc__scan"></div>
+          </div>
+          <div class="svc__body">
+            <span class="svc__num mono">02</span>
+            <h3>Remodelare Corporală</h3>
+            <p>Silueta mult dorită, în timp record. Fără chirurgie, fără recuperare. Tehnologie RF + Ultrasound.</p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Non-invaziv</li>
+              <li><i class="fa-solid fa-check"></i> Sesiuni rapide</li>
+              <li><i class="fa-solid fa-check"></i> Rezultate imediate</li>
+            </ul>
+            <a href="#contact" class="svc__cta">Programare <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="svc" data-aos="fade-up" data-aos-delay="240">
+          <div class="svc__media">
+            <img src="https://images.pexels.com/photos/4586728/pexels-photo-4586728.jpeg?auto=compress&cs=tinysrgb&w=700&h=500&dpr=1" alt="Lifting Facial non-invaziv" loading="lazy" />
+            <div class="svc__media-overlay"><span class="mono">03 / LIFTING</span></div>
+            <div class="svc__scan"></div>
+          </div>
+          <div class="svc__body">
+            <span class="svc__num mono">03</span>
+            <h3>Lifting Facial</h3>
+            <p>Soluții non-invazive pentru un ten întinerit și luminos. Conturul feței redefinit fără bisturiu.</p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Non-chirurgical</li>
+              <li><i class="fa-solid fa-check"></i> Ten luminos</li>
+              <li><i class="fa-solid fa-check"></i> Efect imediat</li>
+            </ul>
+            <a href="#contact" class="svc__cta">Programare <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="svc" data-aos="fade-up" data-aos-delay="360">
+          <div class="svc__media">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=700&q=80" alt="Regenerare Păr scalp" loading="lazy" />
+            <div class="svc__media-overlay"><span class="mono">04 / PĂR</span></div>
+            <div class="svc__scan"></div>
+          </div>
+          <div class="svc__body">
+            <span class="svc__num mono">04</span>
+            <h3>Regenerare Păr</h3>
+            <p>Tratamente specializate pentru sănătatea scalpului și densitatea firului. Plan 100% personalizat.</p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Scalp sănătos</li>
+              <li><i class="fa-solid fa-check"></i> Densitate crescută</li>
+              <li><i class="fa-solid fa-check"></i> Tratament personalizat</li>
+            </ul>
+            <a href="#contact" class="svc__cta">Programare <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TECHNOLOGY ══════════════ -->
+  <section class="tech" id="technology">
+    <div class="container">
+      <div class="tech__grid">
+
+        <!-- Visual -->
+        <div class="tech__visual" data-aos="fade-right">
+          <div class="tech__orb-wrap">
+            <div class="tech__orb-glow"></div>
+            <div class="tech__ring trA"></div>
+            <div class="tech__ring trB"></div>
+            <div class="tech__ring trC"></div>
+            <div class="tech__orbit to1"><div class="tech__od"><div class="tech__ol mono">LASER</div></div></div>
+            <div class="tech__orbit to2"><div class="tech__od"><div class="tech__ol mono">RF</div></div></div>
+            <div class="tech__orbit to3"><div class="tech__od"><div class="tech__ol mono">HIFU</div></div></div>
+            <div class="tech__orbit to4"><div class="tech__od"><div class="tech__ol mono">MESO</div></div></div>
+            <div class="tech__core">
+              <i class="fa-solid fa-atom"></i>
+              <span class="mono">ANIMA</span>
+            </div>
+            <div class="tech__scan-line"></div>
+          </div>
+
+          <div class="tech__img-row">
+            <div class="tech__img-card">
+              <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=400&q=80" alt="Facial lifting clinic" loading="lazy" />
+              <span class="mono">Interior Premium</span>
+            </div>
+            <div class="tech__img-card">
+              <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&q=80" alt="Echipament laser beauty" loading="lazy" />
+              <span class="mono">Tratamente Top</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="tech__text" data-aos="fade-left" data-aos-delay="150">
+          <span class="section-num mono">03 //</span>
+          <div class="section-eyebrow">
+            <span class="eyebrow-line"></span><span>Inovație</span>
+          </div>
+          <h2 class="section-title">
+            Tehnologia<br /><em>Viitorului</em><br />— Acum în Gorj.
+          </h2>
+          <p class="tech__desc">
+            Aparatură de top ce până acum putea fi găsită doar în clinicile de elită din București, Viena sau Paris. Acum disponibilă în inima Gorjului, la prețuri corecte.
+          </p>
+          <div class="tech__specs">
+            <div class="tech__spec">
+              <div class="tech__spec-h mono"><span class="tsd"></span>Laser IPL Gen-5</div>
+              <p>Epilare definitivă fără durere pe toate tipurile de piele.</p>
+            </div>
+            <div class="tech__spec">
+              <div class="tech__spec-h mono"><span class="tsd"></span>RF Body Sculpting</div>
+              <p>Remodelare corporală prin radiofrecvență, fără chirurgie.</p>
+            </div>
+            <div class="tech__spec">
+              <div class="tech__spec-h mono"><span class="tsd"></span>HIFU Lifting</div>
+              <p>Lifting facial non-invaziv cu ultrasunete focalizate.</p>
+            </div>
+            <div class="tech__spec">
+              <div class="tech__spec-h mono"><span class="tsd"></span>Mezoterapie Avansată</div>
+              <p>Regenerare cu cocktailuri personalizate de vitamine și peptide.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROCESS ══════════════ -->
+  <section class="process">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-num mono">04 //</span>
+        <div class="section-eyebrow">
+          <span class="eyebrow-line"></span><span>Cum funcționează</span>
+        </div>
+        <h2 class="section-title">Procesul <em>Anima</em></h2>
+      </div>
+      <div class="process__steps">
+        <div class="proc-step" data-aos="fade-up" data-aos-delay="0">
+          <div class="proc-num mono">01</div>
+          <div class="proc-icon"><i class="fa-solid fa-calendar-plus"></i></div>
+          <h4>Programare</h4>
+          <p>Sună sau completează formularul. Răspund în mai puțin de o oră.</p>
+        </div>
+        <div class="proc-conn" aria-hidden="true"><div class="proc-conn__line"></div><div class="proc-conn__dot"></div></div>
+        <div class="proc-step" data-aos="fade-up" data-aos-delay="150">
+          <div class="proc-num mono">02</div>
+          <div class="proc-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+          <h4>Consultație</h4>
+          <p>Analiză nevoilor tale și plan de tratament personalizat.</p>
+        </div>
+        <div class="proc-conn" aria-hidden="true"><div class="proc-conn__line"></div><div class="proc-conn__dot"></div></div>
+        <div class="proc-step" data-aos="fade-up" data-aos-delay="300">
+          <div class="proc-num mono">03</div>
+          <div class="proc-icon"><i class="fa-solid fa-spa"></i></div>
+          <h4>Tratament</h4>
+          <p>Proceduri cu aparatură de ultimă generație, confortabil și eficient.</p>
+        </div>
+        <div class="proc-conn" aria-hidden="true"><div class="proc-conn__line"></div><div class="proc-conn__dot"></div></div>
+        <div class="proc-step" data-aos="fade-up" data-aos-delay="450">
+          <div class="proc-num mono">04</div>
+          <div class="proc-icon"><i class="fa-solid fa-sparkles"></i></div>
+          <h4>Rezultate</h4>
+          <p>Vizibile imediat. Te însoțim pe tot parcursul transformării.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ GALLERY ══════════════ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-num mono">05 //</span>
+        <div class="section-eyebrow">
+          <span class="eyebrow-line"></span><span>Spațiul nostru</span>
+        </div>
+        <h2 class="section-title">Clinica <em>Anima</em></h2>
+      </div>
+    </div>
+    <div class="gallery__bento">
+      <div class="g-item g-a" data-aos="zoom-in" data-aos-delay="0">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=80" alt="Interior clinica beauty" loading="lazy" />
+        <div class="g-overlay"><span class="mono">Interior Premium</span></div>
+      </div>
+      <div class="g-item g-b" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Lifting facial tratament" loading="lazy" />
+        <div class="g-overlay"><span class="mono">Lifting Facial</span></div>
+      </div>
+      <div class="g-item g-c" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80" alt="Remodelare corporala tratament" loading="lazy" />
+        <div class="g-overlay"><span class="mono">Atmosfera Anima</span></div>
+      </div>
+      <div class="g-item g-d" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="Regenerare par scalp salon" loading="lazy" />
+        <div class="g-overlay"><span class="mono">Îngrijire Premium</span></div>
+      </div>
+      <div class="g-item g-e" data-aos="zoom-in" data-aos-delay="400">
+        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80" alt="Dispozitiv LED facial beauty" loading="lazy" />
+        <div class="g-overlay"><span class="mono">Echipamente Top</span></div>
+      </div>
+      <div class="g-item g-f" data-aos="zoom-in" data-aos-delay="500">
+        <img src="https://images.pexels.com/photos/16571735/pexels-photo-16571735.jpeg?auto=compress&cs=tinysrgb&w=700&h=500&dpr=1" alt="Ambianță premium luxury clinic" loading="lazy" />
+        <div class="g-overlay"><span class="mono">Ambianță de Lux</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TESTIMONIALS ══════════════ -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-num mono">06 //</span>
+        <div class="section-eyebrow">
+          <span class="eyebrow-line"></span><span>Recenzii</span>
+        </div>
+        <h2 class="section-title">Ce spun <em>clienții</em></h2>
+      </div>
+      <div class="testi__grid">
+        <div class="testi" data-aos="fade-up" data-aos-delay="0">
+          <div class="testi__q">"</div>
+          <div class="testi__stars">★★★★★</div>
+          <p>"Am fost prima dată sceptică, dar rezultatele au depășit orice așteptare. Personalul este incredibil de profesionist. Recomand cu toată inima!"</p>
+          <div class="testi__author">
+            <div class="testi__av">AM</div>
+            <div><strong>Andreea M.</strong><small class="mono">Târgu Jiu</small></div>
+          </div>
+        </div>
+        <div class="testi testi--accent" data-aos="fade-up" data-aos-delay="150">
+          <div class="testi__q">"</div>
+          <div class="testi__stars">★★★★★</div>
+          <p>"Epilarea laser a fost absolut nedureroasă! Nu mai trebuie să merg la București pentru proceduri de top. Anima a schimbat totul în Gorj."</p>
+          <div class="testi__author">
+            <div class="testi__av">RI</div>
+            <div><strong>Raluca I.</strong><small class="mono">Novaci</small></div>
+          </div>
+        </div>
+        <div class="testi" data-aos="fade-up" data-aos-delay="300">
+          <div class="testi__q">"</div>
+          <div class="testi__stars">★★★★★</div>
+          <p>"Liftingul facial a dat ani jos. Mă așteptam la o clinică obișnuită, dar am găsit un spațiu de lux. Prețurile complet surprinzătoare."</p>
+          <div class="testi__author">
+            <div class="testi__av">EP</div>
+            <div><strong>Elena P.</strong><small class="mono">Gorj</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CTA ══════════════ -->
+  <section class="cta-section">
+    <div class="cta-section__bg">
+      <img src="https://images.unsplash.com/photo-1583416750470-965b2707b355?w=1800&q=80" alt="" aria-hidden="true" />
+      <div class="cta-section__overlay"></div>
+    </div>
+    <div class="cta-ring cta-ring-1" aria-hidden="true"></div>
+    <div class="cta-ring cta-ring-2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-content" data-aos="fade-up">
+        <h2 class="cta-title">
+          Ești gata să faci o<br /><em>schimbare pentru tine?</em>
+        </h2>
+        <p class="cta-sub">Echipa Anima te așteaptă cu soluții ce îți vor reda încrederea în sine.</p>
+        <div class="cta-actions">
+          <a href="tel:0749891891" class="btn btn--white magnetic">
+            <i class="fa-solid fa-phone-flip"></i><span>0749 891 891</span>
+          </a>
+          <a href="#contact" class="btn btn--outline-white magnetic">
+            <span>Formular Online</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-num mono">08 //</span>
+        <div class="section-eyebrow">
+          <span class="eyebrow-line"></span><span>Hai la noi</span>
+        </div>
+        <h2 class="section-title">Programează-te <em>Acum</em></h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__form-wrap" data-aos="fade-right">
+          <form class="contact__form" id="contactForm" novalidate>
+            <div class="form__row">
+              <div class="form__field">
+                <input type="text" id="fname" name="fname" placeholder=" " required autocomplete="given-name" />
+                <label for="fname">Prenume</label>
+                <span class="form__line"></span>
+              </div>
+              <div class="form__field">
+                <input type="text" id="lname" name="lname" placeholder=" " required autocomplete="family-name" />
+                <label for="lname">Nume</label>
+                <span class="form__line"></span>
+              </div>
+            </div>
+            <div class="form__field">
+              <input type="tel" id="phone" name="phone" placeholder=" " required autocomplete="tel" />
+              <label for="phone">Telefon *</label>
+              <span class="form__line"></span>
+            </div>
+            <div class="form__field">
+              <input type="email" id="email" name="email" placeholder=" " autocomplete="email" />
+              <label for="email">Email (opțional)</label>
+              <span class="form__line"></span>
+            </div>
+            <div class="form__field form__field--sel">
+              <select id="service" name="service" required>
+                <option value="" disabled selected></option>
+                <option value="epilare">Epilare Definitivă</option>
+                <option value="remodelare">Remodelare Corporală</option>
+                <option value="lifting">Lifting Facial</option>
+                <option value="par">Regenerare Păr</option>
+                <option value="consultatie">Consultație gratuită</option>
+              </select>
+              <label for="service" class="lbl-sel">Serviciu dorit *</label>
+              <span class="form__line"></span>
+              <i class="fa-solid fa-chevron-down sel-icon"></i>
+            </div>
+            <div class="form__field">
+              <textarea id="msg" name="msg" rows="3" placeholder=" "></textarea>
+              <label for="msg">Mesaj (opțional)</label>
+              <span class="form__line"></span>
+            </div>
+            <button type="submit" class="btn btn--gold btn--full magnetic">
+              <span>Trimite Cererea</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <div class="form__success" id="formSuccess">
+              <i class="fa-solid fa-circle-check"></i>
+              <p>Mulțumim! Te vom contacta în curând.</p>
+            </div>
+          </form>
+        </div>
+        <div class="contact__info" data-aos="fade-left" data-aos-delay="150">
+          <div class="contact__info-card">
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div><strong>Adresă</strong><p>Str. Siretului, nr. 14<br />Târgu Jiu, Gorj</p></div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fa-solid fa-phone-flip"></i></div>
+              <div><strong>Telefon</strong><p><a href="tel:0749891891">0749 891 891</a></p></div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fa-solid fa-clock"></i></div>
+              <div><strong>Program</strong><p>Luni – Vineri: 09:00 – 20:00<br />Sâmbătă: 09:00 – 18:00</p></div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fa-brands fa-instagram"></i></div>
+              <div><strong>Social</strong><p><a href="#">@animaclinique</a></p></div>
+            </div>
+          </div>
+          <div class="contact__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825!2d23.28!3d45.034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zVMOicmd1IEppdQ!5e0!3m2!1sro!2sro!4v1"
+              width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Anima Maps">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="footer__geo-ring" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="fla">A</span><span class="flr">NIMA</span>
+            <span class="flc">CLINIQUE</span>
+          </div>
+          <p>O nouă eră a frumuseții în Târgu Jiu. Tehnologie de ultimă generație, rezultate premium, prețuri corecte.</p>
+          <div class="footer__socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h5 class="mono">SERVICII</h5>
+          <ul>
+            <li><a href="#services">Epilare Definitivă</a></li>
+            <li><a href="#services">Remodelare Corporală</a></li>
+            <li><a href="#services">Lifting Facial</a></li>
+            <li><a href="#services">Regenerare Păr</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5 class="mono">CLINICA</h5>
+          <ul>
+            <li><a href="#about">Despre Noi</a></li>
+            <li><a href="#technology">Tehnologie</a></li>
+            <li><a href="#gallery">Galerie</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5 class="mono">CONTACT</h5>
+          <ul>
+            <li><a href="tel:0749891891">0749 891 891</a></li>
+            <li><span>Str. Siretului 14</span></li>
+            <li><span>Târgu Jiu, Gorj</span></li>
+            <li><span>Lun–Vin 09:00–20:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="mono">&copy; 2026 ANIMA CLINIQUE · ALL RIGHTS RESERVED</p>
+        <p class="mono">45.0338°N · 23.2800°E · GORJ, ROMÂNIA</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

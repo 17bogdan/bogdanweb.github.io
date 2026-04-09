@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contactați Hotel Aqua Târgu-Jiu — Str. Republicii 19A, telefon +40743222211, email receptie@aquahotel.ro." />
+  <title>Contact — Aqua Hotel Târgu-Jiu</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>" />
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+  <div id="navbar-slot"></div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <canvas id="header-particles" class="page-header__canvas"></canvas>
+    <div class="container">
+      <div class="page-header__content">
+        <nav class="page-header__breadcrumb">
+          <a href="index.html">Acasă</a>
+          <span>/</span>
+          <span>Contact</span>
+        </nav>
+        <h1 class="page-header__title">Hai să <em>vorbim</em></h1>
+        <p class="section-subtitle" style="margin-top: var(--space-4)">Suntem la o vorbă distanță — suntem bucuroși să te ajutăm.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== CONTACT CHANNELS ==================== -->
+  <section class="section section--sm">
+    <div class="container">
+      <div class="grid grid-4 gsap-fade-up" style="gap: var(--space-4)">
+        <a href="tel:+40743222211" class="card" style="text-align:center; padding: var(--space-8); text-decoration:none; display:block">
+          <div style="width:56px; height:56px; background: var(--c-gold-dim); border: 1px solid rgba(201,168,76,0.3); border-radius: var(--r-lg); display:flex; align-items:center; justify-content:center; font-size:24px; margin: 0 auto var(--space-4)">📞</div>
+          <div style="font-family: var(--f-display); font-size: var(--text-xs); letter-spacing:0.3em; text-transform:uppercase; color: var(--c-gold); margin-bottom: var(--space-2)">Telefon</div>
+          <div style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white)">+40 743 222 211</div>
+          <div style="font-size: var(--text-sm); color: var(--c-text-muted); margin-top: var(--space-1)">24/7 disponibili</div>
+        </a>
+        <a href="tel:0253222614" class="card" style="text-align:center; padding: var(--space-8); text-decoration:none; display:block">
+          <div style="width:56px; height:56px; background: var(--c-gold-dim); border: 1px solid rgba(201,168,76,0.3); border-radius: var(--r-lg); display:flex; align-items:center; justify-content:center; font-size:24px; margin: 0 auto var(--space-4)">🏢</div>
+          <div style="font-family: var(--f-display); font-size: var(--text-xs); letter-spacing:0.3em; text-transform:uppercase; color: var(--c-gold); margin-bottom: var(--space-2)">Tel. Office</div>
+          <div style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white)">0253 222 614</div>
+          <div style="font-size: var(--text-sm); color: var(--c-text-muted); margin-top: var(--space-1)">Luni–Vineri 9-18</div>
+        </a>
+        <a href="mailto:receptie@aquahotel.ro" class="card" style="text-align:center; padding: var(--space-8); text-decoration:none; display:block">
+          <div style="width:56px; height:56px; background: var(--c-gold-dim); border: 1px solid rgba(201,168,76,0.3); border-radius: var(--r-lg); display:flex; align-items:center; justify-content:center; font-size:24px; margin: 0 auto var(--space-4)">✉️</div>
+          <div style="font-family: var(--f-display); font-size: var(--text-xs); letter-spacing:0.3em; text-transform:uppercase; color: var(--c-gold); margin-bottom: var(--space-2)">Email</div>
+          <div style="font-family: var(--f-serif); font-size: var(--text-base); color: var(--c-white); word-break:break-word">receptie@aquahotel.ro</div>
+          <div style="font-size: var(--text-sm); color: var(--c-text-muted); margin-top: var(--space-1)">Răspuns în 2h</div>
+        </a>
+        <div class="card" style="text-align:center; padding: var(--space-8)">
+          <div style="width:56px; height:56px; background: var(--c-gold-dim); border: 1px solid rgba(201,168,76,0.3); border-radius: var(--r-lg); display:flex; align-items:center; justify-content:center; font-size:24px; margin: 0 auto var(--space-4)">📍</div>
+          <div style="font-family: var(--f-display); font-size: var(--text-xs); letter-spacing:0.3em; text-transform:uppercase; color: var(--c-gold); margin-bottom: var(--space-2)">Adresă</div>
+          <div style="font-family: var(--f-serif); font-size: var(--text-lg); color: var(--c-white)">Str. Republicii 19A</div>
+          <div style="font-size: var(--text-sm); color: var(--c-text-muted); margin-top: var(--space-1)">Târgu-Jiu, Gorj</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FORM + MAP ==================== -->
+  <section class="section" style="background: var(--c-bg-2)">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Map & directions -->
+        <div>
+          <div class="section-label">Localizare</div>
+          <h2 class="section-title">Cum ajungi <em>la noi</em></h2>
+
+          <div class="location-map" style="margin-bottom: var(--space-6); aspect-ratio: 4/3">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2843!2d23.273!3d45.038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474d1af7f3e5e5f1%3A0x0!2sStr.+Republicii+19A%2C+T%C3%A2rgu-Jiu!5e0!3m2!1sro!2sro!4v1610000000000"
+              width="600"
+              height="450"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Harta Hotel Aqua Târgu-Jiu"
+            ></iframe>
+          </div>
+
+          <div class="location-info" style="gap: var(--space-4)">
+            <div class="location-item">
+              <div class="location-item__icon">🚂</div>
+              <div>
+                <div class="location-item__title">De la autogară / gară</div>
+                <div class="location-item__text">Virați dreapta pe Bdul Republicii. Hotelul se află după aproximativ 700 m pe dreapta, lângă un sens giratoriu.</div>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item__icon">🚗</div>
+              <div>
+                <div class="location-item__title">Cu mașina din București</div>
+                <div class="location-item__text">Intrați pe Calea București, traversați podul, continuați pe Str. Unirii, la primul sens giratorie faceți 300° și intrați pe Bdul Republicii.</div>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item__icon">🏛️</div>
+              <div>
+                <div class="location-item__title">Spre centru</div>
+                <div class="location-item__text">De la hotel, mergeți pe Bdul Republicii în sens opus față de gară (~400 m) până la zona pietonală.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div>
+          <div class="section-label">Mesaj</div>
+          <h2 class="section-title">Trimite-ne un <em>mesaj</em></h2>
+          <div style="background: var(--c-glass); border: 1px solid var(--c-border); border-radius: var(--r-xl); padding: var(--space-8)">
+            <form class="contact-form" action="#" method="POST" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="c-name">Nume și prenume *</label>
+                <input class="form-control" id="c-name" type="text" name="name" placeholder="ex. Ion Popescu" required />
+              </div>
+              <div class="grid grid-2" style="gap: var(--space-4)">
+                <div class="form-group">
+                  <label class="form-label" for="c-email">Email *</label>
+                  <input class="form-control" id="c-email" type="email" name="email" placeholder="email@exemplu.ro" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-phone">Telefon *</label>
+                  <input class="form-control" id="c-phone" type="tel" name="phone" placeholder="+40 7xx xxx xxx" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-subject">Subiect *</label>
+                <select class="form-control" id="c-subject" name="subject" required>
+                  <option value="">Alege subiectul...</option>
+                  <option value="rezervare">Rezervare cameră</option>
+                  <option value="restaurant">Rezervare restaurant</option>
+                  <option value="eveniment">Organizare eveniment</option>
+                  <option value="informatii">Informații generale</option>
+                  <option value="feedback">Feedback / Reclamație</option>
+                  <option value="altele">Altele</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-message">Mesaj *</label>
+                <textarea class="form-control" id="c-message" name="message" placeholder="Scrie mesajul tău aici..." required style="min-height: 160px"></textarea>
+              </div>
+              <div style="display:flex; align-items:center; gap: var(--space-3); margin-bottom: var(--space-5)">
+                <input type="checkbox" id="c-gdpr" name="gdpr" required style="width:16px; height:16px; accent-color: var(--c-gold); cursor:pointer" />
+                <label for="c-gdpr" style="font-size: var(--text-xs); color: var(--c-text-muted); cursor:pointer">
+                  Sunt de acord cu <a href="#" style="color: var(--c-gold)">Politica de confidențialitate</a> *
+                </label>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg w-full">
+                <span>Trimite mesajul</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto">
+        <div style="text-align:center; margin-bottom: var(--space-10)">
+          <div class="section-label" style="justify-content:center">FAQ</div>
+          <h2 class="section-title">Întrebări <em>frecvente</em></h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: var(--space-3)" id="faq-list">
+
+          <details class="card" style="padding: var(--space-5); cursor:pointer">
+            <summary style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); list-style:none; display:flex; justify-content:space-between; align-items:center">
+              Care este ora de check-in și check-out?
+              <span style="color: var(--c-gold); font-size: 1.5rem; transition: transform 0.3s">+</span>
+            </summary>
+            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--c-text-muted); line-height: 1.8">Check-in-ul standard este la ora <strong style="color:var(--c-gold)">14:00</strong>, iar check-out-ul la <strong style="color:var(--c-gold)">12:00</strong>. Late check-out poate fi solicitat la recepție (cu disponibilitate și posibil cost adițional).</p>
+          </details>
+
+          <details class="card" style="padding: var(--space-5); cursor:pointer">
+            <summary style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); list-style:none; display:flex; justify-content:space-between; align-items:center">
+              Micul dejun este inclus în tarif?
+              <span style="color: var(--c-gold); font-size: 1.5rem; transition: transform 0.3s">+</span>
+            </summary>
+            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--c-text-muted); line-height: 1.8">Da, micul dejun bufet este <strong style="color:var(--c-gold)">inclus</strong> în toate tarifele de cazare. Este servit între orele 7:00 și 10:00 în restaurantul hotelului.</p>
+          </details>
+
+          <details class="card" style="padding: var(--space-5); cursor:pointer">
+            <summary style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); list-style:none; display:flex; justify-content:space-between; align-items:center">
+              Există parcare la hotel?
+              <span style="color: var(--c-gold); font-size: 1.5rem; transition: transform 0.3s">+</span>
+            </summary>
+            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--c-text-muted); line-height: 1.8">Da, hotelul dispune de o parcare proprie, supravegheată video 24h/24, <strong style="color:var(--c-gold)">inclusă gratuit</strong> în prețul cazării.</p>
+          </details>
+
+          <details class="card" style="padding: var(--space-5); cursor:pointer">
+            <summary style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); list-style:none; display:flex; justify-content:space-between; align-items:center">
+              Se acceptă animale de companie?
+              <span style="color: var(--c-gold); font-size: 1.5rem; transition: transform 0.3s">+</span>
+            </summary>
+            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--c-text-muted); line-height: 1.8">Îți rugăm să contactezi recepția înainte de sosire pentru a discuta about disponibilitatea acceptării animalelor de companie. Politica poate varia în funcție de perioadă.</p>
+          </details>
+
+          <details class="card" style="padding: var(--space-5); cursor:pointer">
+            <summary style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); list-style:none; display:flex; justify-content:space-between; align-items:center">
+              Care sunt modalitățile de plată acceptate?
+              <span style="color: var(--c-gold); font-size: 1.5rem; transition: transform 0.3s">+</span>
+            </summary>
+            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--c-text-muted); line-height: 1.8">Acceptăm <strong style="color:var(--c-gold)">numerar (RON/EUR)</strong> și carduri bancare <strong style="color:var(--c-gold)">Visa și Mastercard</strong>. Nu se percep comisioane suplimentare.</p>
+          </details>
+
+          <details class="card" style="padding: var(--space-5); cursor:pointer">
+            <summary style="font-family: var(--f-serif); font-size: var(--text-xl); color: var(--c-white); list-style:none; display:flex; justify-content:space-between; align-items:center">
+              Pot anula o rezervare?
+              <span style="color: var(--c-gold); font-size: 1.5rem; transition: transform 0.3s">+</span>
+            </summary>
+            <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--c-text-muted); line-height: 1.8">Anularea este <strong style="color:var(--c-gold)">gratuită</strong> cu minim 48 de ore înainte de sosire. Anulările în mai puțin de 48 ore pot fi taxate cu echivalentul a 1 noapte de cazare.</p>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOURS ==================== -->
+  <section class="section section--sm" style="background: var(--c-bg-2)">
+    <div class="container">
+      <div style="max-width: 700px; margin: 0 auto">
+        <div style="text-align:center; margin-bottom: var(--space-8)">
+          <div class="section-label" style="justify-content:center">Program</div>
+          <h2 class="section-title">Orele <em>de funcționare</em></h2>
+        </div>
+        <div style="background: var(--c-glass); border: 1px solid var(--c-border); border-radius: var(--r-xl); overflow:hidden">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0">
+            <div style="padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--c-border-light); border-right: 1px solid var(--c-border-light)">
+              <div style="font-family: var(--f-display); font-size: var(--text-xs); letter-spacing:0.2em; color: var(--c-gold); text-transform:uppercase; margin-bottom: var(--space-2)">Recepție</div>
+              <div style="color: var(--c-white); font-size: var(--text-sm)">Luni–Duminică: 24/24</div>
+            </div>
+            <div style="padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--c-border-light)">
+              <div style="font-family: var(--f-display); font-size: var(--text-xs); letter-spacing:0.2em; color: var(--c-gold); text-transform:uppercase; margin-bottom: var(--space-2)">Restaurant</div>
+              <div style="color: var(--c-white); font-size: var(--text-sm)">07:00–23:00 zilnic</div>
+            </div>
+            <div style="padding: var(--space-5) var(--space-6); border-right: 1px solid var(--c-border-light)">
+              <div style="font-family: var(--f-display); font-size: var(--text-xs); letter-spacing:0.2em; color: var(--c-gold); text-transform:uppercase; margin-bottom: var(--space-2)">Mic dejun bufet</div>
+              <div style="color: var(--c-white); font-size: var(--text-sm)">07:00–10:00 zilnic</div>
+            </div>
+            <div style="padding: var(--space-5) var(--space-6)">
+              <div style="font-family: var(--f-display); font-size: var(--text-xs); letter-spacing:0.2em; color: var(--c-gold); text-transform:uppercase; margin-bottom: var(--space-2)">Cafenea</div>
+              <div style="color: var(--c-white); font-size: var(--text-sm)">08:00–22:00 zilnic</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-slot"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    // FAQ accordion arrow animation
+    document.querySelectorAll('#faq-list details').forEach(detail => {
+      detail.addEventListener('toggle', () => {
+        const arrow = detail.querySelector('summary span');
+        if (arrow) arrow.style.transform = detail.open ? 'rotate(45deg)' : 'rotate(0)';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Restaurant & Cafenea Aqua — bucătărie românească și internațională, vinuri selectate, deserturi artizanale în Târgu-Jiu." />
+  <title>Restaurant — Aqua Hotel Târgu-Jiu</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>" />
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+  <div id="navbar-slot"></div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <canvas id="header-particles" class="page-header__canvas"></canvas>
+    <div class="container">
+      <div class="page-header__content">
+        <nav class="page-header__breadcrumb">
+          <a href="index.html">Acasă</a>
+          <span>/</span>
+          <span>Restaurant</span>
+        </nav>
+        <h1 class="page-header__title">Restaurant <em>& Cafenea</em></h1>
+        <p class="section-subtitle" style="margin-top: var(--space-4)">Bucătărie autentică, atmosferă caldă, momente de neuitat.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== INTRO ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-visual" style="border-radius: var(--r-xl) 0 0 var(--r-xl); overflow:hidden">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7640_1024x680.jpg" alt="Restaurant Aqua" loading="lazy" />
+        </div>
+        <div class="feature-content" style="border-radius: 0 var(--r-xl) var(--r-xl) 0">
+          <div class="section-label">Gastronomie</div>
+          <h2 class="section-title">O experiență <em>culinară</em> complectă</h2>
+          <p class="section-subtitle">
+            Cafeneaua și restaurantul hotelului Aqua sunt alegerea ideală pentru relaxare și deconectare. Fie că ești cu familia sau cu partenerii de afaceri, bucătarul nostru pregătește meniuri diversificate din bucătăria românească și internațională.
+          </p>
+          <div class="divider" style="margin: var(--space-6) 0"></div>
+          <div class="grid grid-2" style="gap: var(--space-4)">
+            <div style="display:flex; align-items:center; gap: var(--space-3)">
+              <span style="color: var(--c-gold); font-size: 1.5rem">🍽️</span>
+              <span style="font-size: var(--text-sm); color: var(--c-text)">Bucătărie românească & internațională</span>
+            </div>
+            <div style="display:flex; align-items:center; gap: var(--space-3)">
+              <span style="color: var(--c-gold); font-size: 1.5rem">🍷</span>
+              <span style="font-size: var(--text-sm); color: var(--c-text)">Cramă cu vinuri selectate</span>
+            </div>
+            <div style="display:flex; align-items:center; gap: var(--space-3)">
+              <span style="color: var(--c-gold); font-size: 1.5rem">🎂</span>
+              <span style="font-size: var(--text-sm); color: var(--c-text)">Deserturi artizanale</span>
+            </div>
+            <div style="display:flex; align-items:center; gap: var(--space-3)">
+              <span style="color: var(--c-gold); font-size: 1.5rem">☕</span>
+              <span style="font-size: var(--text-sm); color: var(--c-text)">Cafenea & cocktail bar</span>
+            </div>
+            <div style="display:flex; align-items:center; gap: var(--space-3)">
+              <span style="color: var(--c-gold); font-size: 1.5rem">🤝</span>
+              <span style="font-size: var(--text-sm); color: var(--c-text)">Evenimente corporate</span>
+            </div>
+            <div style="display:flex; align-items:center; gap: var(--space-3)">
+              <span style="color: var(--c-gold); font-size: 1.5rem">📱</span>
+              <span style="font-size: var(--text-sm); color: var(--c-text)">Rezervări la masă</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MENU ==================== -->
+  <section class="section" style="background: var(--c-bg-2)" id="menu">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-10)">
+        <div class="section-label" style="justify-content:center">Meniu</div>
+        <h2 class="section-title">Savurează <em>gusturile noastre</em></h2>
+        <p class="section-subtitle" style="margin: 0 auto">O selecție atent curatoriată pentru fiecare moment al zilei.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-tab="aperitive">Aperitive</button>
+        <button class="menu-tab" data-tab="supe">Supe & Ciorbe</button>
+        <button class="menu-tab" data-tab="principale">Feluri principale</button>
+        <button class="menu-tab" data-tab="peste">Pește & Fructe de mare</button>
+        <button class="menu-tab" data-tab="garnituri">Garnituri</button>
+        <button class="menu-tab" data-tab="deserturi">Deserturi</button>
+        <button class="menu-tab" data-tab="bauturi">Băuturi</button>
+      </div>
+
+      <!-- Aperitive -->
+      <div class="menu-section" id="menu-aperitive">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Platou de brânzeturi românești</div>
+              <div class="menu-item__desc">Brânzică de burduf, cașcaval afumat, telemea de Sibiu, rodie și miere</div>
+            </div>
+            <div class="menu-item__price">42 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Antipasto mixt</div>
+              <div class="menu-item__desc">Prosciutto, salami italian, măsline kalamata, capere, bruschete artizanale</div>
+            </div>
+            <div class="menu-item__price">48 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Hummus cu pita caldă</div>
+              <div class="menu-item__desc">Hummus de casă, ulei de măsline extra virgin, boia afumată, semințe de susan</div>
+            </div>
+            <div class="menu-item__price">28 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Carpaccio de vită</div>
+              <div class="menu-item__desc">Mușchi de vită, rucola, parmezan, ulei trufe, lămâie</div>
+            </div>
+            <div class="menu-item__price">55 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Tartare de somon</div>
+              <div class="menu-item__desc">Somon proaspăt, avocado, capere, ceapă roșie, crème fraîche</div>
+            </div>
+            <div class="menu-item__price">62 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Bruschetă tricolor</div>
+              <div class="menu-item__desc">Pâine artizanală prăjită, roșii cherry, busuioc proaspăt, usturoi, parmezan</div>
+            </div>
+            <div class="menu-item__price">22 RON</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supe -->
+      <div class="menu-section" id="menu-supe" style="display:none">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Ciorbă de burtă tradițională</div>
+              <div class="menu-item__desc">Rețeta bunicii, smântână, oțet, ardei iute, usturoi</div>
+            </div>
+            <div class="menu-item__price">32 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Borș de pui cu tăiței</div>
+              <div class="menu-item__desc">Pui de fermă, leurdă, leuștean, fidea artizanală</div>
+            </div>
+            <div class="menu-item__price">28 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Supă cremă de roșii</div>
+              <div class="menu-item__desc">Roșii cherry coapte, busuioc proaspăt, croûtons de casă</div>
+            </div>
+            <div class="menu-item__price">26 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Supă cremă de ciuperci</div>
+              <div class="menu-item__desc">Amestec de ciuperci de pădure, smântână, cimbru, ulei de trufe</div>
+            </div>
+            <div class="menu-item__price">30 RON</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Principale -->
+      <div class="menu-section" id="menu-principale" style="display:none">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Mușchi de vită grătar</div>
+              <div class="menu-item__desc">200g mușchi de vită, sos de piper verde, cartofi gratinat, legume de sezon</div>
+            </div>
+            <div class="menu-item__price">95 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Cotlet de miel cu ierburi</div>
+              <div class="menu-item__desc">Cotlet de miel, rozmarin, usturoi, piure de mazăre, jus de vin roșu</div>
+            </div>
+            <div class="menu-item__price">88 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Piept de rață cu portocale</div>
+              <div class="menu-item__desc">Piept de rață confit, reducție de portocale, polenta cremoasă</div>
+            </div>
+            <div class="menu-item__price">78 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Pulpe de pui la cuptor</div>
+              <div class="menu-item__desc">Pui de fermă, miere și muștar, cartofi noi, salată verde</div>
+            </div>
+            <div class="menu-item__price">58 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Tochitura olteneasca</div>
+              <div class="menu-item__desc">Carne de porc, mici de casă, mămăligă, ou la tigaie, caș de oi</div>
+            </div>
+            <div class="menu-item__price">65 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Sarmale în foi de viță</div>
+              <div class="menu-item__desc">Carne de porc și vită, orez, foi de viță, smântână, mămăligă</div>
+            </div>
+            <div class="menu-item__price">60 RON</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Peste -->
+      <div class="menu-section" id="menu-peste" style="display:none">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Doradă la grătar</div>
+              <div class="menu-item__desc">Doradă întreagă, lămâie, ulei de măsline, ierburi mediteraneene</div>
+            </div>
+            <div class="menu-item__price">75 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Somon la cuptor cu miso</div>
+              <div class="menu-item__desc">File de somon, glazură miso-malt, sparanghel, orez basmati</div>
+            </div>
+            <div class="menu-item__price">82 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Crevete tigru saltate</div>
+              <div class="menu-item__desc">Crevete tigru, unt, usturoi, chili, pătrunjel, pâine artizanală</div>
+            </div>
+            <div class="menu-item__price">72 RON</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Garnituri -->
+      <div class="menu-section" id="menu-garnituri" style="display:none">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div><div class="menu-item__name">Cartofi prăjiți</div></div>
+            <div class="menu-item__price">15 RON</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item__name">Mămăligă artizanală</div></div>
+            <div class="menu-item__price">12 RON</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item__name">Legume la grătar</div></div>
+            <div class="menu-item__price">18 RON</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item__name">Orez basmati</div></div>
+            <div class="menu-item__price">14 RON</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item__name">Salată verde mixtă</div></div>
+            <div class="menu-item__price">16 RON</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item__name">Cartofi noi la cuptor</div></div>
+            <div class="menu-item__price">18 RON</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deserturi -->
+      <div class="menu-section" id="menu-deserturi" style="display:none">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Papanași tradiționali</div>
+              <div class="menu-item__desc">Papanași fierți și prăjiți, smântână, dulceață de afine</div>
+            </div>
+            <div class="menu-item__price">32 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Tiramisu clasic</div>
+              <div class="menu-item__desc">Biscuiți savoiardi, mascarpone, espresso, cacao</div>
+            </div>
+            <div class="menu-item__price">35 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Crème brûlée cu lavandă</div>
+              <div class="menu-item__desc">Cremă de vanilie și lavandă, caramel crocant</div>
+            </div>
+            <div class="menu-item__price">38 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Fondant de ciocolată</div>
+              <div class="menu-item__desc">Fondant cald 70% cacao, înghețată de vanilie</div>
+            </div>
+            <div class="menu-item__price">36 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Plăcintă cu mere și scorțișoară</div>
+              <div class="menu-item__desc">Rețeta casnică cu mere ionatan, scorțișoară, frișcă</div>
+            </div>
+            <div class="menu-item__price">28 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Panna cotta cu căpșune</div>
+              <div class="menu-item__desc">Panna cotta de vanilie, coulis de căpșune proaspete</div>
+            </div>
+            <div class="menu-item__price">30 RON</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bauturi -->
+      <div class="menu-section" id="menu-bauturi" style="display:none">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Vinuri rosii (pahar)</div>
+              <div class="menu-item__desc">Cramele Recaș, Jidvei, Cotnari — selecție rotativă</div>
+            </div>
+            <div class="menu-item__price">18–28 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Vinuri albe (pahar)</div>
+              <div class="menu-item__desc">Feteasca regala, Sauvignon Blanc, Chardonnay</div>
+            </div>
+            <div class="menu-item__price">16–26 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Espresso / Americano</div>
+              <div class="menu-item__desc">Cafea de specialitate, origine unică</div>
+            </div>
+            <div class="menu-item__price">10 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Cappuccino / Latte</div>
+              <div class="menu-item__desc">Lapte de ferma, cafea single-origin</div>
+            </div>
+            <div class="menu-item__price">14 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Cocktail Aqua Signature</div>
+              <div class="menu-item__desc">Gin, elderflower, tonic artizanal, castraveți, mentă</div>
+            </div>
+            <div class="menu-item__price">38 RON</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item__name">Sucuri naturale freshly pressed</div>
+              <div class="menu-item__desc">Portocale, morcov-ghimbir, mere-lămâie</div>
+            </div>
+            <div class="menu-item__price">20 RON</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== AMBIANCE ==================== -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-10)">
+        <div class="section-label" style="justify-content:center">Atmosferă</div>
+        <h2 class="section-title">Un cadru <em>de excepție</em></h2>
+      </div>
+      <div class="grid grid-3" style="gap: var(--space-4)">
+        <div class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4120_1024x680.jpg" alt="Sala restaurant" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Sala mare</h3>
+            <p class="card__text">Ideală pentru grupuri mari, banchete și ocazii speciale. Capacitate de până la 60 persoane.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4128_1024x680.jpg" alt="Cafenea Aqua" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Cafenea & lounge</h3>
+            <p class="card__text">Un spațiu cozy pentru cafeaua de dimineață, o lectură sau o întâlnire de business informal.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7692_1024x680.jpg" alt="Terasă restaurant" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Terasă (vara)</h3>
+            <p class="card__text">Cina sub cerul liber în sezonul cald. Terrasa este deschisă mai–septembrie.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PHOTO GALLERY STRIP ==================== -->
+  <section class="section section--sm">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-8)">
+        <div class="section-label" style="justify-content:center">Fotografii</div>
+        <h2 class="section-title">Galerie <em>restaurant</em></h2>
+      </div>
+      <div class="gallery-strip">
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4120_1024x680.jpg" alt="Restaurant Aqua 1" loading="lazy" />
+        </div>
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4128_1024x680.jpg" alt="Restaurant Aqua 2" loading="lazy" />
+        </div>
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7640_1024x680.jpg" alt="Restaurant Aqua 3" loading="lazy" />
+        </div>
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7662_1024x680.jpg" alt="Restaurant Aqua 4" loading="lazy" />
+        </div>
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7692_1024x680.jpg" alt="Restaurant Aqua 5" loading="lazy" />
+        </div>
+      </div>
+      <!-- 6th photo full-width banner -->
+      <div style="margin-top: 12px; border-radius: var(--r-lg); overflow:hidden; max-height: 320px">
+        <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7707_1024x680.jpg" alt="Restaurant Aqua 6" loading="lazy" style="width:100%; height:320px; object-fit:cover; filter:brightness(0.85)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--sm" style="background: var(--c-bg-2)">
+    <div class="container" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Rezervare masă</div>
+      <h2 class="section-title">Rezervă o masă <em>astăzi</em></h2>
+      <p class="section-subtitle" style="margin: 0 auto var(--space-8)">Sună-ne sau trimite un email pentru a rezerva masa. Grupuri de la 2 la 60 persoane.</p>
+      <div style="display:flex; gap: var(--space-4); justify-content:center; flex-wrap:wrap">
+        <a href="tel:+40743222211" class="btn btn--primary btn--lg">📞 +40 743 222 211</a>
+        <a href="contact.html" class="btn btn--outline btn--lg">✉️ Trimite mesaj</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-slot"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

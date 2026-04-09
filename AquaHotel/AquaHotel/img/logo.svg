@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 64" width="268" height="64" role="img" aria-label="Aqua Hotel &amp; Restaurant">
+  <defs>
+    <!-- Gold gradient (top-left → bottom-right) -->
+    <linearGradient id="gl-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#EDD480"/>
+      <stop offset="45%"  stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#9A6E28"/>
+    </linearGradient>
+
+    <!-- Gold gradient horizontal (for ring stroke) -->
+    <linearGradient id="gl-gold-h" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#DFC06C"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+
+    <!-- A-mark dual-tone (aqua top → gold bottom) -->
+    <linearGradient id="gl-a" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#40E0ED"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+
+    <!-- Wave fade-in/out -->
+    <linearGradient id="gl-wave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00CFDE" stop-opacity="0"/>
+      <stop offset="25%"  stop-color="#00CFDE" stop-opacity="0.65"/>
+      <stop offset="75%"  stop-color="#00CFDE" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#00CFDE" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Subtle gold glow behind mark -->
+    <radialGradient id="gl-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#C9A84C" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MARK — circular emblem left side
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+  <!-- Glow disc behind ring -->
+  <circle cx="32" cy="32" r="28" fill="url(#gl-glow)"/>
+
+  <!-- Outer gold ring -->
+  <circle cx="32" cy="32" r="27" fill="none" stroke="url(#gl-gold-h)" stroke-width="1.4"/>
+
+  <!-- Inner thin ring (depth effect) -->
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#C9A84C" stroke-width="0.45" opacity="0.32"/>
+
+  <!-- Gold droplet at apex of A -->
+  <ellipse cx="32" cy="16.8" rx="2.1" ry="2.7" fill="#C9A84C"/>
+
+  <!-- Stylised "A" — two legs, gradient gold→aqua -->
+  <line x1="20.5" y1="47" x2="32" y2="17.5"
+        stroke="url(#gl-a)" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="43.5" y1="47" x2="32" y2="17.5"
+        stroke="url(#gl-a)" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Cross-bar replaced with aqua sine-wave -->
+  <path d="M23,36 Q27.5,30.5 32,36 Q36.5,41.5 41,36"
+        fill="none" stroke="#00CFDE" stroke-width="1.9" stroke-linecap="round"/>
+
+  <!-- Tiny dots at foot of each leg (serif terminals) -->
+  <circle cx="20" cy="47.5" r="1.3" fill="#C9A84C" opacity="0.7"/>
+  <circle cx="44" cy="47.5" r="1.3" fill="#C9A84C" opacity="0.7"/>
+
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       DIVIDER
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <line x1="67" y1="12" x2="67" y2="52" stroke="#C9A84C" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- Tiny diamond ornament at divider mid -->
+  <polygon points="67,30 69.5,32 67,34 64.5,32"
+           fill="#C9A84C" opacity="0.4"/>
+
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WORDMARK — right section, centered at x=168
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+  <!-- Aqua wave decoration above AQUA text -->
+  <path d="M76,19 Q105,13.5 134,19 Q163,24.5 192,19 Q221,13.5 258,19"
+        fill="none" stroke="url(#gl-wave)" stroke-width="0.9"/>
+
+  <!-- ─── "AQUA" primary wordmark ─── -->
+  <text x="168" y="43"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="27"
+        font-weight="bold"
+        font-style="italic"
+        letter-spacing="8"
+        text-anchor="middle"
+        fill="url(#gl-gold)">AQUA</text>
+
+  <!-- ─── 3 five-pointed gold stars ─── -->
+  <!-- All three at cy=52, spaced 14px: cx = 154, 168, 182 -->
+
+  <!-- Star 1 — cx=154 -->
+  <path d="M154 48.2 L154.91 50.75 L157.61 50.83 L155.47 52.48 L156.23 55.07
+           L154 53.55 L151.77 55.07 L152.53 52.48 L150.39 50.83 L153.09 50.75 Z"
+        fill="#C9A84C"/>
+
+  <!-- Star 2 — cx=168 -->
+  <path d="M168 48.2 L168.91 50.75 L171.61 50.83 L169.47 52.48 L170.23 55.07
+           L168 53.55 L165.77 55.07 L166.53 52.48 L164.39 50.83 L167.09 50.75 Z"
+        fill="#C9A84C"/>
+
+  <!-- Star 3 — cx=182 -->
+  <path d="M182 48.2 L182.91 50.75 L185.61 50.83 L183.47 52.48 L184.23 55.07
+           L182 53.55 L179.77 55.07 L180.53 52.48 L178.39 50.83 L181.09 50.75 Z"
+        fill="#C9A84C"/>
+
+  <!-- ─── Tagline ─── -->
+  <text x="168" y="63"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="7.8"
+        letter-spacing="3.8"
+        text-anchor="middle"
+        fill="#C9A84C"
+        opacity="0.82">HOTEL &amp; RESTAURANT</text>
+
+  <!-- Aqua wave decoration below tagline -->
+  <path d="M76,45 Q95,40 114,45 Q133,50 152,45 Q171,40 190,45 Q209,50 228,45"
+        fill="none" stroke="url(#gl-wave)" stroke-width="0.7" opacity="0.4"/>
+</svg>

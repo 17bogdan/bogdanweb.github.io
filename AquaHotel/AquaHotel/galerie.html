@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galerie foto Hotel Aqua Târgu-Jiu — camere, restaurant, cafenea, vedere exterioară." />
+  <title>Galerie — Aqua Hotel Târgu-Jiu</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- Gallery Masonry Grid ---- */
+    .gallery-masonry {
+      columns: 4;
+      column-gap: 12px;
+      padding: 0;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 12px;
+      overflow: hidden;
+      border-radius: var(--r-md);
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform var(--t-slow), filter var(--t-base);
+      filter: grayscale(20%) brightness(0.9);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .gallery-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5, 12, 26, 0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: var(--t-base);
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-4);
+    }
+
+    .gallery-item:hover .gallery-item__overlay {
+      opacity: 1;
+    }
+
+    .gallery-item__label {
+      font-family: var(--f-display);
+      font-size: var(--text-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+    }
+
+    .gallery-item--tall {
+      break-inside: avoid;
+    }
+
+    /* Filter Tabs */
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: center;
+      margin-bottom: var(--space-10);
+    }
+
+    .filter-btn {
+      font-family: var(--f-display);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--r-full);
+      border: 1px solid var(--c-border-light);
+      color: var(--c-text-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: var(--t-base);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--c-gold-dim);
+      border-color: var(--c-gold);
+      color: var(--c-gold);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(3, 8, 18, 0.97);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-6);
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox__img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-hero);
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: var(--space-6);
+      right: var(--space-6);
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--c-border-light);
+      border-radius: var(--r-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-white);
+      font-size: 20px;
+      cursor: pointer;
+      transition: var(--t-base);
+    }
+
+    .lightbox__close:hover {
+      border-color: var(--c-gold);
+      color: var(--c-gold);
+    }
+
+    .lightbox__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--c-border-light);
+      border-radius: var(--r-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-white);
+      cursor: pointer;
+      transition: var(--t-base);
+      background: var(--c-glass);
+    }
+
+    .lightbox__arrow:hover {
+      border-color: var(--c-gold);
+      color: var(--c-gold);
+    }
+
+    .lightbox__arrow--prev { left: var(--space-6); }
+    .lightbox__arrow--next { right: var(--space-6); }
+
+    .lightbox__counter {
+      position: absolute;
+      bottom: var(--space-6);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--f-display);
+      font-size: var(--text-xs);
+      letter-spacing: 0.3em;
+      color: var(--c-text-muted);
+    }
+
+    @media (max-width: 1024px) { .gallery-masonry { columns: 3; } }
+    @media (max-width: 768px)  { .gallery-masonry { columns: 2; } }
+    @media (max-width: 480px)  { .gallery-masonry { columns: 1; } }
+
+    /* Filter count badge */
+    .filter-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(201, 168, 76, 0.15);
+      color: var(--c-gold);
+      font-size: 10px;
+      font-weight: 700;
+      min-width: 20px;
+      height: 18px;
+      border-radius: 20px;
+      padding: 0 5px;
+      margin-left: 4px;
+      vertical-align: middle;
+      letter-spacing: 0;
+    }
+    .filter-btn.active .filter-count,
+    .filter-btn:hover .filter-count {
+      background: var(--c-gold);
+      color: var(--c-navy);
+    }
+  </style>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>" />
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+  <div id="navbar-slot"></div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <canvas id="header-particles" class="page-header__canvas"></canvas>
+    <div class="container">
+      <div class="page-header__content">
+        <nav class="page-header__breadcrumb">
+          <a href="index.html">Acasă</a>
+          <span>/</span>
+          <span>Galerie</span>
+        </nav>
+        <h1 class="page-header__title">Galerie <em>foto</em></h1>
+        <p class="section-subtitle" style="margin-top: var(--space-4)">Priveli sau inspiră-te — o colecție de imagini din interiorul Aqua Hotel.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== GALLERY ==================== -->
+  <section class="section">
+    <div class="container container--wide">
+
+      <!-- Filters -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Toate <span class="filter-count">29</span></button>
+        <button class="filter-btn" data-filter="exterior">Exterior <span class="filter-count">5</span></button>
+        <button class="filter-btn" data-filter="camere">Camere <span class="filter-count">18</span></button>
+        <button class="filter-btn" data-filter="restaurant">Restaurant <span class="filter-count">6</span></button>
+      </div>
+
+      <!-- Masonry Grid — 29 poze reale de pe aquahotel.ro -->
+      <div class="gallery-masonry" id="gallery-grid">
+
+        <!-- ===== EXTERIOR (5) ===== -->
+        <div class="gallery-item" data-category="exterior" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_1.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_1.jpg" alt="Hotel Aqua — vedere frontală" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Exterior — vedere frontală</span></div>
+        </div>
+
+        <div class="gallery-item gallery-item--tall" data-category="exterior" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_2.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_2.jpg" alt="Hotel Aqua — intrare principală" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Intrare principală</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="exterior" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_3.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_3.jpg" alt="Hotel Aqua — exterior noapte" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Exterior — noapte</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="exterior" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_4.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_4.jpg" alt="Hotel Aqua — vedere laterală" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Vedere laterală</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="exterior" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/spa.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/spa.jpg" alt="Zona relaxare — spa" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Zonă relaxare</span></div>
+        </div>
+
+        <!-- ===== RESTAURANT (6) ===== -->
+        <div class="gallery-item gallery-item--tall" data-category="restaurant" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4120_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4120_1024x680.jpg" alt="Restaurant Aqua — sala principală" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Restaurant — sala principală</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="restaurant" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4128_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4128_1024x680.jpg" alt="Restaurant Aqua — cafenea" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Cafenea & lounge</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="restaurant" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7640_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7640_1024x680.jpg" alt="Restaurant Aqua — mese" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Restaurant — interior</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="restaurant" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7662_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7662_1024x680.jpg" alt="Restaurant Aqua — atmosferă" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Atmosferă restaurant</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="restaurant" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7692_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7692_1024x680.jpg" alt="Restaurant Aqua — terasă" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Terasă vară</span></div>
+        </div>
+
+        <div class="gallery-item gallery-item--tall" data-category="restaurant" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7707_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7707_1024x680.jpg" alt="Restaurant Aqua — detalii" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Detalii restaurant</span></div>
+        </div>
+
+        <!-- ===== CAMERE TWIN (9) ===== -->
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin1.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin1.jpg" alt="Cameră Twin 1" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Cameră Twin</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin4.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin4.jpg" alt="Cameră Twin 2" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Cameră Twin — detaliu</span></div>
+        </div>
+
+        <div class="gallery-item gallery-item--tall" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin5.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin5.jpg" alt="Cameră Twin 3" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Cameră Twin — vedere completă</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin7.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin7.jpg" alt="Cameră Twin 4" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Twin — ambient</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin9.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin9.jpg" alt="Cameră Twin 5" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Twin — pat single</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twing-matr1.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twing-matr1.jpg" alt="Cameră Twin-Matr 1" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Cameră — interior</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twing-matr2.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twing-matr2.jpg" alt="Cameră Twin-Matr 2" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Cameră — detaliu mobilier</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7822_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7822_1024x680.jpg" alt="Cameră DSC 7822" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Twin — design modern</span></div>
+        </div>
+
+        <div class="gallery-item gallery-item--tall" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7839_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7839_1024x680.jpg" alt="Cameră DSC 7839" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Twin — luminos și confortabil</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7884_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7884_1024x680.jpg" alt="Cameră DSC 7884" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Twin — vedere completă</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7901_1024x680.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7901_1024x680.jpg" alt="Cameră DSC 7901" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Twin — detaliu</span></div>
+        </div>
+
+        <!-- ===== CAMERE MATRIMONIALE (8) ===== -->
+        <div class="gallery-item gallery-item--tall" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr1.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr1.jpg" alt="Cameră Matrimonială 1" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Matrimonial Deluxe</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr2-1024x682.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr2-1024x682.jpg" alt="Cameră Matrimonială 2" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Matrimonial — pat dublu</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/mat1.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/mat1.jpg" alt="Cameră Matrimonială 3" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Matrimonial — ambient</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/mat_baie.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/mat_baie.jpg" alt="Baie privată matrimonial" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Matrimonial — baie privată</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/room_1_room_page_2_big.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/room_1_room_page_2_big.jpg" alt="Cameră deluxe" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Cameră — vedere de ansamblu</span></div>
+        </div>
+
+        <div class="gallery-item gallery-item--tall" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7853_510x768.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7853_510x768.jpg" alt="Cameră DSC 7853" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Matrimonial — design interior</span></div>
+        </div>
+
+        <div class="gallery-item" data-category="camere" data-src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7912_510x768.jpg">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/DSC_7912_510x768.jpg" alt="Cameră DSC 7912" loading="lazy" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Matrimonial — detaliu</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LIGHTBOX ==================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Vizualizare foto">
+    <button class="lightbox__close" id="lb-close" aria-label="Închide">✕</button>
+    <button class="lightbox__arrow lightbox__arrow--prev" id="lb-prev" aria-label="Înapoi">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    </button>
+    <img class="lightbox__img" id="lb-img" src="" alt="" />
+    <button class="lightbox__arrow lightbox__arrow--next" id="lb-next" aria-label="Înainte">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 19l7-7-7-7"/></svg>
+    </button>
+    <div class="lightbox__counter" id="lb-counter"></div>
+  </div>
+
+  <div id="footer-slot"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    // Gallery filter + lightbox
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = Array.from(document.querySelectorAll('.gallery-item'));
+      const filters = document.querySelectorAll('.filter-btn');
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lb-img');
+      const lbCounter = document.getElementById('lb-counter');
+      let visibleItems = items;
+      let currentIndex = 0;
+
+      // Filter
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filters.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+          visibleItems = filter === 'all'
+            ? items
+            : items.filter(i => i.dataset.category === filter);
+
+          items.forEach(item => {
+            const show = filter === 'all' || item.dataset.category === filter;
+            item.style.display = show ? '' : 'none';
+          });
+        });
+      });
+
+      // Open lightbox
+      items.forEach((item, i) => {
+        item.addEventListener('click', () => {
+          currentIndex = visibleItems.indexOf(item);
+          if (currentIndex === -1) return;
+          openLightbox(currentIndex);
+        });
+      });
+
+      function openLightbox(idx) {
+        const src = visibleItems[idx]?.dataset.src;
+        if (!src) return;
+        lbImg.src = src;
+        lbImg.alt = visibleItems[idx]?.querySelector('img')?.alt || '';
+        lbCounter.textContent = `${idx + 1} / ${visibleItems.length}`;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        currentIndex = idx;
+      }
+
+      document.getElementById('lb-close').addEventListener('click', () => {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+
+      document.getElementById('lb-prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+        openLightbox(currentIndex);
+      });
+
+      document.getElementById('lb-next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % visibleItems.length;
+        openLightbox(currentIndex);
+      });
+
+      lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+
+      document.addEventListener('keydown', e => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+        if (e.key === 'ArrowLeft')  { currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length; openLightbox(currentIndex); }
+        if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % visibleItems.length; openLightbox(currentIndex); }
+      });
+    });
+  </script>
+</body>
+</html>

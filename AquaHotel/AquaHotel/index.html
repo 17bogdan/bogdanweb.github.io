@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hotel Aqua Târgu-Jiu — 3 stele, 15 camere moderne, restaurant și cafenea. Confort și ospitalitate în inima Olteniei." />
+  <meta name="keywords" content="hotel targu jiu, aqua hotel, cazare, restaurant, gorj" />
+  <meta property="og:title" content="Aqua Hotel Târgu-Jiu" />
+  <meta property="og:description" content="Hotel de 3 stele în inima Târgu-Jiului. Camere moderne, restaurant, parcare supravegheată." />
+  <meta property="og:image" content="https://aquahotel.ro/wp-content/uploads/2022/02/slider_2.jpg" />
+  <title>Aqua Hotel — Târgu-Jiu | Confort & Ospitalitate</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>" />
+</head>
+<body>
+
+  <!-- Ambient canvas (background waterwave) -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navbar slot (filled by components.js) -->
+  <div id="navbar-slot"></div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="home">
+    <canvas class="hero__canvas" id="hero-canvas"></canvas>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <div class="hero__eyebrow-line"></div>
+        <span class="hero__eyebrow-text">Hotel ★★★ — Târgu-Jiu, Gorj</span>
+        <div class="hero__eyebrow-line"></div>
+      </div>
+      <h1 class="hero__title">
+        Unde <em>confortul</em><br>devine artă
+      </h1>
+      <p class="hero__subtitle">
+        Descoperă ospitalitatea autentică românească. 15 camere elegante, restaurant cu bucătărie internațională și un cadru relaxant la 10 minute de centrul orașului.
+      </p>
+      <div class="hero__cta">
+        <a href="camere.html" class="btn btn--primary btn--lg">
+          <span>Rezervă acum</span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about-section" class="btn btn--ghost btn--lg">
+          <span>Descoperă</span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span class="hero__scroll-text">Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ==================== BOOKING BAR ==================== -->
+  <section class="booking-bar">
+    <div class="container">
+      <form class="booking-bar__inner booking-form" action="#" method="POST" novalidate>
+        <div class="booking-bar__field">
+          <label class="booking-bar__label" for="checkin">Check-in</label>
+          <input class="booking-bar__input" id="checkin" type="date" name="checkin" required />
+        </div>
+        <div class="booking-bar__field">
+          <label class="booking-bar__label" for="checkout">Check-out</label>
+          <input class="booking-bar__input" id="checkout" type="date" name="checkout" required />
+        </div>
+        <div class="booking-bar__field">
+          <label class="booking-bar__label" for="room-type">Tip cameră</label>
+          <select class="booking-bar__select" id="room-type" name="room_type">
+            <option value="">Selectează</option>
+            <option value="twin">Cameră Twin</option>
+            <option value="matrimonial">Cameră Matrimonială</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg">
+          <span>Verifică disponibilitate</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section" id="about-section">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-visual" style="border-radius: var(--r-xl) 0 0 var(--r-xl); overflow:hidden">
+          <img
+            src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_1.jpg"
+            alt="Aqua Hotel exterior"
+            loading="lazy"
+          />
+        </div>
+        <div class="feature-content" style="border-radius: 0 var(--r-xl) var(--r-xl) 0">
+          <div class="section-label">Despre noi</div>
+          <h2 class="section-title">Un hotel în care <em>te simți acasă</em></h2>
+          <p class="section-subtitle">
+            Amplasat ideal în Târgu-Jiu, Hotel Aqua oferă confortul unui hotel de 3 stele cu 15 camere moderne, servicii de calitate și o atmosferă relaxantă prietenoasă.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-item__icon">📍</div>
+              <div>
+                <div class="feature-item__title">Locație privilegiată</div>
+                <div class="feature-item__text">2 minute de gară, 10 minute de centru. Acces facil la toate obiectivele turistice și culturale.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item__icon">🏨</div>
+              <div>
+                <div class="feature-item__title">Camere moderne</div>
+                <div class="feature-item__text">15 camere complet renovate — 10 twin și 5 matrimoniale — dotate cu TV LCD, Wi-Fi și micul dejun inclus.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item__icon">🍽️</div>
+              <div>
+                <div class="feature-item__title">Restaurant & Cafenea</div>
+                <div class="feature-item__text">Bucătărie românească și internațională, vinuri selectate, deserturi rafinate. Ideal pentru business sau leisure.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item__icon">🅿️</div>
+              <div>
+                <div class="feature-item__title">Parcare supravegheată</div>
+                <div class="feature-item__text">Parcare proprie, supravegheată video 24/7, inclusă în prețul cazării.</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: var(--space-8)">
+            <a href="despre.html" class="btn btn--outline">
+              <span>Află mai mult</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS ==================== -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-bar__grid">
+        <div class="stat-item">
+          <div class="stat-item__number" data-count="15" data-suffix="">15</div>
+          <div class="stat-item__label">Camere moderne</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item__number" data-count="3" data-suffix="★">3★</div>
+          <div class="stat-item__label">Clasificare oficială</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item__number" data-count="15" data-suffix="">15</div>
+          <div class="stat-item__label">Ani experiență</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item__number" data-count="98" data-suffix="%">98%</div>
+          <div class="stat-item__label">Clienți mulțumiți</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ROOMS PREVIEW ==================== -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-12)">
+        <div class="section-label" style="justify-content:center">Cazare</div>
+        <h2 class="section-title">Camerele noastre</h2>
+        <p class="section-subtitle" style="margin: 0 auto">
+          Fiecare cameră este un spațiu de relaxare gândit în detaliu, cu dotări premium și o atmosferă caldă.
+        </p>
+        <div class="divider divider--center" style="margin: var(--space-6) auto 0"></div>
+      </div>
+
+      <div class="grid grid-2 gsap-fade-up" style="gap: var(--space-6)">
+        <!-- Twin Room Card -->
+        <div class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin1.jpg" alt="Cameră Twin" loading="lazy" />
+            <div class="card__badge">Twin</div>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Cameră Twin</h3>
+            <p class="card__text">Cameră spațioasă cu două paturi single, perfectă pentru colegi de afaceri sau prieteni. Dotată cu toate facilitățile moderne.</p>
+            <div class="card__amenities">
+              <span class="amenity-tag">📺 TV LCD</span>
+              <span class="amenity-tag">📶 Wi-Fi</span>
+              <span class="amenity-tag">☕ Mic dejun</span>
+              <span class="amenity-tag">🅿️ Parcare</span>
+            </div>
+            <div class="card__meta">
+              <div class="card__price">de la 180 RON <span>/ noapte</span></div>
+              <a href="camere.html" class="btn btn--outline btn--sm">Detalii</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Matrimonial Room Card -->
+        <div class="card">
+          <div class="card__image-wrap">
+            <img class="card__image" src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr1.jpg" alt="Cameră Matrimonială" loading="lazy" />
+            <div class="card__badge">Matrimonial</div>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Cameră Matrimonială</h3>
+            <p class="card__text">Cameră elegantă cu pat dublu, ideală pentru cupluri sau călători solo care doresc mai mult confort și intimitate.</p>
+            <div class="card__amenities">
+              <span class="amenity-tag">📺 TV LCD</span>
+              <span class="amenity-tag">📶 Wi-Fi</span>
+              <span class="amenity-tag">☕ Mic dejun</span>
+              <span class="amenity-tag">🛁 Baie privată</span>
+            </div>
+            <div class="card__meta">
+              <div class="card__price">de la 220 RON <span>/ noapte</span></div>
+              <a href="camere.html" class="btn btn--outline btn--sm">Detalii</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: var(--space-8)">
+        <a href="camere.html" class="btn btn--primary btn--lg">
+          <span>Toate camerele & rezervare</span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALLERY STRIP ==================== -->
+  <section class="section section--sm">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-10)">
+        <div class="section-label" style="justify-content:center">Galerie foto</div>
+        <h2 class="section-title">O privire în <em>lumea noastră</em></h2>
+      </div>
+      <div class="gallery-strip">
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/slider_3.jpg" alt="Hotel Aqua exterior" loading="lazy" />
+        </div>
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/twin4.jpg" alt="Cameră Twin" loading="lazy" />
+        </div>
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_4120_1024x680.jpg" alt="Restaurant Aqua" loading="lazy" />
+        </div>
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/camere/matr2-1024x682.jpg" alt="Cameră Matrimonială" loading="lazy" />
+        </div>
+        <div class="gallery-strip__item">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7662_1024x680.jpg" alt="Restaurant interior" loading="lazy" />
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: var(--space-8)">
+        <a href="galerie.html" class="btn btn--ghost">
+          <span>Vezi toată galeria</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RESTAURANT TEASER ==================== -->
+  <section class="section" style="background: var(--c-bg-2)">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-content" style="border-radius: var(--r-xl) 0 0 var(--r-xl)">
+          <div class="section-label">Gastronomie</div>
+          <h2 class="section-title">Restaurant <em>& Cafenea</em></h2>
+          <p class="section-subtitle">
+            Bucătăria noastră combină rețetele tradiționale românești cu influențe internaționale. Ingrediente proaspete, atmosferă rafinată, serviciu impecabil.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-item__icon">🍷</div>
+              <div>
+                <div class="feature-item__title">Cramă selectă</div>
+                <div class="feature-item__text">Vinuri atent selectate din cele mai apreciate crame românești și internaționale.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item__icon">🍰</div>
+              <div>
+                <div class="feature-item__title">Deserturi artizanale</div>
+                <div class="feature-item__text">O selecție de deserturi care îți încântă simțurile — de la prăjituri tradiționale la creme fine.</div>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item__icon">🤝</div>
+              <div>
+                <div class="feature-item__title">Evenimente corporate</div>
+                <div class="feature-item__text">Organizăm cine de afaceri, mici conferințe și evenimente private în cadrul restaurantului.</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: var(--space-8)">
+            <a href="restaurant.html" class="btn btn--primary">
+              <span>Explorează meniul</span>
+            </a>
+          </div>
+        </div>
+        <div class="feature-visual" style="border-radius: 0 var(--r-xl) var(--r-xl) 0; overflow:hidden">
+          <img src="https://aquahotel.ro/wp-content/uploads/2022/02/Restaurant/DSC_7640_1024x680.jpg" alt="Restaurant Aqua" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="section testimonials">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-12)">
+        <div class="section-label" style="justify-content:center">Recenzii</div>
+        <h2 class="section-title">Ce spun <em>oaspeții noștri</em></h2>
+        <div class="divider divider--center" style="margin: var(--space-4) auto 0"></div>
+      </div>
+
+      <div class="testimonials-track">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">„Locație excelentă, personal prietenos și camere foarte curate. Am stat 3 nopți și ne-am simțit ca acasă. Mic dejunul abundent și delicios."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div>
+              <div class="testimonial-name">Alexandru M.</div>
+              <div class="testimonial-role">București • Booking.com</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">„Raport calitate-preț excelent. Parcarea supravegheată este un plus mare. Restaurantul are mâncare tradițională delicioasă, o experință autentică."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">IP</div>
+            <div>
+              <div class="testimonial-name">Ioana P.</div>
+              <div class="testimonial-role">Craiova • Google Reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★☆</div>
+          <p class="testimonial-text">„Am ales Aqua pentru o deplasare de afaceri și a depășit așteptările. Wi-Fi rapid, cameră spațioasă, check-in rapid. Revin cu siguranță."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RC</div>
+            <div>
+              <div class="testimonial-name">Radu C.</div>
+              <div class="testimonial-role">Cluj-Napoca • TripAdvisor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LOCATION ==================== -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-12)">
+        <div class="section-label" style="justify-content:center">Locatie</div>
+        <h2 class="section-title">Cum ne <em>găsești</em></h2>
+      </div>
+
+      <div class="location-grid">
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2843.1!2d23.273!3d45.038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474d1af7f3e5e5f1%3A0x0!2sStr.+Republicii+19A%2C+T%C3%A2rgu-Jiu!5e0!3m2!1sro!2sro!4v1610000000000"
+            width="600"
+            height="450"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Harta Hotel Aqua Târgu-Jiu"
+          ></iframe>
+        </div>
+
+        <div class="location-info">
+          <div class="location-item">
+            <div class="location-item__icon">🚂</div>
+            <div>
+              <div class="location-item__title">De la gară</div>
+              <div class="location-item__text">Ieșind din autogară, virați dreapta pe Bdul Republicii. Hotelul se află după 700m, pe partea dreaptă.</div>
+            </div>
+          </div>
+          <div class="location-item">
+            <div class="location-item__icon">🚗</div>
+            <div>
+              <div class="location-item__title">Cu mașina (din București)</div>
+              <div class="location-item__text">Intrați pe Calea București → Str. Unirii → primul sens giratoriu (300°) → Bdul Republicii 500m.</div>
+            </div>
+          </div>
+          <div class="location-item">
+            <div class="location-item__icon">🏛️</div>
+            <div>
+              <div class="location-item__title">Distanță centru</div>
+              <div class="location-item__text">Centrul orașului (zona pietonală) se află la 400m de hotel, pe Bdul Unirii.</div>
+            </div>
+          </div>
+          <div class="location-item">
+            <div class="location-item__icon">📍</div>
+            <div>
+              <div class="location-item__title">Adresă completă</div>
+              <div class="location-item__text">Str. Republicii nr. 19A, Târgu-Jiu, Gorj<br>☎ +40 743 222 211</div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn--outline" style="margin-top: var(--space-4)">
+            <span>Contactează-ne</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="section section--sm" style="background: linear-gradient(135deg, var(--c-blue-deep) 0%, var(--c-bg) 100%)">
+    <div class="container">
+      <div style="text-align:center; max-width:700px; margin:0 auto">
+        <div class="section-label" style="justify-content:center">Rezervare online</div>
+        <h2 class="section-title">Planifică-ți <em>sejurul perfect</em></h2>
+        <p class="section-subtitle" style="margin: 0 auto var(--space-8)">
+          Rezervă direct pentru cele mai bune tarife garantate. Confirmare imediată, anulare flexibilă.
+        </p>
+        <div style="display:flex; gap:var(--space-4); justify-content:center; flex-wrap:wrap">
+          <a href="camere.html" class="btn btn--primary btn--lg">
+            <span>Rezervă acum</span>
+          </a>
+          <a href="tel:+40743222211" class="btn btn--ghost btn--lg">
+            <span>📞 +40 743 222 211</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer slot -->
+  <div id="footer-slot"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
