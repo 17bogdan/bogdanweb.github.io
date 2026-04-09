@@ -680,6 +680,95 @@ section { padding: var(--gap) 0; }
   100% { bottom: calc(100% + 10px); opacity: 0; }
 }
 
+/* Aqua screen */
+.aqua-screen {
+  background: linear-gradient(160deg, #061022 0%, #002d56 45%, #021b36 100%);
+}
+.aqua-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(0,212,255,.18), transparent 28%),
+              radial-gradient(circle at 30% 70%, rgba(123,47,255,.12), transparent 24%);
+}
+.aqua-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 24px; text-align: center;
+}
+.aqua-logo {
+  font-family: var(--font-display); font-size: 2rem; letter-spacing: .15em;
+  color: #7BE3FF; text-shadow: 0 0 20px rgba(0,212,255,.35);
+}
+.aqua-tagline {
+  font-size: .75rem; color: rgba(255,255,255,.75);
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.aqua-btn {
+  margin-top: 12px; padding: 8px 24px;
+  border: 1px solid rgba(0,212,255,.45); border-radius: 100px;
+  color: #CFF9FF; font-size: .75rem; font-weight: 700;
+  background: rgba(0,212,255,.08);
+}
+.aqua-waves {
+  position: absolute; inset: 0; pointer-events: none; opacity: .65;
+}
+.aqua-waves div {
+  position: absolute; left: 0; width: 120%; height: 4px;
+  background: rgba(0,212,255,.18); border-radius: 999px;
+  filter: blur(1px);
+}
+.aqua-waves div:nth-child(1) { top: 35%; opacity: .35; }
+.aqua-waves div:nth-child(2) { top: 50%; opacity: .25; transform: translateX(-10%); }
+.aqua-waves div:nth-child(3) { top: 65%; opacity: .18; transform: translateX(-20%); }
+
+/* Anima screen */
+.anima-screen {
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.1), transparent 25%),
+              linear-gradient(160deg, #160c2c 0%, #33134c 50%, #571765 100%);
+}
+.anima-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255,111,255,.22), transparent 18%),
+              radial-gradient(circle at 25% 75%, rgba(0,212,255,.18), transparent 15%);
+}
+.anima-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 24px; text-align: center;
+}
+.anima-logo {
+  font-family: var(--font-display); font-size: 2rem; letter-spacing: .15em;
+  color: #fff; text-shadow: 0 0 30px rgba(255,255,255,.16);
+}
+.anima-tagline {
+  font-size: .75rem; color: rgba(255,255,255,.75);
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.anima-btn {
+  margin-top: 12px; padding: 8px 24px;
+  border: 1px solid rgba(255,111,255,.35); border-radius: 100px;
+  color: #fff; font-size: .75rem; font-weight: 700;
+  background: rgba(255,111,255,.1);
+}
+.anima-particles {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.anima-particles span {
+  position: absolute; width: 4px; height: 4px;
+  border-radius: 50%; background: #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,.4);
+  animation: anima-float 3s linear infinite;
+}
+.anima-particles span:nth-child(1) { top: 18%; left: 18%; animation-delay: 0s; }
+.anima-particles span:nth-child(2) { top: 40%; left: 70%; animation-delay: .6s; }
+.anima-particles span:nth-child(3) { top: 62%; left: 28%; animation-delay: 1.2s; }
+.anima-particles span:nth-child(4) { top: 25%; left: 85%; animation-delay: 1.8s; }
+.anima-particles span:nth-child(5) { top: 78%; left: 55%; animation-delay: 2.4s; }
+@keyframes anima-float {
+  0% { transform: translateY(0) scale(.8); opacity: .2; }
+  50% { transform: translateY(-16px) scale(1.05); opacity: 1; }
+  100% { transform: translateY(0) scale(.8); opacity: .2; }
+}
+
 /* Mockup glows */
 .mockup-glow {
   position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
@@ -690,6 +779,8 @@ section { padding: var(--gap) 0; }
 .glow-gold { background: #C9A227; }
 .glow-red { background: #FF3333; }
 .glow-amber { background: #F59E0B; }
+.glow-blue { background: #00D4FF; }
+.glow-colorful { background: linear-gradient(90deg, rgba(255,111,255,.9), rgba(0,212,255,.8), rgba(123,47,255,.9)); }
 
 /* Mood screen */
 .mood-screen {
