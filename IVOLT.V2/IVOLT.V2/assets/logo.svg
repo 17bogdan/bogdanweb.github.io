@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4b77a"/>
+      <stop offset="100%" stop-color="#b8985a"/>
+    </linearGradient>
+  </defs>
+  <!-- outer thin ring -->
+  <circle cx="32" cy="32" r="29" fill="none" stroke="#0b0d0c" stroke-width="1"/>
+  <!-- inner serif "I" monogram -->
+  <g fill="#0b0d0c">
+    <rect x="14" y="16" width="10" height="2.2"/>
+    <rect x="14" y="45.8" width="10" height="2.2"/>
+    <rect x="17.9" y="16" width="2.2" height="32"/>
+  </g>
+  <!-- elegant bolt in gold -->
+  <path d="M40 16 L30 34 H36 L32 48 L44 30 H38 Z"
+        fill="url(#goldG)" stroke="#b8985a" stroke-width="0.4" stroke-linejoin="round"/>
+  <!-- tiny gold dot -->
+  <circle cx="52" cy="16" r="1.2" fill="#b8985a"/>
+</svg>

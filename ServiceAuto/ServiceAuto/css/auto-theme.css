@@ -1,0 +1,557 @@
+/* ============================================================
+   KRK SERVICE AUTO — Automotive Theme Animations
+   Diagnostic HUD • Car Journey • Gears • Engine HB
+   ============================================================ */
+
+/* ============================================================
+   HUD CORNER RETICLES
+   ============================================================ */
+.hud-corners {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hud-c {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  animation: hudFadeIn 0.5s ease forwards;
+}
+
+.hud-c--tl { top: 22px; left: 22px; animation-delay: 2.1s; }
+.hud-c--tr { top: 22px; right: 22px; animation-delay: 2.2s; }
+.hud-c--bl { bottom: 90px; left: 22px; animation-delay: 2.3s; }
+.hud-c--br { bottom: 90px; right: 22px; animation-delay: 2.4s; }
+
+@keyframes hudFadeIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.hud-c::before, .hud-c::after {
+  content: '';
+  position: absolute;
+  background: rgba(227,30,36,0.65);
+}
+
+.hud-c--tl::before { top: 0; left: 0; width: 13px; height: 1.5px; }
+.hud-c--tl::after  { top: 0; left: 0; width: 1.5px; height: 13px; }
+.hud-c--tr::before { top: 0; right: 0; width: 13px; height: 1.5px; }
+.hud-c--tr::after  { top: 0; right: 0; width: 1.5px; height: 13px; }
+.hud-c--bl::before { bottom: 0; left: 0; width: 13px; height: 1.5px; }
+.hud-c--bl::after  { bottom: 0; left: 0; width: 1.5px; height: 13px; }
+.hud-c--br::before { bottom: 0; right: 0; width: 13px; height: 1.5px; }
+.hud-c--br::after  { bottom: 0; right: 0; width: 1.5px; height: 13px; }
+
+/* ============================================================
+   HUD DATA PANEL — OBD Diagnostic Display
+   ============================================================ */
+.hud-panel {
+  position: absolute;
+  bottom: 80px;
+  right: 5%;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  animation: hudFadeIn 0.8s ease 2.6s forwards;
+}
+
+.hud-panel-box {
+  background: rgba(10,10,10,0.75);
+  border: 1px solid rgba(227,30,36,0.22);
+  border-radius: 6px;
+  padding: 14px 18px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: 'Courier New', 'Consolas', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  min-width: 190px;
+  box-shadow: 0 0 30px rgba(227,30,36,0.06), inset 0 0 20px rgba(0,0,0,0.3);
+}
+
+.hud-panel-title {
+  color: var(--red);
+  font-size: 0.62rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(227,30,36,0.2);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hud-blink {
+  width: 5px; height: 5px;
+  background: var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: hudBlink 1s steps(1) infinite;
+  box-shadow: 0 0 6px var(--red);
+}
+
+@keyframes hudBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.hud-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin: 4px 0;
+  line-height: 1.7;
+}
+
+.hud-key { color: rgba(227,30,36,0.45); }
+.hud-val { color: rgba(227,30,36,0.95); font-weight: 700; text-align: right; min-width: 56px; }
+.hud-val.green  { color: rgba(80,220,100,0.9); }
+.hud-val.yellow { color: rgba(255,200,50,0.9); }
+
+/* ============================================================
+   ENGINE HEARTBEAT LINE
+   ============================================================ */
+.engine-hb {
+  position: absolute;
+  bottom: 90px;
+  left: 5%;
+  width: 260px;
+  height: 28px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  animation: hudFadeIn 0.5s ease 3s forwards;
+}
+
+.hb-svg { width: 100%; height: 100%; overflow: visible; }
+
+.hb-path {
+  fill: none;
+  stroke: rgba(227,30,36,0.55);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: hbDraw 1.8s cubic-bezier(0.4,0,0.2,1) 3.2s forwards,
+             hbPulse 2.4s ease 5s infinite;
+}
+
+.hb-label {
+  position: absolute;
+  top: -16px;
+  left: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 2px;
+  color: rgba(227,30,36,0.5);
+  text-transform: uppercase;
+  animation: hudFadeIn 0.5s ease 3.2s both;
+}
+
+@keyframes hbDraw { to { stroke-dashoffset: 0; } }
+@keyframes hbPulse {
+  0%, 100% { stroke-opacity: 0.55; }
+  50%       { stroke-opacity: 0.9; }
+}
+
+/* ============================================================
+   CAR JOURNEY TRACK
+   ============================================================ */
+.car-journey {
+  position: relative;
+  margin: 0 0 70px;
+}
+
+.cj-track {
+  position: relative;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  margin: 0 12.5%;
+}
+
+/* Road base */
+.cj-road-base {
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 2px;
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-50%);
+  border-radius: 1px;
+}
+
+/* Animated fill line */
+.cj-road-fill {
+  position: absolute;
+  left: 0; top: 50%;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--red), var(--red-light), var(--red));
+  transform: translateY(-50%);
+  border-radius: 1px;
+  transition: width 3.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Glowing tip on the fill line */
+.cj-road-fill::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px; height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  box-shadow: 0 0 14px 4px rgba(227,30,36,0.7);
+  animation: tipGlow 0.9s ease-in-out infinite;
+}
+
+@keyframes tipGlow {
+  0%, 100% { box-shadow: 0 0 12px 3px rgba(227,30,36,0.7); }
+  50%       { box-shadow: 0 0 22px 7px rgba(227,30,36,0.4); }
+}
+
+/* Scrolling dashes */
+.cj-dashes {
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0, transparent 8px,
+    rgba(255,255,255,0.06) 8px, rgba(255,255,255,0.06) 16px
+  );
+  animation: dashScroll 0.8s linear infinite;
+}
+
+@keyframes dashScroll {
+  from { background-position: 0 0; }
+  to   { background-position: 24px 0; }
+}
+
+/* Station dots — positioned by ID */
+.cj-station {
+  position: absolute;
+  top: 50%;
+  width: 14px; height: 14px;
+  background: var(--dark-3);
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: border-color 0.4s ease, background 0.4s ease,
+              box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+#cjS0 { left: 0%; }
+#cjS1 { left: 33.33%; }
+#cjS2 { left: 66.66%; }
+#cjS3 { left: 100%; }
+
+.cj-station.lit {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 0 4px rgba(227,30,36,0.2), 0 0 16px rgba(227,30,36,0.7);
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* ========= THE CAR ========= */
+.cj-car {
+  position: absolute;
+  width: 110px;
+  height: 52px;
+  bottom: calc(50% - 2px);
+  transform: translateX(-50%);
+  filter: drop-shadow(0 6px 18px rgba(227,30,36,0.45));
+  z-index: 4;
+  left: -130px;
+  transition: left 1.05s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: left;
+}
+
+/* Spinning wheels when car.spinning */
+.cj-car.spinning .cj-wheel {
+  animation: wheelSpin 0.35s linear infinite;
+}
+
+@keyframes wheelSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Exhaust */
+.cj-exhaust { opacity: 0; transform-origin: right center; }
+
+.cj-car.spinning .cj-e1 {
+  animation: exhaust1 0.5s ease-out infinite;
+}
+.cj-car.spinning .cj-e2 {
+  animation: exhaust1 0.5s ease-out 0.25s infinite;
+}
+
+@keyframes exhaust1 {
+  0%   { opacity: 0.25; transform: translateX(0) scale(1); }
+  60%  { opacity: 0.1; transform: translateX(-8px) scale(1.6); }
+  100% { opacity: 0; transform: translateX(-18px) scale(2.2); }
+}
+
+/* Headlight flicker on arrival */
+.cj-car.arrived .cj-headlight {
+  animation: headFlicker 0.5s ease;
+}
+
+@keyframes headFlicker {
+  0%, 100% { opacity: 0.85; }
+  20% { opacity: 0.1; }
+  40% { opacity: 1; }
+  60% { opacity: 0.2; }
+  80% { opacity: 0.95; }
+}
+
+/* ============================================================
+   PROCESS STEPS — AUTO THEMED
+   ============================================================ */
+.pw-steps { position: relative; z-index: 1; }
+
+.pw-step-auto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(32px) scale(0.94);
+  transition: opacity 0.55s cubic-bezier(0.34,1.3,0.64,1),
+              transform 0.55s cubic-bezier(0.34,1.3,0.64,1);
+}
+
+.pw-step-auto.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Icon container */
+.pw-auto-icon-wrap {
+  width: 68px; height: 68px;
+  position: relative;
+  margin: 0 auto 16px;
+}
+
+.pw-auto-icon-wrap svg { width: 100%; height: 100%; }
+
+/* Icon draws itself in when active */
+.pw-draw {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.4,0,0.2,1) 0.1s;
+}
+
+.pw-step-auto.animate-in .pw-draw {
+  stroke-dashoffset: 0;
+}
+
+/* Outer glow ring when step active */
+.pw-auto-icon-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227,30,36,0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.pw-step-auto.animate-in .pw-auto-icon-wrap::after { opacity: 1; }
+
+/* Step number badge */
+.pw-num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  background: rgba(227,30,36,0.1);
+  border: 1px solid rgba(227,30,36,0.25);
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: var(--red);
+  margin-bottom: 14px;
+  letter-spacing: 0;
+  transition: all 0.3s ease;
+  font-family: 'Courier New', monospace;
+}
+
+.pw-step-auto:hover .pw-num-badge {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: 0 4px 18px rgba(227,30,36,0.4);
+}
+
+.pw-auto-title {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--white);
+  transition: color 0.3s ease;
+}
+
+.pw-step-auto:hover .pw-auto-title { color: var(--red-light); }
+
+.pw-auto-desc {
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.75;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* Step active burst */
+.pw-step-auto.animate-in.burst::before {
+  content: '';
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  background: rgba(227,30,36,0.15);
+  animation: burstOut 0.7s ease-out forwards;
+}
+
+@keyframes burstOut {
+  from { transform: translateX(-50%) scale(0.5); opacity: 1; }
+  to   { transform: translateX(-50%) scale(2.5); opacity: 0; }
+}
+
+/* ============================================================
+   GEAR DECORATIONS
+   ============================================================ */
+.gear-bg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gear-svg {
+  fill: none;
+  stroke: rgba(227,30,36,0.05);
+  stroke-width: 1.5;
+}
+
+.gear-svg.g-fill { fill: rgba(227,30,36,0.03); stroke: none; }
+
+.gspin-cw  { animation: gearCW  28s linear infinite; }
+.gspin-ccw { animation: gearCCW 20s linear infinite; }
+
+@keyframes gearCW  { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes gearCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+/* ============================================================
+   SERVICES SECTION — ENGINE GRID BACKGROUND
+   ============================================================ */
+.services-section {
+  position: relative;
+}
+
+.services-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(227,30,36,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227,30,36,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-section > * { position: relative; z-index: 1; }
+
+/* ============================================================
+   SPEEDOMETER RINGS — Hero Stats
+   ============================================================ */
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  text-align: left;
+}
+
+.stat-gauge-wrap {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 8px;
+}
+
+.stat-gauge-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* rotate so arc starts at 7 o'clock */
+  transform: rotate(-210deg);
+}
+
+/* Track: 240deg arc = 240/360 × 2π×30 ≈ 125.6 of circumference 188.5 */
+.gauge-track {
+  fill: none;
+  stroke: rgba(255,255,255,0.05);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3;
+  stroke-linecap: round;
+  /* default collapsed */
+  stroke-dasharray: 0 314;
+  transition: stroke-dasharray 1.8s cubic-bezier(0.4,0,0.2,1) 2.2s;
+  filter: drop-shadow(0 0 4px rgba(227,30,36,0.65));
+}
+
+.stat-gauge-wrap.filled .gauge-fill {
+  /* each gauge has its own dasharray set inline in HTML */
+}
+
+.stat-gauge-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .hud-panel, .engine-hb { display: none; }
+  .hud-corners { display: none; }
+  .car-journey { margin-bottom: 44px; }
+  .cj-track { margin: 0 6%; }
+  .cj-car { width: 80px; height: 38px; }
+  .pw-steps { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+}
+
+@media (max-width: 560px) {
+  .pw-steps { grid-template-columns: 1fr 1fr; gap: 28px 12px; }
+  .pw-auto-icon-wrap { width: 52px; height: 52px; }
+}

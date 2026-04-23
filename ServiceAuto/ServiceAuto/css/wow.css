@@ -1,0 +1,659 @@
+/* ============================================================
+   KRK SERVICE AUTO — WOW Animations & Premium Effects
+   ============================================================ */
+
+/* ============================================================
+   HERO CANVAS
+   ============================================================ */
+#heroCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* floating gradient orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0;
+  animation: orbFloat ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(227,30,36,0.12) 0%, transparent 70%);
+  top: -10%; right: -5%;
+  animation-duration: 20s;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(227,30,36,0.07) 0%, transparent 70%);
+  bottom: 10%; left: 5%;
+  animation-duration: 16s;
+  animation-delay: -8s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { opacity: 1; transform: translateY(0px) scale(1); }
+  50% { opacity: 0.7; transform: translateY(-40px) scale(1.08); }
+}
+
+/* ============================================================
+   SERVICES CARDS — 3D TILT + SPOTLIGHT
+   ============================================================ */
+.service-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease, background var(--transition), box-shadow var(--transition) !important;
+  will-change: transform;
+  cursor: default;
+}
+
+.service-card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(227,30,36,0.2) !important;
+}
+
+.card-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: 0;
+}
+
+.service-card:hover .card-spotlight { opacity: 1; }
+
+.service-card > * { position: relative; z-index: 1; }
+
+/* ============================================================
+   PROCESS SECTION — WOW REBUILD
+   ============================================================ */
+.process-wow {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 5%;
+  background: var(--dark-2);
+}
+
+/* Noise texture overlay */
+.process-wow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Big ghost text */
+.pw-ghost {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22vw;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.025);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -6px;
+  z-index: 0;
+  animation: ghostPulse 8s ease-in-out infinite;
+}
+
+@keyframes ghostPulse {
+  0%, 100% { -webkit-text-stroke-color: rgba(255,255,255,0.025); }
+  50% { -webkit-text-stroke-color: rgba(227,30,36,0.06); }
+}
+
+.pw-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.pw-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 90px;
+}
+
+/* Timeline wrapper */
+.pw-timeline {
+  position: relative;
+}
+
+/* THE LINE */
+.pw-line-track {
+  position: absolute;
+  top: 40px; /* center of the orb */
+  left: calc(12.5%);  /* align with first orb center */
+  right: calc(12.5%);
+  height: 2px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 1px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.pw-line-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--red), var(--red-light));
+  border-radius: 1px;
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Glowing tip of the line */
+.pw-line-fill::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--red);
+  border-radius: 50%;
+  box-shadow: 0 0 16px 4px rgba(227,30,36,0.7);
+  animation: tipPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes tipPulse {
+  0%, 100% { box-shadow: 0 0 14px 4px rgba(227,30,36,0.7); }
+  50% { box-shadow: 0 0 28px 8px rgba(227,30,36,0.4); }
+}
+
+/* Steps grid */
+.pw-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  position: relative;
+}
+
+/* Individual step */
+.pw-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  /* entrance animation */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s cubic-bezier(0.34,1.56,0.64,1),
+              transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.pw-step.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pw-step:nth-child(1) { transition-delay: 0.1s; }
+.pw-step:nth-child(2) { transition-delay: 0.35s; }
+.pw-step:nth-child(3) { transition-delay: 0.6s; }
+.pw-step:nth-child(4) { transition-delay: 0.85s; }
+
+/* ORB (the spinning rings + circle progress + number) */
+.pw-orb-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 28px;
+  flex-shrink: 0;
+}
+
+/* Outer pulsing glow disc */
+.pw-orb-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227,30,36,0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: orbGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes orbGlowPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.pw-step:hover .pw-orb-wrap::before { opacity: 1; }
+
+/* Spinning rings */
+.pw-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  animation: ringOrbit linear infinite;
+}
+
+.pw-ring--1 {
+  inset: -10px;
+  border-top-color: rgba(227,30,36,0.5);
+  border-right-color: rgba(227,30,36,0.15);
+  animation-duration: 3s;
+}
+
+.pw-ring--2 {
+  inset: -20px;
+  border-bottom-color: rgba(227,30,36,0.3);
+  border-left-color: rgba(227,30,36,0.08);
+  animation-duration: 5s;
+  animation-direction: reverse;
+}
+
+.pw-step:hover .pw-ring--1 { animation-duration: 1.2s; border-top-color: var(--red); }
+.pw-step:hover .pw-ring--2 { animation-duration: 2s; border-bottom-color: rgba(227,30,36,0.6); }
+
+@keyframes ringOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* SVG progress ring */
+.pw-prog-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pw-prog-circle {
+  stroke-dasharray: 213.6;
+  stroke-dashoffset: 213.6;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1);
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+
+.pw-step.animate-in .pw-prog-circle {
+  stroke-dashoffset: 0;
+}
+
+/* Inner orb */
+.pw-orb-inner {
+  position: absolute;
+  inset: 0;
+  background: var(--dark-3);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.pw-step:hover .pw-orb-inner {
+  background: rgba(227,30,36,0.08);
+  border-color: rgba(227,30,36,0.4);
+  box-shadow: 0 0 30px rgba(227,30,36,0.25), inset 0 0 20px rgba(227,30,36,0.05);
+}
+
+/* Step number */
+.pw-step-num {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--red);
+  letter-spacing: -1px;
+  line-height: 1;
+  font-feature-settings: "tnum";
+  transition: color var(--transition), text-shadow var(--transition);
+}
+
+.pw-step:hover .pw-step-num {
+  text-shadow: 0 0 20px rgba(227,30,36,0.8);
+}
+
+/* Card body */
+.pw-card-body {
+  flex: 1;
+}
+
+.pw-step-icon-wrap {
+  width: 46px;
+  height: 46px;
+  background: rgba(227,30,36,0.08);
+  border: 1px solid rgba(227,30,36,0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0 auto 14px;
+  transition: all var(--transition);
+}
+
+.pw-step:hover .pw-step-icon-wrap {
+  background: rgba(227,30,36,0.15);
+  border-color: rgba(227,30,36,0.4);
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.pw-step-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--white);
+  transition: color var(--transition);
+}
+
+.pw-step:hover .pw-step-title { color: var(--red-light); }
+
+.pw-step-desc {
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.75;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   TEXT SCRAMBLE
+   ============================================================ */
+.scramble-char {
+  color: var(--red);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   HERO — GLITCH TITLE
+   ============================================================ */
+.hero-title-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title-glitch::before,
+.hero-title-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  color: inherit;
+  pointer-events: none;
+}
+
+.hero-title-glitch::before {
+  color: #ff3b41;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  animation: glitch1 4s infinite linear;
+  opacity: 0;
+}
+
+.hero-title-glitch::after {
+  color: #00bfff;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  animation: glitch2 4s infinite linear;
+  opacity: 0;
+}
+
+@keyframes glitch1 {
+  0%, 90%, 100% { opacity: 0; transform: translateX(0); }
+  91% { opacity: 0.5; transform: translateX(-4px); }
+  93% { opacity: 0; transform: translateX(4px); }
+  95% { opacity: 0.4; transform: translateX(-2px); }
+  97% { opacity: 0; }
+}
+
+@keyframes glitch2 {
+  0%, 90%, 100% { opacity: 0; transform: translateX(0); }
+  92% { opacity: 0.4; transform: translateX(4px); }
+  94% { opacity: 0; transform: translateX(-4px); }
+  96% { opacity: 0.3; transform: translateX(2px); }
+  98% { opacity: 0; }
+}
+
+/* ============================================================
+   SECTION TITLE — GRADIENT UNDERLINE ON HOVER
+   ============================================================ */
+.section-title-animated {
+  display: inline-block;
+  cursor: default;
+}
+
+/* ============================================================
+   MAGNETIC BUTTONS
+   ============================================================ */
+.btn-magnetic {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1) !important;
+}
+
+/* ============================================================
+   HERO STATS — ANIMATED BARS
+   ============================================================ */
+.hero-stat-bar {
+  width: 60px;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.hero-stat-bar-fill {
+  height: 100%;
+  background: var(--red);
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+  border-radius: 1px;
+}
+
+.hero-stat.animated .hero-stat-bar-fill { width: 100%; }
+
+/* ============================================================
+   TESTIMONIALS — HOVER GLOW
+   ============================================================ */
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, transparent 30%, rgba(227,30,36,0.15) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.testimonial-card:hover::before { opacity: 1; }
+
+/* ============================================================
+   BRANDS — SCROLL REVEAL STAGGER
+   ============================================================ */
+.brand-chip {
+  animation: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-chip::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(227,30,36,0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.brand-chip:hover::after { opacity: 1; }
+
+/* ============================================================
+   SECTION DIVIDERS
+   ============================================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 0 5%;
+}
+
+/* ============================================================
+   WHY SECTION — IMAGE SCAN EFFECT
+   ============================================================ */
+.why-img-wrap::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(227,30,36,0.05) 50%,
+    transparent
+  );
+  z-index: 2;
+  animation: scanLine 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scanLine {
+  0% { top: -40%; }
+  100% { top: 140%; }
+}
+
+/* ============================================================
+   CTA BANNER — ANIMATED GRADIENT MESH
+   ============================================================ */
+.cta-banner {
+  background: var(--red);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cta-mesh-circle {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: overlay;
+  animation: meshFloat ease-in-out infinite;
+}
+
+.cta-mesh-circle:nth-child(1) {
+  width: 400px; height: 400px;
+  background: rgba(255,255,255,0.08);
+  top: -150px; left: -100px;
+  animation-duration: 14s;
+}
+
+.cta-mesh-circle:nth-child(2) {
+  width: 300px; height: 300px;
+  background: rgba(0,0,0,0.08);
+  bottom: -100px; right: -60px;
+  animation-duration: 10s;
+  animation-delay: -5s;
+}
+
+.cta-mesh-circle:nth-child(3) {
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,0.05);
+  top: 50%; right: 20%;
+  animation-duration: 8s;
+  animation-delay: -3s;
+}
+
+@keyframes meshFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.1); }
+}
+
+.cta-banner > * { position: relative; z-index: 1; }
+
+/* ============================================================
+   LOADER — PREMIUM VERSION
+   ============================================================ */
+.loader-logo {
+  animation: loaderLogoAnim 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  opacity: 0;
+}
+
+@keyframes loaderLogoAnim {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   CONTACT STRIP — HOVER LINE
+   ============================================================ */
+.contact-strip-item {
+  position: relative;
+}
+
+.contact-strip-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.contact-strip-item:hover::after { transform: scaleX(1); }
+
+/* ============================================================
+   FOOTER BRAND — GLOW
+   ============================================================ */
+.footer-brand-text span {
+  text-shadow: 0 0 20px rgba(227,30,36,0.5);
+  animation: brandGlow 3s ease-in-out infinite;
+}
+
+@keyframes brandGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(227,30,36,0.5); }
+  50% { text-shadow: 0 0 40px rgba(227,30,36,0.8), 0 0 60px rgba(227,30,36,0.3); }
+}
+
+/* ============================================================
+   RESPONSIVE WOW
+   ============================================================ */
+@media (max-width: 900px) {
+  .pw-steps { grid-template-columns: repeat(2, 1fr); gap: 50px 24px; }
+  .pw-line-track { display: none; }
+  .cursor-glow, .cursor-dot, .cursor-ring { display: none; }
+}
+
+@media (max-width: 600px) {
+  .pw-steps { grid-template-columns: 1fr 1fr; gap: 40px 16px; }
+  .pw-ghost { font-size: 30vw; }
+}
+
+/* ============================================================
+   PERFORMANCE — REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .pw-ring, .orb, .pw-ghost, .scanLine {
+    animation: none !important;
+  }
+  .pw-step { transition: opacity 0.3s ease !important; transform: none !important; }
+}

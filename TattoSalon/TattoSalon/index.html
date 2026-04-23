@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="INK ASYLUM – Studio de tatuaje premium. Artă permanentă creată cu pasiune și precizie." />
+  <title>INK ASYLUM | Premium Tattoo Studio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body class="loading">
+
+  <!-- ========== CUSTOM CURSOR ========== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ========== LOADING SCREEN ========== -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-inner">
+      <svg class="ink-logo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="gooey">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+            <feColorMatrix in="blur" mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="gooey" />
+          </filter>
+        </defs>
+        <g filter="url(#gooey)">
+          <circle class="ink-drop-main" cx="60" cy="40" r="22" fill="#d4af37" />
+          <ellipse class="ink-drop-tail" cx="60" cy="78" rx="10" ry="26" fill="#d4af37" />
+          <ellipse class="ink-drop-l" cx="42" cy="60" rx="8" ry="14" fill="#d4af37" transform="rotate(-20 42 60)" />
+          <ellipse class="ink-drop-r" cx="78" cy="60" rx="8" ry="14" fill="#d4af37" transform="rotate(20 78 60)" />
+        </g>
+      </svg>
+      <div class="loading-title">
+        <span>INK</span><span class="gold"> ASYLUM</span>
+      </div>
+      <div class="loading-bar-wrap"><div class="loading-bar" id="loadingBar"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-ink">INK</span><span class="logo-asylum"> ASYLUM</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">Despre</a></li>
+        <li><a href="#services" class="nav-link">Servicii</a></li>
+        <li><a href="#portfolio" class="nav-link">Portofoliu</a></li>
+        <li><a href="#artists" class="nav-link">Artiști</a></li>
+        <li><a href="#testimonials" class="nav-link">Recenzii</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#booking" class="nav-link nav-cta">Programează-te</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal-text">Studio de Tatuaje Premium</p>
+      <h1 class="hero-title">
+        <span class="line" id="typewriterLine">INK ASYLUM</span>
+      </h1>
+      <p class="hero-subtitle reveal-text">Artă permanentă. Identitate unică.<br />Creată cu pasiune și precizie.</p>
+      <div class="hero-cta reveal-text">
+        <a href="#portfolio" class="btn btn-primary magnetic">Vezi Portofoliul</a>
+        <a href="#booking" class="btn btn-ghost magnetic">Fă o Programare</a>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text gsap-reveal">
+          <span class="section-tag">Povestea noastră</span>
+          <h2 class="section-title">Transformăm <span class="gold">Viziunea</span><br />în Artă</h2>
+          <p class="about-desc">INK ASYLUM nu este un simplu salon de tatuaje — este un spațiu sacru al expresiei de sine. Fondată pe principiul că fiecare lucrare trebuie să fie unică iar fiecare client, o capodoperă.</p>
+          <p class="about-desc">Folosim exclusiv cerneală premium, ace sterile și tehnici avansate pentru a garanta atât siguranța, cât și calitatea excepțională a fiecărui tatuaj.</p>
+          <a href="#services" class="btn btn-outline magnetic">Descoperă Serviciile</a>
+        </div>
+        <div class="about-visual gsap-reveal">
+          <div class="about-img-wrap">
+            <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?auto=format&fit=crop&w=600&q=80" alt="Artist tatuaje la lucru" class="about-img" loading="lazy" />
+            <div class="about-img-border"></div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-number" data-target="12">0</span>
+              <span class="stat-label">Ani Experiență</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="3800">0</span>
+              <span class="stat-label">Clienți Mulțumiți</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="6">0</span>
+              <span class="stat-label">Artiști în Echipă</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="28">0</span>
+              <span class="stat-label">Premii Câștigate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services" class="section services">
+    <div class="container">
+      <div class="section-header gsap-reveal">
+        <span class="section-tag">Ce Oferim</span>
+        <h2 class="section-title">Serviciile <span class="gold">Noastre</span></h2>
+        <p class="section-subtitle">Fiecare stil, fiecare viziune — executată cu măiestrie absolută.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card gsap-reveal" data-delay="0">
+          <div class="service-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 50 Q30 10 50 50" stroke="#d4af37" stroke-width="2" fill="none"/>
+              <circle cx="30" cy="28" r="4" fill="#d4af37" opacity="0.6"/>
+              <path d="M20 42 Q30 20 40 42" stroke="#d4af37" stroke-width="1.5" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Custom Design</h3>
+          <p class="service-desc">Tatuaje unice, create exclusiv pentru tine. Colaborăm cu tine de la concept până la realizare.</p>
+          <div class="service-price">de la <strong>300 RON</strong></div>
+          <a href="#booking" class="service-link magnetic">Programează →</a>
+        </div>
+        <div class="service-card gsap-reveal" data-delay="0.15">
+          <div class="service-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="15" y="15" width="30" height="30" rx="2" stroke="#d4af37" stroke-width="2"/>
+              <path d="M22 30 L28 36 L38 24" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="30" cy="30" r="18" stroke="#d4af37" stroke-width="1" opacity="0.3"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Cover-Up</h3>
+          <p class="service-desc">Transformăm tatuaje vechi sau nedorite în lucrări noi, spectaculoase. Analiză gratuită.</p>
+          <div class="service-price">de la <strong>500 RON</strong></div>
+          <a href="#booking" class="service-link magnetic">Programează →</a>
+        </div>
+        <div class="service-card gsap-reveal featured" data-delay="0.3">
+          <div class="service-badge">Popular</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 8 L34 22 L48 22 L37 31 L41 45 L30 36 L19 45 L23 31 L12 22 L26 22 Z" stroke="#d4af37" stroke-width="2" fill="none"/>
+              <path d="M30 8 L34 22 L48 22 L37 31 L41 45 L30 36 L19 45 L23 31 L12 22 L26 22 Z" fill="#d4af37" opacity="0.1"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Fine Line Art</h3>
+          <p class="service-desc">Linii extrem de fine, detalii minute. Specialitatea casei — tatuaje delicate și elegante.</p>
+          <div class="service-price">de la <strong>400 RON</strong></div>
+          <a href="#booking" class="service-link magnetic">Programează →</a>
+        </div>
+        <div class="service-card gsap-reveal" data-delay="0.45">
+          <div class="service-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="30" r="20" stroke="#d4af37" stroke-width="2" opacity="0.4"/>
+              <circle cx="30" cy="30" r="12" stroke="#d4af37" stroke-width="2"/>
+              <circle cx="30" cy="30" r="4" fill="#d4af37"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Blackwork</h3>
+          <p class="service-desc">Contrast puternic, forme geometrice sau organice — tatuaje bold, cu impact vizual maxim.</p>
+          <div class="service-price">de la <strong>350 RON</strong></div>
+          <a href="#booking" class="service-link magnetic">Programează →</a>
+        </div>
+        <div class="service-card gsap-reveal" data-delay="0.6">
+          <div class="service-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 45 Q30 15 45 45" stroke="#d4af37" stroke-width="2" fill="none"/>
+              <path d="M20 38 Q30 22 40 38" stroke="#d4af37" stroke-width="1.5" fill="none"/>
+              <line x1="30" y1="15" x2="30" y2="8" stroke="#d4af37" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Watercolor</h3>
+          <p class="service-desc">Culori vibrante, tranziții fluide. Tehnica acuarelă pentru tatuaje pline de viață și culoare.</p>
+          <div class="service-price">de la <strong>450 RON</strong></div>
+          <a href="#booking" class="service-link magnetic">Programează →</a>
+        </div>
+        <div class="service-card gsap-reveal" data-delay="0.75">
+          <div class="service-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 20 L40 20 L40 40 L20 40 Z" stroke="#d4af37" stroke-width="1.5" fill="none" opacity="0.5"/>
+              <path d="M25 15 L45 15 L45 35" stroke="#d4af37" stroke-width="1.5" fill="none" opacity="0.4"/>
+              <path d="M15 25 L35 25 L35 45 L15 45 Z" stroke="#d4af37" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Geometric & Mandala</h3>
+          <p class="service-desc">Precizie matematică și simetrie perfectă. Linii clare, forme perfecte, simbolism profund.</p>
+          <div class="service-price">de la <strong>380 RON</strong></div>
+          <a href="#booking" class="service-link magnetic">Programează →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section id="portfolio" class="section portfolio">
+    <div class="container">
+      <div class="section-header gsap-reveal">
+        <span class="section-tag">Lucrările Noastre</span>
+        <h2 class="section-title">Galeria <span class="gold">Artei</span></h2>
+        <p class="section-subtitle">Fiecare piesă — o poveste unică, o artă permanentă.</p>
+      </div>
+      <div class="portfolio-filter gsap-reveal">
+        <button class="filter-btn active" data-filter="all">Toate</button>
+        <button class="filter-btn" data-filter="fineline">Fine Line</button>
+        <button class="filter-btn" data-filter="blackwork">Blackwork</button>
+        <button class="filter-btn" data-filter="geometric">Geometric</button>
+        <button class="filter-btn" data-filter="color">Color</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="portfolio-item gsap-reveal" data-category="blackwork">
+          <div class="portfolio-img-wrap">
+            <img src="https://images.unsplash.com/photo-1629811002708-7d15c6c7e7a0?auto=format&fit=crop&w=500&q=80" alt="Tatuaj Blackwork" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Shadow Serpent</h4>
+                <p>Blackwork / Artist: Alex M.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item gsap-reveal large" data-category="fineline">
+          <div class="portfolio-img-wrap">
+            <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=600&q=80" alt="Tatuaj Fine Line" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Botanical Dreams</h4>
+                <p>Fine Line / Artist: Diana V.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item gsap-reveal" data-category="geometric">
+          <div class="portfolio-img-wrap">
+            <img src="https://images.unsplash.com/photo-1597852075234-fd721ac361d3?auto=format&fit=crop&w=500&q=80" alt="Tatuaj Geometric" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Sacred Geometry</h4>
+                <p>Geometric / Artist: Mihai R.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item gsap-reveal" data-category="color">
+          <div class="portfolio-img-wrap">
+            <img src="https://images.unsplash.com/photo-1607382007937-fe3a9d196b7a?auto=format&fit=crop&w=500&q=80" alt="Tatuaj Color" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Vivid Bloom</h4>
+                <p>Watercolor / Artist: Elena C.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item gsap-reveal tall" data-category="blackwork">
+          <div class="portfolio-img-wrap">
+            <img src="https://images.unsplash.com/photo-1639432358985-15129a8c4048?auto=format&fit=crop&w=500&q=80" alt="Tatuaj Dragon" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Dragon Emperor</h4>
+                <p>Blackwork / Artist: Alex M.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item gsap-reveal" data-category="geometric">
+          <div class="portfolio-img-wrap">
+            <img src="https://images.unsplash.com/photo-1628969454009-843d2369e964?auto=format&fit=crop&w=500&q=80" alt="Tatuaj Mandala" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-info">
+                <h4>Cosmic Mandala</h4>
+                <p>Geometric / Artist: Mihai R.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ARTISTS ========== -->
+  <section id="artists" class="section artists">
+    <div class="container">
+      <div class="section-header gsap-reveal">
+        <span class="section-tag">Echipa Noastră</span>
+        <h2 class="section-title">Artiștii <span class="gold">INK ASYLUM</span></h2>
+        <p class="section-subtitle">Pasiune, talent și ani de experiență — la fiecare ac.</p>
+      </div>
+      <div class="artists-grid">
+        <div class="artist-card gsap-reveal" data-delay="0">
+          <div class="artist-flip">
+            <div class="artist-front">
+              <div class="artist-img-wrap">
+                <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=400&q=80" alt="Artist Alexandru" loading="lazy" />
+                <div class="artist-img-overlay"></div>
+              </div>
+              <div class="artist-info">
+                <h3 class="artist-name">Alexandru M.</h3>
+                <p class="artist-style">Blackwork & Neo-Traditional</p>
+                <div class="artist-hover-hint">Hover pentru detalii</div>
+              </div>
+            </div>
+            <div class="artist-back">
+              <div class="artist-back-content">
+                <h3>Alexandru M.</h3>
+                <p class="artist-bio">10 ani de experiență în tehnici blackwork și neo-traditional. Câștigător al Romanian Tattoo Convention 2023.</p>
+                <div class="artist-socials">
+                  <a href="#" class="artist-social magnetic" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="artist-card gsap-reveal" data-delay="0.15">
+          <div class="artist-flip">
+            <div class="artist-front">
+              <div class="artist-img-wrap">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b04e?auto=format&fit=crop&w=400&q=80" alt="Artist Diana" loading="lazy" />
+                <div class="artist-img-overlay"></div>
+              </div>
+              <div class="artist-info">
+                <h3 class="artist-name">Diana V.</h3>
+                <p class="artist-style">Fine Line & Botanicals</p>
+                <div class="artist-hover-hint">Hover pentru detalii</div>
+              </div>
+            </div>
+            <div class="artist-back">
+              <div class="artist-back-content">
+                <h3>Diana V.</h3>
+                <p class="artist-bio">Specializată în fine line și tatuaje botanice delicate. 7 ani de experiență, recunoscută internațional.</p>
+                <div class="artist-socials">
+                  <a href="#" class="artist-social magnetic" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="artist-card gsap-reveal" data-delay="0.3">
+          <div class="artist-flip">
+            <div class="artist-front">
+              <div class="artist-img-wrap">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Artist Mihai" loading="lazy" />
+                <div class="artist-img-overlay"></div>
+              </div>
+              <div class="artist-info">
+                <h3 class="artist-name">Mihai R.</h3>
+                <p class="artist-style">Geometric & Mandala</p>
+                <div class="artist-hover-hint">Hover pentru detalii</div>
+              </div>
+            </div>
+            <div class="artist-back">
+              <div class="artist-back-content">
+                <h3>Mihai R.</h3>
+                <p class="artist-bio">Maestru al geometriei și simetriei. Mandalele sale sunt recunoscute ca adevărate opere de artă matematică.</p>
+                <div class="artist-socials">
+                  <a href="#" class="artist-social magnetic" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section id="testimonials" class="section testimonials">
+    <div class="container">
+      <div class="section-header gsap-reveal">
+        <span class="section-tag">Ce Spun Clienții</span>
+        <h2 class="section-title">Povești <span class="gold">Reale</span></h2>
+      </div>
+      <div class="testimonials-slider gsap-reveal">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Am venit cu o idee vagă și am plecat cu o capodoperă. Alexandru a înțeles exact ce îmi doream și a depășit orice așteptare. INK ASYLUM este de departe cel mai bun studio din țară.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AM</div>
+              <div>
+                <strong>Andrei Munteanu</strong>
+                <span>Blackwork sleeve, 2024</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Diana a creat un tatuaj fin și delicat exact cum visam. Atenția la detalii este impresionantă. Studioul este impecabil de curat și atmosfera este incredibilă. Recomand 100%.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MP</div>
+              <div>
+                <strong>Maria Popescu</strong>
+                <span>Fine line botanical, 2024</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Mihai a creat o mandală geometrică perfectă. Precizia și răbdarea lui sunt extraordinare. Fiecare linie este exactă. Un studio de artă adevărată, nu doar un salon.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">CG</div>
+              <div>
+                <strong>Cristian Gheorghe</strong>
+                <span>Mandala geometrică, 2024</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Am venit pentru un cover-up al unui tatuaj vechi pe care îl uram. Acum am o piesă de artă magnifică. Echipa INK ASYLUM a transformat ceva urât în ceva superb.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">LB</div>
+              <div>
+                <strong>Laura Balan</strong>
+                <span>Cover-Up, 2023</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testimonials-nav">
+          <button class="testi-btn" id="testiPrev" aria-label="Anterior">&#8592;</button>
+          <div class="testi-dots" id="testiDots"></div>
+          <button class="testi-btn" id="testiNext" aria-label="Următor">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BOOKING ========== -->
+  <section id="booking" class="section booking">
+    <div class="container">
+      <div class="booking-inner">
+        <div class="booking-text gsap-reveal">
+          <span class="section-tag">Fă o Programare</span>
+          <h2 class="section-title">Începe <span class="gold">Călătoria</span></h2>
+          <p class="booking-desc">Completează formularul și te vom contacta în 24 de ore pentru a discuta despre proiectul tău. Prima consultație este gratuită.</p>
+          <div class="booking-perks">
+            <div class="perk-item">
+              <span class="perk-icon">✦</span>
+              <span>Consultație gratuită</span>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">✦</span>
+              <span>Design personalizat</span>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">✦</span>
+              <span>Garanție de calitate</span>
+            </div>
+          </div>
+        </div>
+        <form class="booking-form gsap-reveal" id="bookingForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" id="firstName" name="firstName" placeholder=" " autocomplete="given-name" required />
+              <label for="firstName">Prenume *</label>
+              <span class="form-error" id="firstNameError"></span>
+            </div>
+            <div class="form-group">
+              <input type="text" id="lastName" name="lastName" placeholder=" " autocomplete="family-name" required />
+              <label for="lastName">Nume *</label>
+              <span class="form-error" id="lastNameError"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder=" " autocomplete="email" required />
+              <label for="email">Email *</label>
+              <span class="form-error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="phone" name="phone" placeholder=" " autocomplete="tel" required />
+              <label for="phone">Telefon *</label>
+              <span class="form-error" id="phoneError"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <select id="service" name="service" required>
+              <option value="" disabled selected></option>
+              <option value="custom">Custom Design</option>
+              <option value="coverup">Cover-Up</option>
+              <option value="fineline">Fine Line Art</option>
+              <option value="blackwork">Blackwork</option>
+              <option value="watercolor">Watercolor</option>
+              <option value="geometric">Geometric & Mandala</option>
+            </select>
+            <label for="service">Serviciu dorit *</label>
+            <span class="form-error" id="serviceError"></span>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" placeholder=" " rows="4"></textarea>
+            <label for="message">Descrie ideea ta</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full magnetic" id="submitBtn">
+            <span class="btn-text">Trimite Cererea</span>
+            <span class="btn-loading" style="display:none;">Se trimite...</span>
+          </button>
+          <div class="form-success" id="formSuccess" style="display:none;">
+            <span class="success-icon">✦</span>
+            <span>Cererea ta a fost trimisă! Te contactăm în curând.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-header gsap-reveal">
+        <span class="section-tag">Găsește-ne</span>
+        <h2 class="section-title">Contact <span class="gold">&amp; Locație</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info gsap-reveal">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            </div>
+            <div>
+              <strong>Adresă</strong>
+              <p>Str. Artei Nr. 12, Sector 1<br />București, România</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            </div>
+            <div>
+              <strong>Telefon</strong>
+              <p><a href="tel:+40721234567">+40 72 123 4567</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            </div>
+            <div>
+              <strong>Email</strong>
+              <p><a href="mailto:contact@inkasylum.ro">contact@inkasylum.ro</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <strong>Program</strong>
+              <p>Luni – Sâmbătă: 10:00 – 20:00<br />Duminică: Închis</p>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="#" class="social-link magnetic" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="social-link magnetic" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="social-link magnetic" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-map gsap-reveal">
+          <div class="map-placeholder">
+            <div class="map-inner">
+              <svg class="map-pin-icon" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+              </svg>
+              <p>INK ASYLUM</p>
+              <small>Str. Artei Nr. 12, Sector 1, București</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#hero" class="footer-logo">
+              <span class="logo-ink">INK</span><span class="logo-asylum"> ASYLUM</span>
+            </a>
+            <p class="footer-tagline">Artă permanentă.<br />Identitate unică.</p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Navigare</h4>
+            <ul>
+              <li><a href="#about">Despre Noi</a></li>
+              <li><a href="#services">Servicii</a></li>
+              <li><a href="#portfolio">Portofoliu</a></li>
+              <li><a href="#artists">Artiști</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Politica de Confidențialitate</a></li>
+              <li><a href="#">Termeni și Condiții</a></li>
+              <li><a href="#">GDPR</a></li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Fii primul care află despre promoții și noi artiști.</p>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Adresa ta de email" aria-label="Email newsletter" />
+              <button type="button" class="magnetic">✦</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 INK ASYLUM. Toate drepturile rezervate.</p>
+        <p>Creat cu <span class="gold">✦</span> în România</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== GSAP CDN ========== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="js/canvas.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KRK Service Auto — Service auto complet multimarcă autorizat RAR în Târgu Jiu. Reparații, diagnoză, ITP, vulcanizare, service aer condiționat." />
+  <meta name="keywords" content="service auto targu jiu, service auto gorj, reparatii auto, diagnoza auto, ITP, KRK service auto" />
+  <meta property="og:title" content="KRK Service Auto | Târgu Jiu" />
+  <meta property="og:description" content="Service auto complet multimarcă autorizat RAR — ne dedicăm excelenței în fiecare detaliu!" />
+  <meta property="og:url" content="https://www.krkserviceauto.ro/" />
+  <title>KRK Service Auto | Tardgu Jiu — Service Multimarcă Autorizat RAR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/wow.css" />
+  <link rel="stylesheet" href="css/auto-theme.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo">KRK<span>.</span></div>
+    <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Înapoi sus">↑</button>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <div>
+        <span class="nav-logo-text">KRK<span style="color:var(--red)">.</span></span>
+        <span class="nav-logo-sub">Service Auto</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Acasă</a></li>
+      <li><a href="despre-noi.html">Despre Noi</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Programare</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Acasă</a>
+    <a href="despre-noi.html">Despre Noi</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" style="color:var(--red)">Programare</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge">
+        Autorizat RAR &nbsp;•&nbsp; Multimarcă
+      </div>
+      <h1 class="hero-title">
+        Service Auto
+        <span class="accent">De Calitate.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Ne dedicăm excelenței în fiecare detaliu, pentru siguranța și performanța mașinii tale. Autoturisme • Autoutilitare • Microbuze.
+      </p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn-primary">
+          <span class="btn-icon">📅</span> Programează-te
+        </a>
+        <a href="#servicii" class="btn-secondary">
+          <span class="btn-icon">🔧</span> Serviciile noastre
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="stat-gauge-wrap">
+            <svg class="stat-gauge-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="30" fill="none" class="gauge-track" stroke-dasharray="157 314" />
+              <circle cx="40" cy="40" r="30" fill="none" class="gauge-fill" stroke-dasharray="125 314" />
+            </svg>
+            <div class="stat-gauge-inner">
+              <div class="hero-stat-number"><span class="num" data-target="500">0</span><span>+</span></div>
+            </div>
+          </div>
+          <div class="hero-stat-label">Clienți mulțumiți</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-gauge-wrap">
+            <svg class="stat-gauge-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="30" fill="none" class="gauge-track" stroke-dasharray="157 314" />
+              <circle cx="40" cy="40" r="30" fill="none" class="gauge-fill" stroke-dasharray="105 314" />
+            </svg>
+            <div class="stat-gauge-inner">
+              <div class="hero-stat-number"><span class="num" data-target="12">0</span><span>+</span></div>
+            </div>
+          </div>
+          <div class="hero-stat-label">Servicii oferite</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-gauge-wrap">
+            <svg class="stat-gauge-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="30" fill="none" class="gauge-track" stroke-dasharray="157 314" />
+              <circle cx="40" cy="40" r="30" fill="none" class="gauge-fill" stroke-dasharray="157 314" />
+            </svg>
+            <div class="stat-gauge-inner">
+              <div class="hero-stat-number"><span class="num" data-target="100">0</span><span>%</span></div>
+            </div>
+          </div>
+          <div class="hero-stat-label">Dedicați calității</div>
+        </div>
+      </div>
+    </div>
+    <!-- HUD corner reticles -->
+    <div class="hud-corners" aria-hidden="true">
+      <div class="hud-c hud-c--tl"></div>
+      <div class="hud-c hud-c--tr"></div>
+      <div class="hud-c hud-c--bl"></div>
+      <div class="hud-c hud-c--br"></div>
+    </div>
+
+    <!-- Engine heartbeat line -->
+    <div class="engine-hb" aria-hidden="true">
+      <div class="hb-label">ECU · RPM Signal</div>
+      <svg class="hb-svg" viewBox="0 0 260 28" xmlns="http://www.w3.org/2000/svg">
+        <polyline class="hb-path"
+          points="0,14 18,14 22,4 26,24 30,14 38,14 42,2 46,26 50,14 60,14 64,8 66,20 68,14 80,14 86,6 90,22 94,14 100,14 104,10 106,18 108,14 130,14 134,4 138,24 142,14 150,14 154,8 156,20 158,14 180,14 184,2 188,26 192,14 200,14 204,10 208,18 210,14 230,14 234,6 238,22 242,14 260,14"
+        />
+      </svg>
+    </div>
+
+    <!-- OBD HUD Data Panel -->
+    <div class="hud-panel" id="hudPanel" aria-hidden="true">
+      <div class="hud-panel-box">
+        <div class="hud-panel-title">
+          <span class="hud-blink"></span> OBD DIAGNOSTIC
+        </div>
+        <div class="hud-row">
+          <span class="hud-key">RPM</span>
+          <span class="hud-val yellow" id="hdRpm">---</span>
+        </div>
+        <div class="hud-row">
+          <span class="hud-key">TEMP</span>
+          <span class="hud-val" id="hdTemp">--°C</span>
+        </div>
+        <div class="hud-row">
+          <span class="hud-key">VOLT</span>
+          <span class="hud-val" id="hdVolt">--.-V</span>
+        </div>
+        <div class="hud-row">
+          <span class="hud-key">BAT</span>
+          <span class="hud-val green" id="hdBat">--%</span>
+        </div>
+        <div class="hud-row">
+          <span class="hud-key">STATUS</span>
+          <span class="hud-val green">OK</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="marquee-item">Reparații Mecanice <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Diagnoză Computerizată <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Vulcanizare <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Schimb Distribuție <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Service Aer Condiționat <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Reparații Electrice <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Schimb Ulei & Filtre <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Sistem Frânare <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Test Rutier Asistat <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Programare Electronice <span class="marquee-dot"></span></span>
+      <!-- Clone for infinite scroll -->
+      <span class="marquee-item">Reparații Mecanice <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Diagnoză Computerizată <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Vulcanizare <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Schimb Distribuție <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Service Aer Condiționat <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Reparații Electrice <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Schimb Ulei & Filtre <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Sistem Frânare <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Test Rutier Asistat <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Programare Electronice <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- SERVICES SECTION -->
+  <section class="services-section" id="servicii">
+    <!-- Gear decoration top-right -->
+    <div class="gear-bg" style="top:-50px;right:2%;width:160px;height:160px;" aria-hidden="true">
+      <svg viewBox="0 0 160 160" class="gear-svg gspin-ccw" style="width:100%;height:100%;">
+        <path d="M80 22 L87 38 L103 34 L106 51 L121 57 L115 72 L127 84 L118 97 L126 111 L114 120 L112 136 L96 138 L88 153 L80 147 L72 153 L64 138 L48 136 L46 120 L34 111 L42 97 L33 84 L45 72 L39 57 L54 51 L57 34 L73 38 Z" stroke-width="2"/>
+        <circle cx="80" cy="89" r="22" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="section-header reveal">
+      <div class="section-tag">Ce facem</div>
+      <h2 class="section-title">Servicii auto <span>complete</span></h2>
+      <p class="section-desc">Te ajutăm cu toate lucrările de întreținere și reparații auto pentru ca vehiculul tău să meargă ca pe roate.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🔍</div>
+        <h3 class="service-name">Diagnoză Computerizată</h3>
+        <p class="service-desc">Test rutier asistat cu tester profesional și diagnoză electronică completă pentru orice marcă.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🔧</div>
+        <h3 class="service-name">Reparații Mecanice</h3>
+        <p class="service-desc">Intervenții mecanice complete — motor, transmisie, suspensie, direcție și multe altele.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">⚡</div>
+        <h3 class="service-name">Reparații Electrice</h3>
+        <p class="service-desc">Diagnosticăm și reparăm orice problemă electrică sau electronică a vehiculului.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">🔩</div>
+        <h3 class="service-name">Schimb Distribuție</h3>
+        <p class="service-desc">Înlocuire completă a sistemului de distribuție conform normelor producătorului.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🛞</div>
+        <h3 class="service-name">Vulcanizare</h3>
+        <p class="service-desc">Montaj, demontaj, echilibrare și reparare anvelope pentru toate tipurile de vehicule.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">❄️</div>
+        <h3 class="service-name">Service Climatizare</h3>
+        <p class="service-desc">Verificare, reîncărcare și reparare sistem de aer condiționat cu agent frigorific ecologic.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🛑</div>
+        <h3 class="service-name">Sistem Frânare</h3>
+        <p class="service-desc">Întreținere și reparații complete ale sistemului de frânare — plăcuțe, discuri, etrier.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">🚀</div>
+        <h3 class="service-name">Schimb Ulei & Filtre</h3>
+        <p class="service-desc">Schimb ulei motor, filtre, lichid de răcire și toate fluidele necesare vehiculului.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">📱</div>
+        <h3 class="service-name">Programare Sisteme</h3>
+        <p class="service-desc">Adaptare și programare componente electronice, codificare unități de control.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🔋</div>
+        <h3 class="service-name">Baterii Auto</h3>
+        <p class="service-desc">Verificare, testare și înlocuire baterii auto cu codificare pentru vehiculele moderne.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🔄</div>
+        <h3 class="service-name">Revizie Periodică</h3>
+        <p class="service-desc">Lucrări complete de revizie și întreținere periodică generală conform fisei tehnice.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">⚙️</div>
+        <h3 class="service-name">Adaptare Componente</h3>
+        <p class="service-desc">Montaj și adaptare componente aftermarket sau originale pentru optimizare și performanță.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US SECTION -->
+  <section style="padding: 100px 5%;" id="despre">
+    <div class="why-section">
+      <div class="why-visual reveal-left">
+        <div class="why-float-card">
+          <div class="why-float-num">RAR</div>
+          <div class="why-float-label">Autorizat</div>
+        </div>
+        <div class="why-img-wrap">
+          <img src="https://www.krkserviceauto.ro/images/service-auto-targu-jiu-2.jpg" alt="Service KRK - interior" loading="lazy" />
+          <div class="why-img-overlay">
+            <div class="why-badge-card">
+              <span class="why-badge-icon">🏆</span>
+              <div>
+                <div class="why-badge-title">Calitate Garantată</div>
+                <div class="why-badge-text">Tehnologie de ultimă generație</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-tag">De ce noi</div>
+        <h2 class="section-title">KRK Service Auto — <span>Dedicați Excelenței</span></h2>
+        <p class="section-desc">Indiferent de problema care stă în calea funcționării perfecte a mașinii tale, noi suntem aici ca să o rezolvăm. Dotări moderne, tehnologie de ultimă generație și personal calificat.</p>
+        <div class="why-features">
+          <div class="why-feat">
+            <div class="why-feat-icon">🔬</div>
+            <div>
+              <div class="why-feat-title">Tehnologie Modernă</div>
+              <div class="why-feat-desc">Dotări de ultimă generație și echipamente profesionale pentru diagnosticare precisă.</div>
+            </div>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-icon">👷</div>
+            <div>
+              <div class="why-feat-title">Personal Calificat</div>
+              <div class="why-feat-desc">Echipă de specialiști cu experiență, dedicați profesionalismului și calității.</div>
+            </div>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-icon">⏱️</div>
+            <div>
+              <div class="why-feat-title">Promptitudine</div>
+              <div class="why-feat-desc">Lucrăm eficient și transparent, cu termene respectate și comunicare clară.</div>
+            </div>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-icon">✅</div>
+            <div>
+              <div class="why-feat-title">Autorizat RAR</div>
+              <div class="why-feat-desc">Service multimarcă autorizat RAR pentru autoturisme, autoutilitare și microbuze.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION — CAR JOURNEY -->
+  <section class="process-wow" id="process">
+
+    <!-- Ghost text -->
+    <div class="pw-ghost" aria-hidden="true">DRIVE</div>
+
+    <!-- Background gear decorations -->
+    <div class="gear-bg" style="top:-80px;left:-80px;width:280px;height:280px;" aria-hidden="true">
+      <svg viewBox="0 0 280 280" class="gear-svg gspin-cw" style="width:100%;height:100%;">
+        <path d="M140 42 L151 65 L175 58 L179 83 L203 90 L196 114 L218 128 L207 150 L224 168 L210 186 L220 207 L202 219 L200 243 L176 247 L165 269 L140 261 L115 269 L104 247 L80 243 L78 219 L60 207 L70 186 L56 168 L73 150 L62 128 L84 114 L77 90 L101 83 L105 58 L129 65 Z" stroke-width="2"/>
+        <circle cx="140" cy="155" r="28" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="gear-bg" style="bottom:-60px;right:-60px;width:200px;height:200px;" aria-hidden="true">
+      <svg viewBox="0 0 200 200" class="gear-svg gspin-ccw" style="width:100%;height:100%;">
+        <path d="M100 28 L109 46 L128 41 L131 60 L150 66 L145 85 L161 97 L153 115 L165 130 L154 145 L160 162 L146 170 L144 189 L125 191 L116 208 L100 202 L84 208 L75 191 L56 189 L54 170 L40 162 L46 145 L35 130 L47 115 L39 97 L55 85 L50 66 L69 60 L72 41 L91 46 Z" stroke-width="1.5"/>
+        <circle cx="100" cy="115" r="20" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div class="pw-inner">
+
+      <!-- Header -->
+      <div class="pw-header reveal" style="text-align:center; max-width:640px; margin:0 auto 60px;">
+        <div class="section-tag" style="justify-content:center;">Cum funcționăm</div>
+        <h2 class="section-title">Procesul <span>Nostru</span></h2>
+        <p class="section-desc" style="margin:0 auto;">Mașina ta trece prin 4 stații de la programare până la predare perfectă.</p>
+      </div>
+
+      <!-- CAR JOURNEY TRACK -->
+      <div class="car-journey" aria-hidden="true">
+        <div class="cj-track">
+          <div class="cj-road-base"></div>
+          <div class="cj-road-fill" id="cjRoadFill"></div>
+          <div class="cj-dashes"></div>
+          <!-- 4 station dots -->
+          <div class="cj-station" id="cjS0"></div>
+          <div class="cj-station" id="cjS1"></div>
+          <div class="cj-station" id="cjS2"></div>
+          <div class="cj-station" id="cjS3"></div>
+          <!-- THE CAR SVG (side view, facing right) -->
+          <svg class="cj-car" id="cjCar" viewBox="0 0 120 52" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body -->
+            <path d="M5 38 L5 28 Q8 20 22 17 L36 10 Q50 5 65 5 L85 5 Q100 5 106 16 L112 28 L112 38 Z"
+                  fill="#1a1a1a" stroke="#e31e24" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Roof -->
+            <path d="M38 16 L48 8 Q58 4 68 4 L84 4 Q95 4 100 12 L106 18"
+                  fill="rgba(227,30,36,0.06)" stroke="rgba(227,30,36,0.35)" stroke-width="0.8"/>
+            <!-- Headlight beam -->
+            <path d="M108 22 L124 16 L124 38 L108 33 Z" fill="rgba(255,220,80,0.07)"/>
+            <!-- Headlight -->
+            <line x1="107" y1="22" x2="107" y2="33" class="cj-headlight" stroke="#ffdb4d" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+            <!-- Taillight -->
+            <rect x="4" y="23" width="3" height="11" rx="1.5" fill="#e31e24" opacity="0.75"/>
+            <!-- Door divider -->
+            <line x1="62" y1="15" x2="62" y2="37" stroke="rgba(227,30,36,0.12)" stroke-width="1"/>
+            <!-- Front wheel -->
+            <g class="cj-wheel" style="transform-origin:27px 39px">
+              <circle cx="27" cy="39" r="10" fill="#111" stroke="#e31e24" stroke-width="1.5"/>
+              <circle cx="27" cy="39" r="5"  fill="none" stroke="rgba(227,30,36,0.4)" stroke-width="1"/>
+              <line x1="22" y1="39" x2="32" y2="39" stroke="rgba(227,30,36,0.55)" stroke-width="1.2"/>
+              <line x1="27" y1="34" x2="27" y2="44" stroke="rgba(227,30,36,0.55)" stroke-width="1.2"/>
+              <line x1="23.5" y1="35.5" x2="30.5" y2="42.5" stroke="rgba(227,30,36,0.3)" stroke-width="0.8"/>
+              <line x1="30.5" y1="35.5" x2="23.5" y2="42.5" stroke="rgba(227,30,36,0.3)" stroke-width="0.8"/>
+              <circle cx="27" cy="39" r="2" fill="#e31e24"/>
+            </g>
+            <!-- Rear wheel -->
+            <g class="cj-wheel" style="transform-origin:93px 39px">
+              <circle cx="93" cy="39" r="10" fill="#111" stroke="#e31e24" stroke-width="1.5"/>
+              <circle cx="93" cy="39" r="5"  fill="none" stroke="rgba(227,30,36,0.4)" stroke-width="1"/>
+              <line x1="88" y1="39" x2="98" y2="39" stroke="rgba(227,30,36,0.55)" stroke-width="1.2"/>
+              <line x1="93" y1="34" x2="93" y2="44" stroke="rgba(227,30,36,0.55)" stroke-width="1.2"/>
+              <line x1="89.5" y1="35.5" x2="96.5" y2="42.5" stroke="rgba(227,30,36,0.3)" stroke-width="0.8"/>
+              <line x1="96.5" y1="35.5" x2="89.5" y2="42.5" stroke="rgba(227,30,36,0.3)" stroke-width="0.8"/>
+              <circle cx="93" cy="39" r="2" fill="#e31e24"/>
+            </g>
+            <!-- Exhaust -->
+            <ellipse class="cj-exhaust cj-e1" cx="1" cy="33" rx="6" ry="3.5" fill="rgba(210,210,210,0.07)"/>
+            <ellipse class="cj-exhaust cj-e2" cx="-4" cy="33" rx="4" ry="2.5" fill="rgba(210,210,210,0.05)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- STEPS BELOW THE TRACK -->
+      <div class="pw-steps">
+
+        <!-- Step 1: Programare -->
+        <div class="pw-step-auto" id="pwStep0">
+          <div class="pw-auto-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="10" width="36" height="30" rx="4" stroke="#e31e24" stroke-width="1.8" class="pw-draw"/>
+              <line x1="6" y1="20" x2="42" y2="20" stroke="#e31e24" stroke-width="1.8" class="pw-draw"/>
+              <line x1="16" y1="6" x2="16" y2="14" stroke="#e31e24" stroke-width="2" stroke-linecap="round" class="pw-draw"/>
+              <line x1="32" y1="6" x2="32" y2="14" stroke="#e31e24" stroke-width="2" stroke-linecap="round" class="pw-draw"/>
+              <rect x="14" y="26" width="6" height="5" rx="1" fill="rgba(227,30,36,0.5)"/>
+              <rect x="22" y="26" width="6" height="5" rx="1" fill="rgba(227,30,36,0.5)"/>
+              <rect x="30" y="26" width="6" height="5" rx="1" fill="rgba(227,30,36,0.2)"/>
+              <rect x="14" y="33" width="6" height="5" rx="1" fill="rgba(227,30,36,0.2)"/>
+              <rect x="22" y="33" width="6" height="5" rx="1" fill="rgba(227,30,36,0.2)"/>
+            </svg>
+          </div>
+          <div class="pw-num-badge">01</div>
+          <h3 class="pw-auto-title">Programare</h3>
+          <p class="pw-auto-desc">Contactează-ne telefonic sau online și stabilim o dată convenabilă.</p>
+        </div>
+
+        <!-- Step 2: Diagnoză -->
+        <div class="pw-step-auto" id="pwStep1">
+          <div class="pw-auto-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="30" height="22" rx="3" stroke="#e31e24" stroke-width="1.8" class="pw-draw"/>
+              <!-- ECG signal on screen -->
+              <polyline points="8,21 12,21 14,15 16,27 18,19 20,21 22,17 24,25 26,21 30,21"
+                fill="none" stroke="#e31e24" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="pw-draw"/>
+              <line x1="19" y1="30" x2="19" y2="36" stroke="#e31e24" stroke-width="2" stroke-linecap="round" class="pw-draw"/>
+              <line x1="13" y1="36" x2="25" y2="36" stroke="#e31e24" stroke-width="2" stroke-linecap="round" class="pw-draw"/>
+              <!-- OBD connector -->
+              <rect x="36" y="17" width="8" height="12" rx="2" stroke="#e31e24" stroke-width="1.5" class="pw-draw"/>
+              <line x1="38" y1="17" x2="38" y2="29" stroke="rgba(227,30,36,0.3)" stroke-width="1"/>
+              <line x1="41" y1="17" x2="41" y2="29" stroke="rgba(227,30,36,0.3)" stroke-width="1"/>
+              <line x1="36" y1="23" x2="34" y2="23" stroke="#e31e24" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="pw-num-badge">02</div>
+          <h3 class="pw-auto-title">Diagnoză</h3>
+          <p class="pw-auto-desc">Diagnoză computerizată completă cu echipamente OBD profesionale.</p>
+        </div>
+
+        <!-- Step 3: Reparație -->
+        <div class="pw-step-auto" id="pwStep2">
+          <div class="pw-auto-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Wrench -->
+              <path d="M32 6 C38 6 41 11 39 16 L12 40 C10 42 7 42 5 40 C3 38 3 35 5 33 L29 9 Q30 7 32 6 Z"
+                    stroke="#e31e24" stroke-width="1.8" stroke-linejoin="round" class="pw-draw"/>
+              <path d="M32 6 L39 13" stroke="#e31e24" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- Gear -->
+              <circle cx="38" cy="36" r="7" stroke="#e31e24" stroke-width="1.5" class="pw-draw"/>
+              <circle cx="38" cy="36" r="3" fill="rgba(227,30,36,0.3)"/>
+              <line x1="38" y1="28" x2="38" y2="26" stroke="#e31e24" stroke-width="2" stroke-linecap="round"/>
+              <line x1="38" y1="44" x2="38" y2="46" stroke="#e31e24" stroke-width="2" stroke-linecap="round"/>
+              <line x1="30" y1="36" x2="28" y2="36" stroke="#e31e24" stroke-width="2" stroke-linecap="round"/>
+              <line x1="46" y1="36" x2="44" y2="36" stroke="#e31e24" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="pw-num-badge">03</div>
+          <h3 class="pw-auto-title">Reparație</h3>
+          <p class="pw-auto-desc">Intervenție profesională cu piese de calitate și unelte specializate.</p>
+        </div>
+
+        <!-- Step 4: Predare -->
+        <div class="pw-step-auto" id="pwStep3">
+          <div class="pw-auto-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Mini car -->
+              <path d="M3 22 L3 15 Q5 10 12 9 L17 5 Q22 3 28 3 L36 3 Q41 3 43 9 L45 15 L45 22 Z"
+                    stroke="#e31e24" stroke-width="1.5" stroke-linejoin="round" class="pw-draw"/>
+              <circle cx="11" cy="23" r="4" stroke="#e31e24" stroke-width="1.5" class="pw-draw"/>
+              <circle cx="37" cy="23" r="4" stroke="#e31e24" stroke-width="1.5" class="pw-draw"/>
+              <path d="M43 14 L47 16 L47 20 L43 19 Z" fill="rgba(255,220,80,0.3)"/>
+              <line x1="3" y1="15" x2="45" y2="15" stroke="rgba(227,30,36,0.2)" stroke-width="1"/>
+              <!-- Checkmark circle -->
+              <circle cx="36" cy="36" r="9" stroke="rgba(80,220,100,0.9)" stroke-width="2" class="pw-draw"/>
+              <polyline points="30,36 34,40 42,32" fill="none"
+                stroke="rgba(80,220,100,0.9)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="pw-draw"/>
+            </svg>
+          </div>
+          <div class="pw-num-badge">04</div>
+          <h3 class="pw-auto-title">Predare</h3>
+          <p class="pw-auto-desc">Vehicul verificat, lucrări explicate, mașină în stare perfectă.</p>
+        </div>
+
+      </div><!-- /pw-steps -->
+    </div><!-- /pw-inner -->
+  </section>
+
+  <!-- BRANDS SECTION -->
+  <section class="brands-section">
+    <div class="section-header reveal" style="text-align:center;">
+      <div class="section-tag" style="justify-content:center;">Mărci deservite</div>
+      <h2 class="section-title">Service <span>Multimarcă</span></h2>
+      <p class="section-desc" style="margin: 0 auto;">Suntem specializați în servisarea tuturor mărcilor auto — autoturisme, autoutilitare, microbuze.</p>
+    </div>
+    <div class="brands-grid reveal">
+      <div class="brand-chip">Volkswagen</div>
+      <div class="brand-chip">Audi</div>
+      <div class="brand-chip">BMW</div>
+      <div class="brand-chip">Mercedes</div>
+      <div class="brand-chip">Skoda</div>
+      <div class="brand-chip">Renault</div>
+      <div class="brand-chip">Dacia</div>
+      <div class="brand-chip">Peugeot</div>
+      <div class="brand-chip">Citroën</div>
+      <div class="brand-chip">Ford</div>
+      <div class="brand-chip">Opel</div>
+      <div class="brand-chip">Toyota</div>
+      <div class="brand-chip">Hyundai</div>
+      <div class="brand-chip">Kia</div>
+      <div class="brand-chip">Fiat</div>
+      <div class="brand-chip">Seat</div>
+      <div class="brand-chip">Volvo</div>
+      <div class="brand-chip">Nissan</div>
+      <div class="brand-chip">Honda</div>
+      <div class="brand-chip">Mazda</div>
+      <div class="brand-chip">Suzuki</div>
+      <div class="brand-chip">+ Altele</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="padding: 100px 5%;">
+    <div class="section-header reveal">
+      <div class="section-tag">Recenzii</div>
+      <h2 class="section-title">Ce spun <span>clienții noștri</span></h2>
+      <p class="section-desc">Satisfacția clienților este prioritatea noastră numărul unu.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Am adus mașina cu o problemă la motor și în mai puțin de o zi a fost rezolvată. Profesioniști adevărați, prețuri corecte și comunicare excelentă!</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AM</div>
+          <div>
+            <div class="testimonial-name">Alexandru M.</div>
+            <div class="testimonial-role">Client fidel</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Recomand cu încredere! Am efectuat revizia anuală și vulcanizarea. Totul a decurs impecabil, personalul este foarte amabil și corect.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">IP</div>
+          <div>
+            <div class="testimonial-name">Ioana P.</div>
+            <div class="testimonial-role">Client mulțumit</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Cel mai bun service din Târgu Jiu! Am flota firmei la ei de 2 ani — zero probleme, totul întotdeauna la timp și la calitate superioară.</p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CB</div>
+          <div>
+            <div class="testimonial-name">Costin B.</div>
+            <div class="testimonial-role">Manager flotă</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="cta-mesh" aria-hidden="true">
+      <div class="cta-mesh-circle"></div>
+      <div class="cta-mesh-circle"></div>
+      <div class="cta-mesh-circle"></div>
+    </div>
+    <h2 class="cta-banner-title">Ai nevoie de o programare?</h2>
+    <p class="cta-banner-desc">Contactează-ne telefonic sau completează formularul online și te vom suna noi. Răspundem rapid!</p>
+    <a href="contact.html" class="btn-white">
+      <span>📞</span> Programează-te acum
+    </a>
+  </div>
+
+  <!-- CONTACT STRIP -->
+  <div class="contact-strip">
+    <div class="contact-strip-inner">
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon">📞</div>
+        <div>
+          <div class="contact-strip-label">Telefon</div>
+          <div class="contact-strip-value"><a href="tel:+40742623623">0742.623.623</a></div>
+        </div>
+      </div>
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon">📍</div>
+        <div>
+          <div class="contact-strip-label">Adresă</div>
+          <div class="contact-strip-value">Str. Narciselor, Nr. 79, Târgu Jiu</div>
+        </div>
+      </div>
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon">🕐</div>
+        <div>
+          <div class="contact-strip-label">Program</div>
+          <div class="contact-strip-value">Lun – Vin: 08:00 – 16:30</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">KRK<span>.</span></div>
+        <div class="footer-brand-sub">Service Auto</div>
+        <p class="footer-desc">Ne dedicăm excelenței în fiecare detaliu, pentru siguranța și performanța mașinii tale. Service multimarcă autorizat RAR în Târgu Jiu, Gorj.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Facebook">f</a>
+          <a href="mailto:office@krkserviceauto.ro" class="social-btn" aria-label="Email" title="office@krkserviceauto.ro">@</a>
+          <a href="tel:+40742623623" class="social-btn" aria-label="Telefon">📞</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigare</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Acasă</a></li>
+          <li><a href="despre-noi.html">Despre Noi</a></li>
+          <li><a href="galerie.html">Galerie Foto</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Programare</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Servicii</div>
+        <ul class="footer-links">
+          <li><a href="#">Diagnoză Computerizată</a></li>
+          <li><a href="#">Reparații Mecanice</a></li>
+          <li><a href="#">Reparații Electrice</a></li>
+          <li><a href="#">Schimb Distribuție</a></li>
+          <li><a href="#">Vulcanizare</a></li>
+          <li><a href="#">Service Climatizare</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-info">
+          <div class="footer-info-item">
+            <span class="footer-info-icon">📞</span>
+            <div><a href="tel:+40742623623">0742.623.623</a></div>
+          </div>
+          <div class="footer-info-item">
+            <span class="footer-info-icon">✉️</span>
+            <div><a href="mailto:office@krkserviceauto.ro">office@krkserviceauto.ro</a></div>
+          </div>
+          <div class="footer-info-item">
+            <span class="footer-info-icon">📍</span>
+            <div>Str. Narciselor, Nr. 79<br>Târgu Jiu, Gorj</div>
+          </div>
+          <div class="footer-info-item">
+            <span class="footer-info-icon">🕐</span>
+            <div>Lun – Vin: 08:00 – 16:30<br>Sâm – Dum: Închis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">©2026 KRK Service Auto | <a href="https://mfe.gov.ro/" target="_blank" rel="noopener">mfe.gov.ro</a> | <a href="http://www.anpc.gov.ro/" target="_blank" rel="noopener">ANPC</a></div>
+      <div class="footer-legal">
+        <a href="#">Politică Confidențialitate</a>
+        <a href="#">Termeni și Condiții</a>
+        <a href="#">Cookie-uri</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IVOLT — Energie Inteligentă pentru Viitorul Tău</title>
+  <meta name="description" content="IVOLT — Soluții complete cu panouri fotovoltaice. Consultanță, instalare și mentenanță pentru independență energetică." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="pre-content">
+      <img src="assets/logo.svg" alt="IVOLT" class="pre-logo" />
+      <div class="pre-brand">
+        <span>I</span><span>V</span><span>O</span><span>L</span><span>T</span>
+      </div>
+      <div class="pre-tagline">Energie inteligentă · pentru viitorul tău</div>
+      <div class="pre-bar"><div class="pre-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="brand">
+      <img src="assets/logo.svg" alt="IVOLT" class="logo-img" />
+      <span class="brand-text">IVOLT</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#home">Acasă</a>
+      <a href="#about">Despre</a>
+      <a href="#services">Servicii</a>
+      <a href="#why">De ce IVOLT</a>
+      <a href="#portfolio">Portofoliu</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-nav">Contactează-ne</a>
+    <button class="menu-toggle" aria-label="Meniu" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge reveal drop" data-delay="0">
+        Energie Regenerabilă · Autorizat ANRE
+      </div>
+      <h1 class="hero-title">
+        <span class="reveal drop" data-delay="80">Îți dorești</span>
+        <span class="reveal drop gradient-text" data-delay="160">independență energetică?</span>
+      </h1>
+      <p class="hero-sub reveal drop" data-delay="260">
+        Soluții complete cu panouri fotovoltaice — de la consultanță, la instalare și mentenanță.
+        Tot ce ai nevoie pentru a deveni prosumator.
+      </p>
+      <div class="hero-cta reveal drop" data-delay="340">
+        <a href="#services" class="btn btn-primary">Descoperă Serviciile <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Solicită Ofertă</a>
+      </div>
+      <div class="hero-stats reveal drop" data-delay="420">
+        <div class="stat"><span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span><p>Proiecte finalizate</p></div>
+        <div class="stat"><span class="stat-num" data-target="15">0</span><span class="stat-plus">+</span><p>Ani experiență</p></div>
+        <div class="stat"><span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span><p>Clienți mulțumiți</p></div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal-img" data-delay="120">
+      <div class="img-inner">
+        <div class="energy-core" data-parallax="0.18"></div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span></span>
+      <p>SCROLL</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container grid-2">
+      <div class="about-visual reveal-img" data-delay="0">
+        <div class="img-inner">
+          <img src="https://images.unsplash.com/flagged/photo-1566838616631-f2618f74a6a2?w=1000&q=85" alt="Instalație fotovoltaică rezidențială" />
+        </div>
+        <div class="floating-card reveal drop" data-delay="500">
+          <span class="fc-icon">—</span>
+          <div>
+            <strong>ANRE Certified</strong>
+            <p>Atestat oficial</p>
+          </div>
+        </div>
+      </div>
+      <div class="stagger">
+        <span class="section-tag reveal drop">Despre IVOLT</span>
+        <h2 class="section-title reveal drop">Energie inteligentă <span class="gradient-text">pentru viitorul tău.</span></h2>
+        <p class="section-lead reveal drop">
+          Indiferent că îți dorești un sistem fotovoltaic cu stocare pentru independență totală sau un
+          sistem on-grid care valorifică surplusul de energie, echipa <strong>IVOLT</strong> îți oferă
+          consiliere completă și soluții personalizate pentru a maximiza eficiența și a reduce costurile.
+        </p>
+        <ul class="check-list">
+          <li class="reveal drop">Experți în fotovoltaice rezidențiale și industriale</li>
+          <li class="reveal drop">Atestați ANRE — ești pe mâini bune</li>
+          <li class="reveal drop">Experiență profesională în instalații electrice</li>
+          <li class="reveal drop">Mentenanță și suport tehnic permanent</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary reveal drop">Contactați-ne <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head stagger">
+        <span class="section-tag reveal drop">Serviciile noastre</span>
+        <h2 class="section-title reveal drop">Soluții complete cu <span class="gradient-text">panouri fotovoltaice</span></h2>
+        <p class="section-lead center reveal drop">De la consultanță, la instalare și mentenanță — oferim tot ce ai nevoie pentru a deveni prosumator.</p>
+      </div>
+
+      <div class="services-grid stagger">
+        <article class="service-card reveal drop">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 20h40v28H12z"/><path d="M12 34h40M22 20v28M32 20v28M42 20v28"/>
+              <path d="M24 12l-4 8M40 12l4 8M32 10v10"/>
+            </svg>
+          </div>
+          <h3>Servicii Rezidențiale</h3>
+          <p>Transformăm locuința ta cu soluții moderne: energie regenerabilă, încărcare EV și automatizări inteligente.</p>
+          <ul class="mini-list">
+            <li>Sisteme on-grid & off-grid</li>
+            <li>Stații de încărcare EV</li>
+            <li>Smart home & monitorizare</li>
+          </ul>
+          <a href="#contact" class="card-link">Contactați-ne <span class="arrow">→</span></a>
+        </article>
+
+        <article class="service-card featured reveal drop">
+          <div class="badge-top">Popular</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M8 52h48M14 52V24l18-12 18 12v28"/>
+              <path d="M22 52V36h20v16M28 36v16M36 36v16"/>
+            </svg>
+          </div>
+          <h3>Servicii Comerciale</h3>
+          <p>Soluții complete pentru spații comerciale și birouri, combinând tehnologie, eficiență și sustenabilitate.</p>
+          <ul class="mini-list">
+            <li>Audit energetic profesional</li>
+            <li>Sisteme fotovoltaice mari</li>
+            <li>Optimizare costuri operaționale</li>
+          </ul>
+          <a href="#contact" class="card-link">Contactați-ne <span class="arrow">→</span></a>
+        </article>
+
+        <article class="service-card reveal drop">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M8 56h48M12 56V28l10-8 10 8v28M32 56V20l10-8 10 8v36"/>
+              <path d="M18 34h4M18 42h4M38 28h4M38 38h4M38 48h4"/>
+            </svg>
+          </div>
+          <h3>Servicii Industriale</h3>
+          <p>Soluții industriale complete: sisteme fotovoltaice mari, instalații electrice și automatizări, pentru eficiență și fiabilitate maximă.</p>
+          <ul class="mini-list">
+            <li>Parcuri fotovoltaice</li>
+            <li>Automatizări industriale</li>
+            <li>Mentenanță predictivă</li>
+          </ul>
+          <a href="#contact" class="card-link">Contactați-ne <span class="arrow">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Energie Regenerabilă</span><span class="dot">◆</span>
+      <span>Autorizat ANRE</span><span class="dot">◆</span>
+      <span>Soluții Premium</span><span class="dot">◆</span>
+      <span>Sisteme Fotovoltaice</span><span class="dot">◆</span>
+      <span>Independență Energetică</span><span class="dot">◆</span>
+      <span>Mentenanță 24/7</span><span class="dot">◆</span>
+      <span>Energie Regenerabilă</span><span class="dot">◆</span>
+      <span>Autorizat ANRE</span><span class="dot">◆</span>
+      <span>Soluții Premium</span><span class="dot">◆</span>
+      <span>Sisteme Fotovoltaice</span><span class="dot">◆</span>
+      <span>Independență Energetică</span><span class="dot">◆</span>
+      <span>Mentenanță 24/7</span><span class="dot">◆</span>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section why-section" id="why">
+    <div class="container">
+      <div class="section-head stagger">
+        <span class="section-tag reveal drop">Avantaje</span>
+        <h2 class="section-title reveal drop">De ce să alegi <span class="gradient-text">IVOLT</span>?</h2>
+        <p class="section-lead center reveal drop">
+          Oferim soluții complete de energie regenerabilă și instalații electrice, sigure și performante,
+          adaptate nevoilor fiecărui proiect.
+        </p>
+      </div>
+
+      <div class="why-grid stagger">
+        <div class="why-item reveal drop">
+          <div class="why-num">01</div>
+          <h4>Tehnologie de vârf</h4>
+          <p>Componente premium și sisteme inteligente cu monitorizare în timp real.</p>
+        </div>
+        <div class="why-item reveal drop">
+          <div class="why-num">02</div>
+          <h4>Echipă certificată</h4>
+          <p>Specialiști autorizați ANRE cu experiență solidă în domeniu.</p>
+        </div>
+        <div class="why-item reveal drop">
+          <div class="why-num">03</div>
+          <h4>Soluții personalizate</h4>
+          <p>Fiecare proiect este dimensionat și optimizat pentru nevoile tale.</p>
+        </div>
+        <div class="why-item reveal drop">
+          <div class="why-num">04</div>
+          <h4>Suport permanent</h4>
+          <p>Mentenanță, intervenții rapide și suport tehnic pe termen lung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="section-head stagger">
+        <span class="section-tag reveal drop">Procesul nostru</span>
+        <h2 class="section-title reveal drop">De la idee la <span class="gradient-text">energie curată.</span></h2>
+        <p class="section-lead center reveal drop">Un proces rafinat în patru etape — transparent, profesional și adaptat fiecărui proiect.</p>
+      </div>
+      <div class="process-grid stagger">
+        <div class="process-step reveal drop">
+          <div class="ps-num">01</div>
+          <h4>Consultanță</h4>
+          <p>Analizăm consumul tău energetic și proiectăm soluția optimă pentru spațiul tău.</p>
+        </div>
+        <div class="process-step reveal drop">
+          <div class="ps-num">02</div>
+          <h4>Proiectare</h4>
+          <p>Dimensionăm sistemul și pregătim documentația tehnică și avizele necesare.</p>
+        </div>
+        <div class="process-step reveal drop">
+          <div class="ps-num">03</div>
+          <h4>Instalare</h4>
+          <p>Echipa noastră certificată instalează componentele premium în timpul agreat.</p>
+        </div>
+        <div class="process-step reveal drop">
+          <div class="ps-num">04</div>
+          <h4>Mentenanță</h4>
+          <p>Oferim suport tehnic și monitorizare pe termen lung pentru performanță maximă.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-head stagger">
+        <span class="section-tag reveal drop">Portofoliu</span>
+        <h2 class="section-title reveal drop">Proiecte <span class="gradient-text">recente</span></h2>
+        <p class="section-lead center reveal drop">O selecție de instalații fotovoltaice realizate pentru clienți rezidențiali, comerciali și industriali.</p>
+      </div>
+
+      <div class="gallery-filters reveal drop" data-delay="200">
+        <button class="filter-btn active" data-filter="all">Toate</button>
+        <button class="filter-btn" data-filter="rezidential">Rezidențial</button>
+        <button class="filter-btn" data-filter="comercial">Comercial</button>
+        <button class="filter-btn" data-filter="industrial">Industrial</button>
+      </div>
+
+      <div class="gallery-grid stagger" id="galleryGrid">
+        <!-- 1. WIDE (7) — Residential house with solar panels -->
+        <div class="gallery-item gi-wide reveal-img" data-cat="rezidential">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/flagged/photo-1566838616631-f2618f74a6a2?w=1400&q=85" alt="Villa Solar cu panouri fotovoltaice" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Rezidențial</span>
+            <h4>Villa Solar</h4>
+            <p class="g-meta">București · 12 kW · 2025</p>
+          </div>
+        </div>
+        <!-- 2. SQUARE (5) — Aerial solar farm -->
+        <div class="gallery-item gi-square reveal-img" data-cat="industrial">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1629726797843-618688139f5a?w=1200&q=85" alt="Parc fotovoltaic aerian" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Industrial</span>
+            <h4>Parc Fotovoltaic</h4>
+            <p class="g-meta">Ilfov · 500 kW · 2025</p>
+          </div>
+        </div>
+        <!-- 3. SQUARE (5) — Blue solar panels field (Italy) -->
+        <div class="gallery-item gi-square reveal-img" data-cat="comercial">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1589201529153-5297335c1684?w=1200&q=85" alt="Sistem solar comercial" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Comercial</span>
+            <h4>Office Park</h4>
+            <p class="g-meta">Otopeni · 85 kW · 2024</p>
+          </div>
+        </div>
+        <!-- 4. WIDE (7) — House with solar panels on roof -->
+        <div class="gallery-item gi-wide reveal-img" data-cat="rezidential">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1637417494521-78b4d1d33029?w=1400&q=85" alt="Acoperiș cu panouri solare" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Rezidențial</span>
+            <h4>Rooftop Premium</h4>
+            <p class="g-meta">Cluj-Napoca · 10 kW · 2024</p>
+          </div>
+        </div>
+        <!-- 5. TALL (4) — Solar panel close-up NZ -->
+        <div class="gallery-item gi-tall reveal-img" data-cat="industrial">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1616007579077-22bee7dd35a5?w=900&q=85" alt="Detaliu panou solar" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Industrial</span>
+            <h4>Fermă Solară</h4>
+            <p class="g-meta">Constanța · 1.2 MW · 2025</p>
+          </div>
+        </div>
+        <!-- 6. STD (4) — Two installers on roof -->
+        <div class="gallery-item gi-std reveal-img" data-cat="rezidential">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1635424709870-cdc6e64f0e20?w=1200&q=85" alt="Instalare panouri pe acoperiș" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Rezidențial</span>
+            <h4>Casa Verde</h4>
+            <p class="g-meta">Brașov · 8 kW · 2025</p>
+          </div>
+        </div>
+        <!-- 7. STD (4) — Solar panels dry grass -->
+        <div class="gallery-item gi-std reveal-img" data-cat="comercial">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1644349057008-19f93297bc0c?w=1200&q=85" alt="Sistem solar hotel" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Comercial</span>
+            <h4>Hotel Solar</h4>
+            <p class="g-meta">Mamaia · 60 kW · 2024</p>
+          </div>
+        </div>
+        <!-- 8. WIDE-XL (8) — Solar panels Bavaria Germany -->
+        <div class="gallery-item gi-wide-xl reveal-img" data-cat="industrial">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1630765931044-8aca18d1b2bb?w=1600&q=85" alt="Depozit logistic cu panouri" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Industrial</span>
+            <h4>Depozit Logistic</h4>
+            <p class="g-meta">Timișoara · 320 kW · 2025</p>
+          </div>
+        </div>
+        <!-- 9. STD (4) — Solar cloudy sky -->
+        <div class="gallery-item gi-std reveal-img" data-cat="comercial">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=1200&q=85" alt="Retail Center cu sistem solar" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Comercial</span>
+            <h4>Retail Center</h4>
+            <p class="g-meta">Pitești · 140 kW · 2024</p>
+          </div>
+        </div>
+        <!-- 10. WIDE (7) — Modern villa with solar panels -->
+        <div class="gallery-item gi-wide reveal-img" data-cat="rezidential">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1400&q=85" alt="Vila modernă cu panouri" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Rezidențial</span>
+            <h4>Vila Modernă</h4>
+            <p class="g-meta">Snagov · 15 kW · 2025</p>
+          </div>
+        </div>
+        <!-- 11. TALL (4) — Installer with drill on solar panels -->
+        <div class="gallery-item gi-tall reveal-img" data-cat="rezidential">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1635424825057-7fb6dcd651ef?w=900&q=85" alt="Montaj profesional panouri" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Rezidențial</span>
+            <h4>Instalare Premium</h4>
+            <p class="g-meta">Sibiu · 11 kW · 2024</p>
+          </div>
+        </div>
+        <!-- 12. STD (4) — Industrial solar lineup -->
+        <div class="gallery-item gi-std reveal-img" data-cat="industrial">
+          <div class="img-inner">
+            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=85" alt="Fabrica eco cu panouri" loading="lazy" />
+          </div>
+          <div class="gallery-overlay">
+            <span class="g-cat">Industrial</span>
+            <h4>Fabrica Eco</h4>
+            <p class="g-meta">Craiova · 250 kW · 2025</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lb-close" id="lbClose" aria-label="Închide">×</button>
+        <button class="lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+        <button class="lb-next" id="lbNext" aria-label="Următor">›</button>
+        <div class="lb-content">
+          <img id="lbImage" src="" alt="" />
+          <div class="lb-info">
+            <span id="lbCat"></span>
+            <h4 id="lbTitle"></h4>
+            <p id="lbMeta"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-head stagger">
+        <span class="section-tag reveal drop">Mărturii</span>
+        <h2 class="section-title reveal drop">Ce spun <span class="gradient-text">clienții noștri.</span></h2>
+      </div>
+      <div class="testi-stage">
+        <button class="testi-nav testi-prev" aria-label="Anterior" id="testiPrev">←</button>
+        <div class="testi-track" id="testiTrack">
+          <figure class="testi-slide is-active">
+            <div class="testi-quote">“</div>
+            <blockquote>Profesionalism impecabil de la prima discuție până la punerea în funcțiune. Investiția s-a amortizat mai repede decât ne-am așteptat și consumul e monitorizat în timp real.</blockquote>
+            <figcaption>
+              <strong>Andrei Popescu</strong>
+              <span>Proprietar · Vilă Corbeanca</span>
+            </figcaption>
+          </figure>
+          <figure class="testi-slide">
+            <div class="testi-quote">“</div>
+            <blockquote>Am ales IVOLT pentru sediul nostru industrial. Echipa a livrat la timp, documentația perfectă, iar panourile au depășit estimările de producție.</blockquote>
+            <figcaption>
+              <strong>Maria Ionescu</strong>
+              <span>CEO · Logistic One SRL</span>
+            </figcaption>
+          </figure>
+          <figure class="testi-slide">
+            <div class="testi-quote">“</div>
+            <blockquote>O experiență premium de la A la Z. Consultanța a fost detaliată, instalarea curată, iar serviciul de mentenanță îmi dă liniște totală.</blockquote>
+            <figcaption>
+              <strong>Radu Marinescu</strong>
+              <span>Arhitect · Proiect rezidențial</span>
+            </figcaption>
+          </figure>
+        </div>
+        <button class="testi-nav testi-next" aria-label="Următor" id="testiNext">→</button>
+        <div class="testi-dots" id="testiDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container grid-2">
+      <div class="stagger">
+        <span class="section-tag reveal drop">Contact</span>
+        <h2 class="section-title reveal drop">Hai să construim <span class="gradient-text">viitorul tău energetic.</span></h2>
+        <p class="section-lead reveal drop">Contactează echipa IVOLT pentru o evaluare gratuită și soluția perfectă pentru tine.</p>
+        <div class="contact-info">
+          <div class="ci-item reveal drop">
+            <span class="ci-icon">01</span>
+            <div>
+              <small>Telefon</small>
+              <p>+40 764 524 289<br/>+40 721 521 995</p>
+            </div>
+          </div>
+          <div class="ci-item reveal drop">
+            <span class="ci-icon">02</span>
+            <div>
+              <small>Email</small>
+              <p>contact@ivolt.ro</p>
+            </div>
+          </div>
+          <div class="ci-item reveal drop">
+            <span class="ci-icon">03</span>
+            <div>
+              <small>Locație</small>
+              <p>București, România</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal drop" id="contactForm" data-delay="200">
+        <div class="form-row">
+          <label>Nume<input type="text" required placeholder="Numele tău" /></label>
+        </div>
+        <div class="form-row">
+          <label>Email<input type="email" required placeholder="email@exemplu.ro" /></label>
+        </div>
+        <div class="form-row">
+          <label>Telefon<input type="tel" placeholder="+40 ..." /></label>
+        </div>
+        <div class="form-row">
+          <label>Tip proiect
+            <select>
+              <option>Rezidențial</option>
+              <option>Comercial</option>
+              <option>Industrial</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Mesaj<textarea rows="4" placeholder="Spune-ne despre proiectul tău..."></textarea></label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Trimite Solicitarea <span class="arrow">→</span></button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="brand">
+          <img src="assets/logo.svg" alt="IVOLT" class="logo-img" />
+          <span class="brand-text">IVOLT</span>
+        </a>
+        <p class="footer-text">Energie inteligentă pentru viitorul tău. Soluții complete de independență energetică.</p>
+      </div>
+      <div>
+        <h5>Navigare</h5>
+        <a href="#home">Acasă</a>
+        <a href="#about">Despre noi</a>
+        <a href="#services">Servicii</a>
+        <a href="#portfolio">Portofoliu</a>
+      </div>
+      <div>
+        <h5>Servicii</h5>
+        <a href="#services">Rezidențial</a>
+        <a href="#services">Comercial</a>
+        <a href="#services">Industrial</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="tel:+40764524289">+40 764 524 289</a>
+        <a href="mailto:contact@ivolt.ro">contact@ivolt.ro</a>
+        <p class="footer-text">București, România</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© 2026 IVOLT. Toate drepturile rezervate.</p>
+      <div class="socials">
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="LinkedIn">IN</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

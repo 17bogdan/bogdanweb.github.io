@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galerie foto KRK Service Auto — Vezi imagini din service-ul nostru modern din Târgu Jiu." />
+  <title>Galerie Foto | KRK Service Auto Târgu Jiu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/wow.css" />
+  <link rel="stylesheet" href="css/auto-theme.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo">KRK<span>.</span></div>
+    <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Înapoi sus">↑</button>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vizualizare imagine">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Închide">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Imaginea anterioară">‹</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Galerie KRK Service Auto" />
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Imaginea următoare">›</button>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <div>
+        <span class="nav-logo-text">KRK<span style="color:var(--red)">.</span></span>
+        <span class="nav-logo-sub">Service Auto</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="despre-noi.html">Despre Noi</a></li>
+      <li><a href="galerie.html" class="active">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Programare</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Acasă</a>
+    <a href="despre-noi.html">Despre Noi</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" style="color:var(--red)">Programare</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-breadcrumb">
+      <a href="index.html">Acasă</a>
+      <span>›</span>
+      <span>Galerie Foto</span>
+    </div>
+    <h1 class="page-hero-title reveal">
+      Galeria <span>Noastră</span>
+    </h1>
+    <p class="reveal" style="margin-top: 16px; color: var(--gray); max-width: 560px; line-height: 1.8; font-size: 1rem;">
+      Ne dedicăm excelenței în fiecare detaliu, pentru siguranța și performanța mașinii tale. Ne începem mereu ziua cu entuziasm și lucrăm în echipă.
+    </p>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="padding: 80px 5%;">
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item reveal reveal-delay-1" data-index="0">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-1.jpg" alt="KRK Service Auto - Foto 1" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-index="1">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-2.jpg" alt="KRK Service Auto - Foto 2" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-index="2">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-3.jpg" alt="KRK Service Auto - Foto 3" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-index="3">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-4.jpg" alt="KRK Service Auto - Foto 4" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-index="4">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-5.jpg" alt="KRK Service Auto - Foto 5" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-index="5">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-6.jpg" alt="KRK Service Auto - Foto 6" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-index="6">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-7.jpg" alt="KRK Service Auto - Foto 7" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-index="7">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-8.jpg" alt="KRK Service Auto - Foto 8" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-index="8">
+        <img src="https://www.krkserviceauto.ro/images/galerie/poza-9.jpg" alt="KRK Service Auto - Foto 9" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <!-- Also include the main site photos -->
+      <div class="gallery-item reveal reveal-delay-1" data-index="9">
+        <img src="https://www.krkserviceauto.ro/images/service-auto-targu-jiu-2.jpg" alt="KRK Service Auto - Exterior" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-index="10">
+        <img src="https://www.krkserviceauto.ro/images/service-auto-targu-jiu-3.jpg" alt="KRK Service Auto - Interior" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-overlay-icon">🔍</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2 class="cta-banner-title">Îți plac ce ai văzut?</h2>
+    <p class="cta-banner-desc">Vino și tu la noi și lasă-ne să avem grijă de mașina ta cu aceleași standarde de calitate.</p>
+    <a href="contact.html" class="btn-white"><span>📅</span> Programează-te acum</a>
+  </div>
+
+  <!-- CONTACT STRIP -->
+  <div class="contact-strip">
+    <div class="contact-strip-inner">
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon">📞</div>
+        <div>
+          <div class="contact-strip-label">Telefon</div>
+          <div class="contact-strip-value"><a href="tel:+40742623623">0742.623.623</a></div>
+        </div>
+      </div>
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon">📍</div>
+        <div>
+          <div class="contact-strip-label">Adresă</div>
+          <div class="contact-strip-value">Str. Narciselor, Nr. 79, Târgu Jiu</div>
+        </div>
+      </div>
+      <div class="contact-strip-item">
+        <div class="contact-strip-icon">🕐</div>
+        <div>
+          <div class="contact-strip-label">Program</div>
+          <div class="contact-strip-value">Lun – Vin: 08:00 – 16:30</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">KRK<span>.</span></div>
+        <div class="footer-brand-sub">Service Auto</div>
+        <p class="footer-desc">Ne dedicăm excelenței în fiecare detaliu, pentru siguranța și performanța mașinii tale. Service multimarcă autorizat RAR în Târgu Jiu, Gorj.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Facebook">f</a>
+          <a href="mailto:office@krkserviceauto.ro" class="social-btn" aria-label="Email">@</a>
+          <a href="tel:+40742623623" class="social-btn" aria-label="Telefon">📞</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigare</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Acasă</a></li>
+          <li><a href="despre-noi.html">Despre Noi</a></li>
+          <li><a href="galerie.html">Galerie Foto</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Programare</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Servicii</div>
+        <ul class="footer-links">
+          <li><a href="#">Diagnoză Computerizată</a></li>
+          <li><a href="#">Reparații Mecanice</a></li>
+          <li><a href="#">Reparații Electrice</a></li>
+          <li><a href="#">Schimb Distribuție</a></li>
+          <li><a href="#">Vulcanizare</a></li>
+          <li><a href="#">Service Climatizare</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-info">
+          <div class="footer-info-item">
+            <span class="footer-info-icon">📞</span>
+            <div><a href="tel:+40742623623">0742.623.623</a></div>
+          </div>
+          <div class="footer-info-item">
+            <span class="footer-info-icon">✉️</span>
+            <div><a href="mailto:office@krkserviceauto.ro">office@krkserviceauto.ro</a></div>
+          </div>
+          <div class="footer-info-item">
+            <span class="footer-info-icon">📍</span>
+            <div>Str. Narciselor, Nr. 79<br>Târgu Jiu, Gorj</div>
+          </div>
+          <div class="footer-info-item">
+            <span class="footer-info-icon">🕐</span>
+            <div>Lun – Vin: 08:00 – 16:30<br>Sâm – Dum: Închis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">©2026 KRK Service Auto | <a href="https://mfe.gov.ro/" target="_blank" rel="noopener">mfe.gov.ro</a> | <a href="http://www.anpc.gov.ro/" target="_blank" rel="noopener">ANPC</a></div>
+      <div class="footer-legal">
+        <a href="#">Politică Confidențialitate</a>
+        <a href="#">Termeni și Condiții</a>
+        <a href="#">Cookie-uri</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
