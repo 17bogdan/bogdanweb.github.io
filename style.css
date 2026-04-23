@@ -781,6 +781,218 @@ section { padding: var(--gap) 0; }
 .glow-amber { background: #F59E0B; }
 .glow-blue { background: #00D4FF; }
 .glow-colorful { background: linear-gradient(90deg, rgba(255,111,255,.9), rgba(0,212,255,.8), rgba(123,47,255,.9)); }
+.glow-tech { background: #0099FF; }
+.glow-steel { background: #6B7280; }
+.glow-purple { background: #A855F7; }
+.glow-medical { background: #06B6D4; }
+.glow-aqua-lux { background: linear-gradient(90deg, rgba(0,212,255,.8), rgba(34,211,238,.7), rgba(6,182,212,.9)); }
+
+/* IVOLT.V2 screen */
+.ivolt-screen {
+  background: linear-gradient(165deg, #0f0f23 0%, #1a1a3a 40%, #0a0a15 100%);
+}
+.ivolt-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 65% 35%, rgba(0,153,255,.2), transparent 22%),
+              radial-gradient(circle at 30% 70%, rgba(30,144,255,.15), transparent 20%);
+}
+.ivolt-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 24px; text-align: center;
+}
+.ivolt-logo {
+  font-family: var(--font-display); font-size: 2rem; letter-spacing: .12em;
+  color: #00D9FF; text-shadow: 0 0 20px rgba(0,217,255,.4);
+}
+.ivolt-tagline {
+  font-size: .75rem; color: rgba(255,255,255,.7);
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.ivolt-btn {
+  margin-top: 12px; padding: 8px 24px;
+  border: 1px solid rgba(0,153,255,.5); border-radius: 100px;
+  color: #fff; font-size: .75rem; font-weight: 700;
+  background: rgba(0,153,255,.1);
+}
+.ivolt-lines {
+  position: absolute; inset: 0; pointer-events: none; opacity: .4;
+}
+.ivolt-lines div {
+  position: absolute; background: rgba(0,153,255,.15); 
+}
+.ivolt-lines div:nth-child(1) { width: 100%; height: 1px; top: 33%; }
+.ivolt-lines div:nth-child(2) { width: 100%; height: 1px; top: 66%; }
+.ivolt-lines div:nth-child(3) { width: 1px; height: 100%; left: 50%; }
+
+/* ServiceAuto screen */
+.serviceauto-screen {
+  background: linear-gradient(160deg, #1f1f1f 0%, #2a2a2a 50%, #1a1a1a 100%);
+}
+.sa-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 75% 25%, rgba(200,200,200,.12), transparent 18%),
+              radial-gradient(circle at 25% 75%, rgba(100,100,100,.1), transparent 16%);
+}
+.sa-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 24px; text-align: center;
+}
+.sa-logo {
+  font-family: var(--font-display); font-size: 1.8rem; letter-spacing: .1em;
+  color: #E5E5E5; text-shadow: 0 0 15px rgba(255,255,255,.1);
+}
+.sa-tagline {
+  font-size: .75rem; color: rgba(255,255,255,.65);
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.sa-btn {
+  margin-top: 12px; padding: 8px 24px;
+  border: 1px solid rgba(255,255,255,.3); border-radius: 100px;
+  color: #fff; font-size: .75rem; font-weight: 700;
+  background: rgba(200,200,200,.05);
+}
+.sa-accents {
+  position: absolute; inset: 0; pointer-events: none; opacity: .3;
+}
+.sa-accents div {
+  position: absolute; background: rgba(150,150,150,.2);
+}
+.sa-accents div:nth-child(1) { width: 80%; height: 2px; top: 30%; left: 10%; }
+.sa-accents div:nth-child(2) { width: 60%; height: 1px; top: 60%; left: 20%; }
+.sa-accents div:nth-child(3) { width: 40%; height: 1px; bottom: 20%; left: 30%; }
+
+/* TattoSalon screen */
+.tattosalom-screen {
+  background: linear-gradient(165deg, #2a0845 0%, #1a003a 50%, #0f001a 100%);
+}
+.ts-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(200,100,255,.18), transparent 20%),
+              radial-gradient(circle at 80% 20%, rgba(138,43,226,.15), transparent 18%);
+}
+.ts-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 24px; text-align: center;
+}
+.ts-logo {
+  font-family: var(--font-display); font-size: 2rem; letter-spacing: .15em;
+  color: #E5A5FF; text-shadow: 0 0 25px rgba(229,165,255,.35);
+}
+.ts-tagline {
+  font-size: .75rem; color: rgba(255,255,255,.75);
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.ts-btn {
+  margin-top: 12px; padding: 8px 24px;
+  border: 1px solid rgba(200,100,255,.4); border-radius: 100px;
+  color: #E5A5FF; font-size: .75rem; font-weight: 700;
+  background: rgba(168,85,247,.08);
+}
+.ts-elements {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.ts-elements span {
+  position: absolute; width: 3px; height: 3px;
+  border-radius: 50%; background: rgba(229,165,255,.6);
+  box-shadow: 0 0 15px rgba(138,43,226,.3);
+}
+.ts-elements span:nth-child(1) { top: 20%; left: 15%; animation: float-orbit 4s linear infinite; }
+.ts-elements span:nth-child(2) { top: 35%; right: 20%; animation: float-orbit 5s linear infinite; }
+.ts-elements span:nth-child(3) { bottom: 30%; left: 25%; animation: float-orbit 4.5s linear infinite; }
+.ts-elements span:nth-child(4) { top: 50%; right: 10%; animation: float-orbit 6s linear infinite; }
+.ts-elements span:nth-child(5) { bottom: 15%; right: 30%; animation: float-orbit 5.5s linear infinite; }
+@keyframes float-orbit {
+  0% { transform: translateY(0) rotate(0deg); opacity: .4; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-30px) rotate(360deg); opacity: .4; }
+}
+
+/* AnimaClinique screen */
+.animaclinique-screen {
+  background: linear-gradient(160deg, #0a3a52 0%, #1a5c7a 45%, #0f3a4a 100%);
+}
+.ac-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 65% 35%, rgba(6,182,212,.15), transparent 20%),
+              radial-gradient(circle at 30% 70%, rgba(34,211,238,.12), transparent 18%);
+}
+.ac-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 24px; text-align: center;
+}
+.ac-logo {
+  font-family: var(--font-display); font-size: 1.9rem; letter-spacing: .12em;
+  color: #22D3EE; text-shadow: 0 0 20px rgba(34,211,238,.35);
+}
+.ac-tagline {
+  font-size: .75rem; color: rgba(255,255,255,.75);
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.ac-btn {
+  margin-top: 12px; padding: 8px 24px;
+  border: 1px solid rgba(34,211,238,.45); border-radius: 100px;
+  color: #E0F2FE; font-size: .75rem; font-weight: 700;
+  background: rgba(6,182,212,.08);
+}
+.ac-elements {
+  position: absolute; inset: 0; pointer-events: none; opacity: .35;
+}
+.ac-elements div {
+  position: absolute; background: rgba(34,211,238,.15);
+}
+.ac-elements div:nth-child(1) { width: 100%; height: 1px; top: 25%; }
+.ac-elements div:nth-child(2) { width: 100%; height: 1px; top: 50%; }
+.ac-elements div:nth-child(3) { width: 100%; height: 1px; top: 75%; }
+
+/* AquaHotel screen */
+.aquahotel-screen {
+  background: linear-gradient(165deg, #0a2c4a 0%, #1a4a6e 40%, #0f3a52 100%);
+}
+.ah-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(0,212,255,.18), transparent 22%),
+              radial-gradient(ellipse at 30% 70%, rgba(6,182,212,.14), transparent 20%);
+}
+.ah-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 24px; text-align: center;
+}
+.ah-logo {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 2.2rem; font-weight: 700; letter-spacing: .2em;
+  color: #7FE3FF; text-shadow: 0 0 25px rgba(127,227,255,.4);
+}
+.ah-tagline {
+  font-size: .75rem; color: rgba(255,255,255,.75);
+  letter-spacing: .25em; text-transform: uppercase; font-style: italic;
+}
+.ah-btn {
+  margin-top: 12px; padding: 8px 24px;
+  border: 1px solid rgba(127,227,255,.5); border-radius: 100px;
+  color: #E0F7FF; font-size: .75rem; font-weight: 700;
+  background: rgba(0,212,255,.08);
+}
+.ah-waves {
+  position: absolute; inset: 0; pointer-events: none; opacity: .5;
+}
+.ah-waves div {
+  position: absolute; left: 0; width: 120%; height: 3px;
+  background: rgba(127,227,255,.15);
+  border-radius: 999px;
+}
+.ah-waves div:nth-child(1) { top: 30%; animation: wave-move 3s ease infinite; }
+.ah-waves div:nth-child(2) { top: 50%; animation: wave-move 3.5s ease infinite; }
+.ah-waves div:nth-child(3) { top: 70%; animation: wave-move 4s ease infinite; }
+.ah-waves div:nth-child(4) { top: 85%; animation: wave-move 4.5s ease infinite; }
+@keyframes wave-move {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
 
 /* Mood screen */
 .mood-screen {
